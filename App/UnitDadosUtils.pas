@@ -13,6 +13,11 @@ const
   TesouroIPCA = 'Tesouro IPCA+ (NTN – B Principal)';
   TesouroIPCASemestrais = 'Tesouro IPCA+ Juros semestrais (NTN – B Principal)';
 
+  PorcentagemIOF_180 = 00.225;
+  PorcentagemIOF_360 = 00.22;
+  PorcentagemIOF_720 = 00.175;
+  PorcentagemIOF_Mais720 = 00.15;
+
   TaxaSelicPadrao = 0.65;
   TaxaRentabilidade = 0.25;
   TaxaPreFixado = 'Pré-fixado';

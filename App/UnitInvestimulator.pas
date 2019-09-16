@@ -44,12 +44,14 @@ type
     procedure Button1Click(Sender: TObject);
   private
     FGravarArquivo: TGravar;
-    procedure LimparCampos;
-    procedure LerDadosMemo;
     procedure ValidarTesouroDireto;
     procedure ValidarCurrencyImput(Teclas: Char; Tecla: string);
+    procedure SimularTesouroDireto;
+    procedure LerDadosMemo;
+    procedure LimparCampos;
     function PegarTipoTesouroDireto: string;
     function PegarTipoTaxa: string;
+    function PegarValorFinalTesouroDireto: Currency;
   public
     procedure EvalidationErrorMsg(Msg: string);
     constructor Create(AOwner: TComponent); override;
@@ -66,7 +68,8 @@ implementation
 uses
   UnitEvalidationError,
   UnitCalculo,
-  UnitDadosUtils;
+  UnitDadosUtils,
+  StrUtils;
 
 procedure TFormInvestimulator.Button1Click(Sender: TObject);
 begin
@@ -74,36 +77,8 @@ begin
 end;
 
 procedure TFormInvestimulator.ButtonTesouroDiretoSimularClick(Sender: TObject);
-var
-  ValorFinal: Currency;
-  RendimentoFinal, CDIFinal: Double;
-  IOF180, IOF360, IOF720, IOF_Mais720: Currency;
-  TextoTesouroDireto: string;
 begin
-  ValidarTesouroDireto;
-  PegarTipoTesouroDireto;
-  PegarTipoTaxa;
-
-  RendimentoFinal := TCalculo.Rendimento(SpinEditQuantidadeDias.Value);
-  CDIFinal := TCalculo.TaxaCDI_Radon;
-  if PegarTipoTaxa = TaxaPreFixado then
-    ValorFinal := TCalculo.TesouroSelicTaxasPre(StrToCurr(EditValorAplicado.Text), SpinEditQuantidadeDias.Value)
-  else if PegarTipoTaxa = TaxaPosFixado then
-    ValorFinal := TCalculo.TesouroSelicTaxasPos(StrToCurr(EditValorAplicado.Text), SpinEditQuantidadeDias.Value)
-  else
-    EvalidationErrorMsg('Erro');
-
-  IOF180 := TCalculo.TesouroIOF_180(StrToCurr(EditValorAplicado.Text));
-  IOF360 := TCalculo.TesouroIOF_360(StrToCurr(EditValorAplicado.Text));
-  IOF720 := TCalculo.TesouroIOF_720(StrToCurr(EditValorAplicado.Text));
-  IOF_Mais720 := TCalculo.TesouroIOF_Mais720(StrToCurr(EditValorAplicado.Text));
-
-  TextoTesouroDireto := FGravarArquivo.TextoPadraoTesouroDireto(EditValorAplicado.Text, TesouroDireto, PegarTipoTesouroDireto,
-  PegarTipoTaxa, RendimentoFinal, CDIFinal, IOF180, IOF360, IOF720, IOF_Mais720, ValorFinal, SpinEditQuantidadeDias.Value);
-
-  FGravarArquivo.GravarTxt(PathArquivoTesouroDireto, TextoTesouroDireto);
-  LimparCampos;
-  LerDadosMemo;
+  SimularTesouroDireto;
 end;
 
 constructor TFormInvestimulator.Create(AOwner: TComponent);
@@ -169,13 +144,64 @@ begin
   else if RadioButtonPrefixado.Checked then
     Exit(TesouroPrefixado)
   else if RadioButtonPrefixadoSemestrais.Checked then
-    Exit(TesouroPrefixado)
+    Exit(TesouroPrefixadoSemestrais)
   else if RadioButtonIPCA.Checked then
-    Exit(TesouroIPCASemestrais)
+    Exit(TesouroIPCA)
   else if RadioButtonIPCASemestrais.Checked then
     Exit(TesouroIPCASemestrais)
   else
     EvalidationErrorMsg(TesouroSelicNecessario);
+end;
+
+function TFormInvestimulator.PegarValorFinalTesouroDireto: Currency;
+const
+  RendimentoConvenvional: array[0..2] of string = (TesouroSelic, TesouroPrefixado, TesouroIPCA);
+  RendimentoSemestral: array[0..1] of string = (TesouroPrefixadoSemestrais, TesouroIPCASemestrais);
+begin
+  if PegarTipoTaxa = TaxaPreFixado then
+  begin
+    if MatchStr(PegarTipoTesouroDireto, RendimentoConvenvional) then
+      Exit(TCalculo.TesouroSelicTaxasPre(StrToCurr(EditValorAplicado.Text), SpinEditQuantidadeDias.Value))
+    else
+      Exit(TCalculo.TesouroSemestraisTaxasPre(StrToCurr(EditValorAplicado.Text), SpinEditQuantidadeDias.Value))
+  end
+  else if PegarTipoTaxa = TaxaPosFixado then
+  begin
+    if MatchStr(PegarTipoTesouroDireto, RendimentoConvenvional) then
+      Exit(TCalculo.TesouroSelicTaxasPos(StrToCurr(EditValorAplicado.Text), SpinEditQuantidadeDias.Value))
+    else
+      Exit(TCalculo.TesouroSemestraisTaxasPos(StrToCurr(EditValorAplicado.Text), SpinEditQuantidadeDias.Value))
+  end
+  else
+    EvalidationErrorMsg('Erro');
+end;
+
+procedure TFormInvestimulator.SimularTesouroDireto;
+var
+  ValorFinal: Currency;
+  RendimentoFinal, CDIFinal: Double;
+  IOF180, IOF360, IOF720, IOF_Mais720: Currency;
+  TextoTesouroDireto: string;
+begin
+  ValidarTesouroDireto;
+  PegarTipoTesouroDireto;
+  PegarTipoTaxa;
+
+  RendimentoFinal := TCalculo.RendimentoMensal(SpinEditQuantidadeDias.Value);
+  CDIFinal := TCalculo.TaxaCDI_Radon;
+  ValorFinal := PegarValorFinalTesouroDireto;
+
+  IOF180 := TCalculo.TesouroIOF_180(StrToCurr(EditValorAplicado.Text));
+  IOF360 := TCalculo.TesouroIOF_360(StrToCurr(EditValorAplicado.Text));
+  IOF720 := TCalculo.TesouroIOF_720(StrToCurr(EditValorAplicado.Text));
+  IOF_Mais720 := TCalculo.TesouroIOF_Mais720(StrToCurr(EditValorAplicado.Text));
+
+  TextoTesouroDireto := FGravarArquivo.TextoPadraoTesouroDireto(EditValorAplicado.Text, TesouroDireto, PegarTipoTesouroDireto,
+  PegarTipoTaxa, RendimentoFinal, CDIFinal, IOF180, IOF360, IOF720, IOF_Mais720, ValorFinal, SpinEditQuantidadeDias.Value);
+
+  FGravarArquivo.GravarTxt(PathArquivoTesouroDireto, TextoTesouroDireto);
+  LimparCampos;
+  LerDadosMemo;
 end;
 
 procedure TFormInvestimulator.ValidarCurrencyImput(Teclas: Char; Tecla: string);

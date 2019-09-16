@@ -14,3 +14,35 @@ Rendimento IOF gerado de 361 a 720 dias: R$ 75661,15
 Rendimento IOF gerado com mais de 720 dias: R$ 74915,195
 Rendimento final: R$ 39096,5672
 ###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Tesouro Direto
+Tipo de Investimento Escolhido: Tesouro Prefixado (LTN) - Pré-fixado
+Valor Aplicado: R$ 1001,12
+Quantidade de Dias Aplicado: 450
+Data da Aplicação: 16\09\2019 - 01:41:00
+Taxa Selic: 6.5%
+Taxa CDI : 1,8%
+Taxa de Rendimento mensal: R$ 1,65
+Rendimento IOF gerado de 0 a 180 dias: R$ 1170,059
+Rendimento IOF gerado de 181 a 360 dias: R$ 1298,4526
+Rendimento IOF gerado de 361 a 720 dias: R$ 1447,8698
+Rendimento IOF gerado com mais de 720 dias: R$ 1366,7791
+Rendimento final: R$ 1290,1934
+###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Tesouro Direto
+Tipo de Investimento Escolhido: Tesouro Prefixado com Juros Semestrais (NTN-F) - Pré-fixado
+Valor Aplicado: R$ 1000,12
+Quantidade de Dias Aplicado: 455
+Data da Aplicação: 16\09\2019 - 01:44:53
+Taxa Selic: 6.5%
+Taxa CDI : 0,2%
+Taxa de Rendimento mensal: R$ 1,625
+Rendimento IOF gerado de 0 a 180 dias: R$ 1168,8903
+Rendimento IOF gerado de 181 a 360 dias: R$ 1297,1556
+Rendimento IOF gerado de 361 a 720 dias: R$ 1446,4235
+Rendimento IOF gerado com mais de 720 dias: R$ 1380,4156
+Rendimento final: R$ 1109,5081
+###############################################################

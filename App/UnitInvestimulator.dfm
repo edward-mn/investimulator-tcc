@@ -129,7 +129,7 @@ object FormInvestimulator: TFormInvestimulator
           Top = 44
           Width = 224
           Height = 17
-          Caption = 'IPCA + Juros'#10'Semestrais (NTN - B Principal)'
+          Caption = 'IPCA + Juros '#10'Semestrais (NTN - B Principal)'
           TabOrder = 6
         end
       end
