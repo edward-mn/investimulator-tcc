@@ -41,7 +41,6 @@ type
     procedure FormShow(Sender: TObject);
     procedure ButtonTesouroDiretoSimularClick(Sender: TObject);
     procedure EditValorAplicadoKeyPress(Sender: TObject; var Key: Char);
-    procedure Button1Click(Sender: TObject);
   private
     FGravarArquivo: TGravar;
     procedure ValidarTesouroDireto;
@@ -70,11 +69,6 @@ uses
   UnitCalculo,
   UnitDadosUtils,
   StrUtils;
-
-procedure TFormInvestimulator.Button1Click(Sender: TObject);
-begin
-  TCalculo.TesouroIOF_180(FloatToCurr(1000.11));
-end;
 
 procedure TFormInvestimulator.ButtonTesouroDiretoSimularClick(Sender: TObject);
 begin
