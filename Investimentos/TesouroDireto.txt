@@ -1,1 +1,16 @@
-Tesouro Direto 
+
+###############################################################
+Tipo de Investimento Principal: Tesouro Direto
+Tipo de Investimento Escolhido: Tesouro IPCA+ Juros semestrais (NTN – B Principal) - Pós-fixado
+Valor Aplicado: R$ 21313
+Quantidade de Dias Aplicado: 432
+Data da Aplicação: 16\09\2019 - 00:35:36
+Taxa Selic: 6.5%
+Taxa CDI : 0%
+Taxa de Rendimento mensal: R$ 1,49
+Rendimento IOF gerado de 0 a 180 dias: R$ 24909,5688
+Rendimento IOF gerado de 181 a 360 dias: R$ 27642,961
+Rendimento IOF gerado de 361 a 720 dias: R$ 75661,15
+Rendimento IOF gerado com mais de 720 dias: R$ 74915,195
+Rendimento final: R$ 39096,5672
+###############################################################

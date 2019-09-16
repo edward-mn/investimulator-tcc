@@ -6,7 +6,8 @@ type
   TCalculo = class
     class function Rendimento(Dias: Integer): double;
     class function TaxaCDI_Radon: Double;
-    class function TesouroSelicTaxas(ValorAplicado: Currency; Dias: Integer): Currency;
+    class function TesouroSelicTaxasPos(ValorAplicado: Currency; Dias: Integer): Currency;
+    class function TesouroSelicTaxasPre(ValorAplicado: Currency; Dias: Integer): Currency;
     class function TesouroIOF_180(ValorAplicado: Currency): Currency;
     class function TesouroIOF_360(ValorAplicado: Currency): Currency;
     class function TesouroIOF_720(ValorAplicado: Currency): Currency;
@@ -55,9 +56,9 @@ class function TCalculo.TesouroIOF_180(ValorAplicado: Currency): Currency;
 var
   ValorComTaxa, ValorDaTaxa, ValorFinal: Currency;
 begin
-  ValorComTaxa := TaxaRentabilidade * ValorAplicado;
+  ValorComTaxa := Rendimento(180) * ValorAplicado;
   ValorDaTaxa := ValorComTaxa * 00.225;
-  ValorFinal := ValorComTaxa - ValorDaTaxa;
+  ValorFinal := ValorAplicado + ValorDaTaxa;
 
   Result := ValorFinal;
 end;
@@ -66,9 +67,9 @@ class function TCalculo.TesouroIOF_360(ValorAplicado: Currency): Currency;
 var
   ValorComTaxa, ValorDaTaxa, ValorFinal: Currency;
 begin
-  ValorComTaxa := TaxaRentabilidade * ValorAplicado;
+  ValorComTaxa := Rendimento(360) * ValorAplicado;
   ValorDaTaxa := ValorComTaxa * 00.22;
-  ValorFinal := ValorComTaxa - ValorDaTaxa;
+  ValorFinal := ValorAplicado + ValorDaTaxa;
 
   Result := ValorFinal;
 end;
@@ -77,9 +78,9 @@ class function TCalculo.TesouroIOF_720(ValorAplicado: Currency): Currency;
 var
   ValorComTaxa, ValorDaTaxa, ValorFinal: Currency;
 begin
-  ValorComTaxa := TaxaRentabilidade * ValorAplicado;
+  ValorComTaxa := Rendimento(720) * ValorAplicado;
   ValorDaTaxa := ValorComTaxa * 00.175;
-  ValorFinal := ValorDaTaxa - ValorComTaxa;
+  ValorFinal := ValorAplicado + ValorComTaxa;
 
   Result := ValorFinal;
 end;
@@ -88,18 +89,31 @@ class function TCalculo.TesouroIOF_Mais720(ValorAplicado: Currency): Currency;
 var
   ValorComTaxa, ValorDaTaxa, ValorFinal: Currency;
 begin
-  ValorComTaxa := TaxaRentabilidade * ValorAplicado;
+  ValorComTaxa := Rendimento((Random(100)+ 720)) * ValorAplicado;
   ValorDaTaxa := ValorComTaxa * 00.15;
-  ValorFinal := ValorDaTaxa - ValorComTaxa;
+  ValorFinal := ValorAplicado + ValorComTaxa;
 
   Result := ValorFinal;
 end;
 
-class function TCalculo.TesouroSelicTaxas(ValorAplicado: Currency; Dias: Integer): Currency;
+class function TCalculo.TesouroSelicTaxasPos(ValorAplicado: Currency;
+  Dias: Integer): Currency;
 var
   ValorComTaxa, ValorDaTaxa, ValorFinal: Currency;
 begin
   ValorComTaxa := (TaxaCDI_Radon * ValorAplicado) * Rendimento(Dias);
+  ValorDaTaxa := ValorComTaxa * TaxaSelicPadrao;
+  ValorFinal := ValorComTaxa - ValorDaTaxa;
+
+  Result := ValorFinal + ValorAplicado;
+end;
+
+class function TCalculo.TesouroSelicTaxasPre(ValorAplicado: Currency;
+  Dias: Integer): Currency;
+var
+  ValorComTaxa, ValorDaTaxa, ValorFinal: Currency;
+begin
+  ValorComTaxa := ( 0.5 * ValorAplicado) * Rendimento(Dias);
   ValorDaTaxa := ValorComTaxa * TaxaSelicPadrao;
   ValorFinal := ValorComTaxa - ValorDaTaxa;
 

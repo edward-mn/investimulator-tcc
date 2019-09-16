@@ -15,10 +15,13 @@ const
 
   TaxaSelicPadrao = 0.65;
   TaxaRentabilidade = 0.25;
+  TaxaPreFixado = 'Pré-fixado';
+  TaxaPosFixado = 'Pós-fixado';
 
   ValorAplicadoInvalido = 'O Valor aplicado não pode ser vazio';
   QuantidadeInvalida = 'A quantidade de dias deve ser maior que 0';
   TesouroSelicNecessario = 'É preciso selecionar um tipo do Tesouro Direto';
+  TaxaAplicacaoNecessario = 'É preciso selecionar um tipo de Taxa para o investimento';
 
 implementation
 
