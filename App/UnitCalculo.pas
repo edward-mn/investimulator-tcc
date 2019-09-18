@@ -9,7 +9,8 @@ type
     class function ValorFinalBasePreFixado(ValorAplicado: Currency; TipoRendimento: Double): Currency;
     class function TaxaIOF_Base(ValorAplicado: Currency; QtdDias: Integer; Porcentagem: Double): Currency;
   public
-    class function RendimentoPadrao(DiasAplicado: Integer; TaxaAnual: Double = 1; TaxaMensal: Double = 1; DiasBaseRendimento :Integer = 360): double;
+    class function RendimentoPadrao(DiasAplicado: Integer; TaxaAnual: Double = 1; TaxaMensal: Double = 1;
+       DiasBaseRendimento :Integer = 360): double;
     class function RendimentoSemestral(Dias: Integer): double;
     class function TaxaCDI_Radon: Double;
     class function TaxaSelic(Dias: integer): double;

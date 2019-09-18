@@ -21,7 +21,7 @@ object FormInvestimulator: TFormInvestimulator
     Top = 0
     Width = 708
     Height = 470
-    ActivePage = TabSheetPoupanca
+    ActivePage = TabSheetTodos
     Align = alClient
     TabOrder = 0
     object TabSheetTodos: TTabSheet
@@ -42,6 +42,10 @@ object FormInvestimulator: TFormInvestimulator
     object TabSheetTesouroDireto: TTabSheet
       Caption = 'Tesouro Direto'
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object ButtonTesouroDiretoSimular: TButton
         Left = 620
         Top = 3
@@ -163,6 +167,10 @@ object FormInvestimulator: TFormInvestimulator
     object TabSheetPoupanca: TTabSheet
       Caption = 'Poupan'#231'a'
       ImageIndex = 2
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object MemoPoupanca: TMemo
         Left = 0
         Top = 87
@@ -232,6 +240,7 @@ object FormInvestimulator: TFormInvestimulator
         Height = 73
         Caption = 'Simular'
         TabOrder = 2
+        OnClick = ButtonSimularPoupancaClick
       end
     end
   end

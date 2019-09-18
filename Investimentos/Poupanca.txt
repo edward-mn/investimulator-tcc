@@ -1,0 +1,11 @@
+
+###############################################################
+Tipo de Investimento Principal: Poupança
+Valor Aplicado: R$ 1000,15
+Quantidade de Dias Aplicado: 378
+Data da Aplicação: 18\09\2019 - 18:05:34
+Taxa Poupança: 0,4217%
+Taxa CDI : 0,59%
+Rendimento do tipo Liquidação Diária
+Rendimento final: R$ 1232,1198
+###############################################################

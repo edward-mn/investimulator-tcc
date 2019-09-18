@@ -51,11 +51,14 @@ type
     procedure ButtonTesouroDiretoSimularClick(Sender: TObject);
     procedure EditValorAplicadoKeyPress(Sender: TObject; var Key: Char);
     procedure EditValorAplicadoPoupancaKeyPress(Sender: TObject; var Key: Char);
+    procedure ButtonSimularPoupancaClick(Sender: TObject);
   private
     FGravarArquivo: TGravar;
     procedure ValidarTesouroDireto;
+    procedure ValidarPoupanca;
     procedure ValidarCurrencyImput(Teclas: Char; Tecla: string);
     procedure SimularTesouroDireto;
+    procedure SimularPoupanca;
     procedure LerDadosMemo;
     procedure LimparCampos;
     function PegarTipoTesouroDireto: string;
@@ -79,6 +82,11 @@ uses
   UnitCalculo,
   UnitDadosUtils,
   StrUtils;
+
+procedure TFormInvestimulator.ButtonSimularPoupancaClick(Sender: TObject);
+begin
+  SimularPoupanca;
+end;
 
 procedure TFormInvestimulator.ButtonTesouroDiretoSimularClick(Sender: TObject);
 begin
@@ -115,6 +123,7 @@ end;
 procedure TFormInvestimulator.FormShow(Sender: TObject);
 begin
   LerDadosMemo;
+  PageControlInvestimulator.ActivePageIndex := 0;
 end;
 
 procedure TFormInvestimulator.LerDadosMemo;
@@ -135,6 +144,8 @@ begin
   RadioButtonTaxaPosFixado.Checked := False;
   EditValorAplicado.Clear;
   SpinEditQuantidadeDias.Clear;
+  EditValorAplicadoPoupanca.Clear;
+  SpinEditQtdDiasPoupanca.Clear;
 end;
 
 function TFormInvestimulator.PegarTipoTaxa: string;
@@ -168,6 +179,7 @@ const
   RendimentoConvenvional: array[0..2] of string = (TesouroSelic, TesouroPrefixado, TesouroIPCA);
   RendimentoSemestral: array[0..1] of string = (TesouroPrefixadoSemestrais, TesouroIPCASemestrais);
 begin
+  Result := 0.0;
   if PegarTipoTaxa = TaxaPreFixado then
   begin
     if MatchStr(PegarTipoTesouroDireto, RendimentoConvenvional) then
@@ -186,10 +198,30 @@ begin
     EvalidationErrorMsg('Erro');
 end;
 
+procedure TFormInvestimulator.SimularPoupanca;
+var
+  ValorFinal: Currency;
+  TaxaPoupancaFinal, TaxaCDIFinal: Double;
+  TextoPoupanca: string;
+begin
+  ValidarPoupanca;
+
+  TaxaPoupancaFinal := TCalculo.TaxaPoupanca(SpinEditQtdDiasPoupanca.Value);
+  TaxaCDIFinal := TCalculo.TaxaCDI_Radon;
+  ValorFinal := TCalculo.Poupanca(StrToCurr(EditValorAplicadoPoupanca.Text), SpinEditQtdDiasPoupanca.Value);
+
+  TextoPoupanca := FGravarArquivo.TextoPadraoPoupanca(EditValorAplicadoPoupanca.Text, Poupanca, TaxaPoupancaFinal,
+    TaxaCDIFinal, ValorFinal, SpinEditQtdDiasPoupanca.Value);
+
+  FGravarArquivo.GravarTxt(PathArquivoPoupanca, TextoPoupanca);
+  LimparCampos;
+  LerDadosMemo;
+end;
+
 procedure TFormInvestimulator.SimularTesouroDireto;
 var
   ValorFinal: Currency;
-  RendimentoFinal, CDIFinal: Double;
+  TaxaSelicFinal, TaxaCDIFinal: Double;
   IOF180, IOF360, IOF720, IOF_Mais720: Currency;
   TextoTesouroDireto: string;
 begin
@@ -197,8 +229,8 @@ begin
   PegarTipoTesouroDireto;
   PegarTipoTaxa;
 
-  RendimentoFinal := TCalculo.RendimentoPadrao(SpinEditQuantidadeDias.Value);
-  CDIFinal := TCalculo.TaxaCDI_Radon;
+  TaxaSelicFinal := TCalculo.TaxaSelic(SpinEditQuantidadeDias.Value);
+  TaxaCDIFinal := TCalculo.TaxaCDI_Radon;
   ValorFinal := PegarValorFinalTesouroDireto;
 
   IOF180 := TCalculo.TesouroIOF_180(StrToCurr(EditValorAplicado.Text));
@@ -207,7 +239,7 @@ begin
   IOF_Mais720 := TCalculo.TesouroIOF_Mais720(StrToCurr(EditValorAplicado.Text));
 
   TextoTesouroDireto := FGravarArquivo.TextoPadraoTesouroDireto(EditValorAplicado.Text, TesouroDireto, PegarTipoTesouroDireto,
-  PegarTipoTaxa, RendimentoFinal, CDIFinal, IOF180, IOF360, IOF720, IOF_Mais720, ValorFinal, SpinEditQuantidadeDias.Value);
+  PegarTipoTaxa, TaxaSelicFinal, TaxaCDIFinal, IOF180, IOF360, IOF720, IOF_Mais720, ValorFinal, SpinEditQuantidadeDias.Value);
 
   FGravarArquivo.GravarTxt(PathArquivoTesouroDireto, TextoTesouroDireto);
   LimparCampos;
@@ -232,9 +264,17 @@ begin
   end;
 end;
 
+procedure TFormInvestimulator.ValidarPoupanca;
+begin
+  if EditValorAplicadoPoupanca.Text = EmptyStr then
+    EvalidationErrorMsg(ValorAplicadoInvalido)
+  else if SpinEditQtdDiasPoupanca.Value <= 0 then
+    EvalidationErrorMsg(QuantidadeInvalida);
+end;
+
 procedure TFormInvestimulator.ValidarTesouroDireto;
 begin
-  if EditValorAplicado.Text = '' then
+  if EditValorAplicado.Text = EmptyStr then
     EvalidationErrorMsg(ValorAplicadoInvalido)
   else if SpinEditQuantidadeDias.Value <= 0 then
     EvalidationErrorMsg(QuantidadeInvalida);

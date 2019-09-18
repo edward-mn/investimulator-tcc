@@ -13,6 +13,7 @@ const
   TesouroPrefixadoSemestrais = 'Tesouro Prefixado com Juros Semestrais (NTN-F)';
   TesouroIPCA = 'Tesouro IPCA+ (NTN – B Principal)';
   TesouroIPCASemestrais = 'Tesouro IPCA+ Juros semestrais (NTN – B Principal)';
+  Poupanca = 'Poupança';
 
   PorcentagemIOF_180 = 00.225;
   PorcentagemIOF_360 = 00.22;
