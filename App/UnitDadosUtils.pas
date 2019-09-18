@@ -5,6 +5,7 @@ interface
 const
   PathTodosInvestimentos = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\TodosInvestimentos.txt';
   PathArquivoTesouroDireto = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\TesouroDireto.txt';
+  PathArquivoPoupanca = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\Poupanca.txt';
 
   TesouroDireto = 'Tesouro Direto';
   TesouroSelic = 'Tesouro Selic';
@@ -18,8 +19,10 @@ const
   PorcentagemIOF_720 = 00.175;
   PorcentagemIOF_Mais720 = 00.15;
 
-  TaxaSelicPadrao = 0.65;
-  TaxaRentabilidade = 0.25;
+  TaxaSelicAnual = 0.6; {https://br.advfn.com/indicadores/taxa-selic}
+  TaxaSelicMensal = 0.053;
+  TaxaPoupancaAnual = 0.42; {https://blog.magnetis.com.br/rendimento-da-poupanca-hoje-e-ruim/}
+  TaxaPoupancaMensal = 0.034;
   TaxaPreFixado = 'Pré-fixado';
   TaxaPosFixado = 'Pós-fixado';
 

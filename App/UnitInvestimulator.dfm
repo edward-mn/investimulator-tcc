@@ -21,7 +21,7 @@ object FormInvestimulator: TFormInvestimulator
     Top = 0
     Width = 708
     Height = 470
-    ActivePage = TabSheetTesouroDireto
+    ActivePage = TabSheetPoupanca
     Align = alClient
     TabOrder = 0
     object TabSheetTodos: TTabSheet
@@ -42,8 +42,6 @@ object FormInvestimulator: TFormInvestimulator
     object TabSheetTesouroDireto: TTabSheet
       Caption = 'Tesouro Direto'
       ImageIndex = 1
-      ExplicitLeft = 8
-      ExplicitTop = 28
       object ButtonTesouroDiretoSimular: TButton
         Left = 620
         Top = 3
@@ -160,6 +158,80 @@ object FormInvestimulator: TFormInvestimulator
         Height = 17
         Caption = 'P'#243's-Fixado'
         TabOrder = 4
+      end
+    end
+    object TabSheetPoupanca: TTabSheet
+      Caption = 'Poupan'#231'a'
+      ImageIndex = 2
+      object MemoPoupanca: TMemo
+        Left = 0
+        Top = 87
+        Width = 700
+        Height = 355
+        Align = alBottom
+        Lines.Strings = (
+          '')
+        ReadOnly = True
+        ScrollBars = ssVertical
+        TabOrder = 0
+      end
+      object GroupBoxPoupanca: TGroupBox
+        Left = 0
+        Top = 8
+        Width = 610
+        Height = 73
+        Caption = 'Tipos de investimento'
+        TabOrder = 1
+        object LabelValoAplicadoPoupanca: TLabel
+          Left = 137
+          Top = 29
+          Width = 71
+          Height = 13
+          Caption = 'Valor a aplicar:'
+        end
+        object LabelQtdDiasPoupanca: TLabel
+          Left = 388
+          Top = 29
+          Width = 98
+          Height = 13
+          Caption = 'Quantidade de Dias:'
+        end
+        object EditValorAplicadoPoupanca: TEdit
+          Left = 226
+          Top = 26
+          Width = 121
+          Height = 21
+          TabOrder = 0
+          OnKeyPress = EditValorAplicadoPoupancaKeyPress
+        end
+        object SpinEditQtdDiasPoupanca: TSpinEdit
+          Left = 514
+          Top = 26
+          Width = 73
+          Height = 22
+          MaxValue = 0
+          MinValue = 0
+          TabOrder = 1
+          Value = 0
+        end
+        object RadioButtonPoupanca: TRadioButton
+          Left = 24
+          Top = 30
+          Width = 73
+          Height = 17
+          Caption = 'Poupan'#231'a'
+          Checked = True
+          TabOrder = 2
+          TabStop = True
+        end
+      end
+      object ButtonSimularPoupanca: TButton
+        Left = 616
+        Top = 8
+        Width = 75
+        Height = 73
+        Caption = 'Simular'
+        TabOrder = 2
       end
     end
   end

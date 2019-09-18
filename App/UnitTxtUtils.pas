@@ -60,7 +60,7 @@ begin
     'Valor Aplicado: R$ ' + ValorAplicado + sLineBreak +
     'Quantidade de Dias Aplicado: ' + IntToStr(QtdDias) + sLineBreak +
     'Data da Aplicação: ' + FormatDateTime('dd\mm\yyyy - hh:MM:ss', Now) + sLineBreak +
-    'Taxa Selic: 6.5%' + sLineBreak +
+    'Taxa Selic: 6,5%' + sLineBreak +
     'Taxa CDI : ' + FloatToStr(TaxaCDI) + '%' + sLineBreak +
     'Taxa de Rendimento mensal: R$ ' + FloatToStr(Rendimento) + sLineBreak +
     'Rendimento IOF gerado de 0 a 180 dias: R$ ' + CurrToStr(IOF180) + sLineBreak +

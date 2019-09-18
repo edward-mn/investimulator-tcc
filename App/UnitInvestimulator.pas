@@ -38,9 +38,19 @@ type
     RadioButtonIPCASemestrais: TRadioButton;
     RadioButtonTaxaPreFixado: TRadioButton;
     RadioButtonTaxaPosFixado: TRadioButton;
+    TabSheetPoupanca: TTabSheet;
+    MemoPoupanca: TMemo;
+    GroupBoxPoupanca: TGroupBox;
+    LabelValoAplicadoPoupanca: TLabel;
+    LabelQtdDiasPoupanca: TLabel;
+    EditValorAplicadoPoupanca: TEdit;
+    SpinEditQtdDiasPoupanca: TSpinEdit;
+    RadioButtonPoupanca: TRadioButton;
+    ButtonSimularPoupanca: TButton;
     procedure FormShow(Sender: TObject);
     procedure ButtonTesouroDiretoSimularClick(Sender: TObject);
     procedure EditValorAplicadoKeyPress(Sender: TObject; var Key: Char);
+    procedure EditValorAplicadoPoupancaKeyPress(Sender: TObject; var Key: Char);
   private
     FGravarArquivo: TGravar;
     procedure ValidarTesouroDireto;
@@ -92,6 +102,11 @@ begin
   ValidarCurrencyImput(Key, EditValorAplicado.Text);
 end;
 
+procedure TFormInvestimulator.EditValorAplicadoPoupancaKeyPress(Sender: TObject; var Key: Char);
+begin
+  ValidarCurrencyImput(Key, EditValorAplicadoPoupanca.Text);
+end;
+
 procedure TFormInvestimulator.EvalidationErrorMsg(Msg: string);
 begin
   raise EValidationError.Create(Msg);
@@ -106,6 +121,7 @@ procedure TFormInvestimulator.LerDadosMemo;
 begin
   MemoTodosInvestimentos.Lines.LoadFromFile(PathTodosInvestimentos);
   MemoTesouroDireto.Lines.LoadFromFile(PathArquivoTesouroDireto);
+  MemoPoupanca.Lines.LoadFromFile(PathArquivoPoupanca);
 end;
 
 procedure TFormInvestimulator.LimparCampos;
@@ -181,7 +197,7 @@ begin
   PegarTipoTesouroDireto;
   PegarTipoTaxa;
 
-  RendimentoFinal := TCalculo.RendimentoMensal(SpinEditQuantidadeDias.Value);
+  RendimentoFinal := TCalculo.RendimentoPadrao(SpinEditQuantidadeDias.Value);
   CDIFinal := TCalculo.TaxaCDI_Radon;
   ValorFinal := PegarValorFinalTesouroDireto;
 
