@@ -52,6 +52,7 @@ type
     procedure EditValorAplicadoKeyPress(Sender: TObject; var Key: Char);
     procedure EditValorAplicadoPoupancaKeyPress(Sender: TObject; var Key: Char);
     procedure ButtonSimularPoupancaClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     FGravarArquivo: TGravar;
     procedure ValidarTesouroDireto;
@@ -82,6 +83,11 @@ uses
   UnitCalculo,
   UnitDadosUtils,
   StrUtils;
+
+procedure TFormInvestimulator.Button1Click(Sender: TObject);
+begin
+  TCalculo.TesouroSelicTaxasPos(StrToFloat('1000,12'), 480);
+end;
 
 procedure TFormInvestimulator.ButtonSimularPoupancaClick(Sender: TObject);
 begin
@@ -229,8 +235,12 @@ begin
   PegarTipoTesouroDireto;
   PegarTipoTaxa;
 
+  if RadioButtonPrefixado.Checked then
+    TaxaCDIFinal := TaxaCDI_Aleatorio
+  else
+    TaxaCDIFinal := TCalculo.TaxaCDI_Radon;
+
   TaxaSelicFinal := TCalculo.TaxaSelic(SpinEditQuantidadeDias.Value);
-  TaxaCDIFinal := TCalculo.TaxaCDI_Radon;
   ValorFinal := PegarValorFinalTesouroDireto;
 
   IOF180 := TCalculo.TesouroIOF_180(StrToCurr(EditValorAplicado.Text));

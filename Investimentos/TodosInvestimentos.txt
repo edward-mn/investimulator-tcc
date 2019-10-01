@@ -1,26 +1,175 @@
 
 ###############################################################
 Tipo de Investimento Principal: Tesouro Direto
-Tipo de Investimento Escolhido: Tesouro Selic - Pós-fixado
-Valor Aplicado: R$ 1000,15
-Quantidade de Dias Aplicado: 378
-Data da Aplicação: 18\09\2019 - 17:56:24
-Taxa Selic: 0,60265%
-Taxa CDI : 0,55%
-Rendimento IOF gerado de 0 a 180 dias: R$ 1112,6669
-Rendimento IOF gerado de 181 a 360 dias: R$ 1220,183
-Rendimento IOF gerado de 361 a 720 dias: R$ 1350,2025
-Rendimento IOF gerado com mais de 720 dias: R$ 1307,2794
-Rendimento final: R$ 2192,9289
+Tipo de Investimento Escolhido: Tesouro Prefixado (LTN) - Pós-fixado
+Valor Aplicado: R$ 1582,12
+Quantidade de Dias Aplicado: 480
+Data da Aplicação: 01\10\2019 - 00:46:17
+Taxa Selic: 0,564%
+Taxa CDI : 0,54%
+Rendimento IOF gerado de 0 a 180 dias: R$ 1760,1085
+Rendimento IOF gerado de 181 a 360 dias: R$ 1930,1864
+Rendimento IOF gerado de 361 a 720 dias: R$ 2135,862
+Rendimento IOF gerado com mais de 720 dias: R$ 2120,1199
+Rendimento final: R$ 2037,1377
+###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Tesouro Direto
+Tipo de Investimento Escolhido: Tesouro Prefixado (LTN) - Pré-fixado
+Valor Aplicado: R$ 1582,12
+Quantidade de Dias Aplicado: 480
+Data da Aplicação: 01\10\2019 - 00:46:46
+Taxa Selic: 0,564%
+Taxa CDI : 0,52%
+Rendimento IOF gerado de 0 a 180 dias: R$ 1760,1085
+Rendimento IOF gerado de 181 a 360 dias: R$ 1930,1864
+Rendimento IOF gerado de 361 a 720 dias: R$ 2135,862
+Rendimento IOF gerado com mais de 720 dias: R$ 2098,2866
+Rendimento final: R$ 1939,0463
 ###############################################################
 
 ###############################################################
 Tipo de Investimento Principal: Poupança
-Valor Aplicado: R$ 1000,15
-Quantidade de Dias Aplicado: 378
-Data da Aplicação: 18\09\2019 - 18:05:34
-Taxa Poupança: 0,4217%
-Taxa CDI : 0,59%
+Valor Aplicado: R$ 1489,32
+Quantidade de Dias Aplicado: 480
+Data da Aplicação: 01\10\2019 - 00:47:20
+Taxa Poupança: 0,431%
+Taxa CDI : 0,51%
 Rendimento do tipo Liquidação Diária
-Rendimento final: R$ 1232,1198
+Rendimento final: R$ 1842,3633
 ###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Poupança
+Valor Aplicado: R$ 1489,32
+Quantidade de Dias Aplicado: 480
+Data da Aplicação: 01\10\2019 - 00:48:36
+Taxa Poupança: 0,431%
+Taxa CDI : 0,54%
+Rendimento do tipo Liquidação Diária
+Rendimento final: R$ 2950,3429
+###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Poupança
+Valor Aplicado: R$ 1489,32
+Quantidade de Dias Aplicado: 480
+Data da Aplicação: 01\10\2019 - 00:49:29
+Taxa Poupança: 0,431%
+Taxa CDI : 0,52%
+Rendimento do tipo Liquidação Diária
+Rendimento final: R$ 1823,0766
+###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Poupança
+Valor Aplicado: R$ 1489,32
+Quantidade de Dias Aplicado: 480
+Data da Aplicação: 01\10\2019 - 00:51:03
+Taxa Poupança: 0,431%
+Taxa CDI : 0,54%
+Rendimento do tipo Liquidação Diária
+Rendimento final: R$ 1496,1709
+###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Poupança
+Valor Aplicado: R$ 1489,32
+Quantidade de Dias Aplicado: 480
+Data da Aplicação: 01\10\2019 - 00:52:48
+Taxa Poupança: 0,431%
+Taxa CDI : 0,52%
+Rendimento do tipo Liquidação Diária
+Rendimento final: R$ 2146,7058
+###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Poupança
+Valor Aplicado: R$ 1489,32
+Quantidade de Dias Aplicado: 480
+Data da Aplicação: 01\10\2019 - 00:55:34
+Taxa Poupança: 0,431%
+Taxa CDI : 0,54%
+Rendimento do tipo Liquidação Diária
+Rendimento final: R$ 1518,5107
+###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Poupança
+Valor Aplicado: R$ 1489,32
+Quantidade de Dias Aplicado: 480
+Data da Aplicação: 01\10\2019 - 00:56:13
+Taxa Poupança: 0,431%
+Taxa CDI : 0,53%
+Rendimento do tipo Liquidação Diária
+Rendimento final: R$ 1560,2116
+###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Poupança
+Valor Aplicado: R$ 1489,32
+Quantidade de Dias Aplicado: 480
+Data da Aplicação: 01\10\2019 - 00:59:30
+Taxa Poupança: 0,431%
+Taxa CDI : 0,51%
+Rendimento do tipo Liquidação Diária
+Rendimento final: R$ 124192833056,3086
+###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Poupança
+Valor Aplicado: R$ 1498,32
+Quantidade de Dias Aplicado: 480
+Data da Aplicação: 01\10\2019 - 01:01:04
+Taxa Poupança: 0,431%
+Taxa CDI : 0,53%
+Rendimento do tipo Liquidação Diária
+Rendimento final: R$ 1834,1235
+###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Tesouro Direto
+Tipo de Investimento Escolhido: Tesouro IPCA+ (NTN – B Principal) - Pós-fixado
+Valor Aplicado: R$ 1489,32
+Quantidade de Dias Aplicado: 480
+Data da Aplicação: 01\10\2019 - 01:02:29
+Taxa Selic: 0,564%
+Taxa CDI : 0,53%
+Rendimento IOF gerado de 0 a 180 dias: R$ 1656,8685
+Rendimento IOF gerado de 181 a 360 dias: R$ 1816,9704
+Rendimento IOF gerado de 361 a 720 dias: R$ 2010,582
+Rendimento IOF gerado com mais de 720 dias: R$ 1944,8285
+Rendimento final: R$ 1951,3071
+###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Tesouro Direto
+Tipo de Investimento Escolhido: Tesouro Prefixado (LTN) - Pré-fixado
+Valor Aplicado: R$ 1489,32
+Quantidade de Dias Aplicado: 480
+Data da Aplicação: 01\10\2019 - 01:04:46
+Taxa Selic: 0,564%
+Taxa CDI : 0,55%
+Rendimento IOF gerado de 0 a 180 dias: R$ 1656,8685
+Rendimento IOF gerado de 181 a 360 dias: R$ 1816,9704
+Rendimento IOF gerado de 361 a 720 dias: R$ 2010,582
+Rendimento IOF gerado com mais de 720 dias: R$ 1946,6157
+Rendimento final: R$ 1825,3106
+###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Tesouro Direto
+Tipo de Investimento Escolhido: Tesouro Selic - Pré-fixado
+Valor Aplicado: R$ 1489,32
+Quantidade de Dias Aplicado: 480
+Data da Aplicação: 01\10\2019 - 01:10:44
+Taxa Selic: 0,564%
+Taxa CDI : 0,52%
+Rendimento IOF gerado de 0 a 180 dias: R$ 1656,8685
+Rendimento IOF gerado de 181 a 360 dias: R$ 1816,9704
+Rendimento IOF gerado de 361 a 720 dias: R$ 2010,582
+Rendimento IOF gerado com mais de 720 dias: R$ 1939,9138
+Rendimento final: R$ 1825,3106
+###############################################################
+

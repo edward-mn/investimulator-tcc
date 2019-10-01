@@ -21,7 +21,7 @@ object FormInvestimulator: TFormInvestimulator
     Top = 0
     Width = 708
     Height = 470
-    ActivePage = TabSheetTodos
+    ActivePage = TabSheetTesouroDireto
     Align = alClient
     TabOrder = 0
     object TabSheetTodos: TTabSheet
@@ -32,8 +32,6 @@ object FormInvestimulator: TFormInvestimulator
         Width = 700
         Height = 442
         Align = alClient
-        Lines.Strings = (
-          '')
         ReadOnly = True
         ScrollBars = ssVertical
         TabOrder = 0
@@ -42,10 +40,6 @@ object FormInvestimulator: TFormInvestimulator
     object TabSheetTesouroDireto: TTabSheet
       Caption = 'Tesouro Direto'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object ButtonTesouroDiretoSimular: TButton
         Left = 620
         Top = 3
@@ -141,8 +135,6 @@ object FormInvestimulator: TFormInvestimulator
         Width = 700
         Height = 307
         Align = alBottom
-        Lines.Strings = (
-          '')
         ReadOnly = True
         ScrollBars = ssVertical
         TabOrder = 2
@@ -167,18 +159,12 @@ object FormInvestimulator: TFormInvestimulator
     object TabSheetPoupanca: TTabSheet
       Caption = 'Poupan'#231'a'
       ImageIndex = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object MemoPoupanca: TMemo
         Left = 0
         Top = 87
         Width = 700
         Height = 355
         Align = alBottom
-        Lines.Strings = (
-          '')
         ReadOnly = True
         ScrollBars = ssVertical
         TabOrder = 0

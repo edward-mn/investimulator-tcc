@@ -20,6 +20,7 @@ const
   PorcentagemIOF_720 = 00.175;
   PorcentagemIOF_Mais720 = 00.15;
 
+  TaxaCDI_Aleatorio = 0.4;
   TaxaSelicAnual = 0.55; {https://br.advfn.com/indicadores/taxa-selic}
   TaxaSelicMensal = 0.043;
   TaxaPoupancaAnual = 0.42; {https://blog.magnetis.com.br/rendimento-da-poupanca-hoje-e-ruim/}

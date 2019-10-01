@@ -53,7 +53,6 @@ const
   Separador = '###############################################################';
 begin
   PadrãoSalvar :=
-    sLineBreak +
     Separador + sLineBreak +
     'Tipo de Investimento Principal: ' + TipoPrincipalInvestimento + sLineBreak +
     'Valor Aplicado: R$ ' + ValorAplicado + sLineBreak +
@@ -63,7 +62,7 @@ begin
     'Taxa CDI : ' + FloatToStr(TaxaCDI) + '%' + sLineBreak +
     'Rendimento do tipo Liquidação Diária' + sLineBreak +
     'Rendimento final: R$ ' + CurrToStr(PoupancaValorFinal) + sLineBreak +
-    Separador;
+    Separador + sLineBreak;
 
   Result := PadrãoSalvar;
 end;
@@ -77,7 +76,6 @@ const
   Separador = '###############################################################';
 begin
   PadrãoSalvar :=
-    sLineBreak +
     Separador + sLineBreak +
     'Tipo de Investimento Principal: ' + TipoPrincipalInvestimento + sLineBreak +
     'Tipo de Investimento Escolhido: ' + TipoInvestimentoEscolhido + ' - ' + TipoTaxa + sLineBreak +
@@ -91,7 +89,7 @@ begin
     'Rendimento IOF gerado de 361 a 720 dias: R$ ' + CurrToStr(IOF720) + sLineBreak +
     'Rendimento IOF gerado com mais de 720 dias: R$ ' + CurrToStr(IOF_Mais720) + sLineBreak +
     'Rendimento final: R$ ' + CurrToStr(TesouroSelicValorFinal) + sLineBreak +
-    Separador;
+    Separador + sLineBreak;
 
   Result := PadrãoSalvar;
 end;

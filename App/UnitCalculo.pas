@@ -30,25 +30,28 @@ type
 implementation
 
 uses
-  UnitDadosUtils;
+  UnitDadosUtils,
+  System.Math;
 
 { TCalculo }
 
 class function TCalculo.RendimentoPadrao(DiasAplicado: Integer; TaxaAnual, TaxaMensal: Double; DiasBaseRendimento: Integer): double;
 var
   TipoTaxaAnual, TipoTaxaMensal, Divisao: Double;
+const
+  TresCasasAposVirgula = -3;
 begin
   Divisao := (DiasAplicado/DiasBaseRendimento);
   TipoTaxaAnual := Trunc(Divisao) * TaxaAnual;
   TipoTaxaMensal := Frac(Divisao) * TaxaMensal;
-  Result := TipoTaxaAnual + TipoTaxaMensal;
+  Result := RoundTo((TipoTaxaAnual + TipoTaxaMensal), TresCasasAposVirgula);
 end;
 
 class function TCalculo.ValorFinalBasePosFixado(ValorAplicado: Currency; TipoRendimento: Double): Currency;
 var
   ValorComTaxa, ValorDaTaxa: Currency;
 begin
-  ValorDaTaxa := TaxaCDI_Radon + TipoRendimento;
+  ValorDaTaxa := TaxaCDI_Radon * TipoRendimento;
   ValorComTaxa := (ValorAplicado * ValorDaTaxa);
 
   Result := ValorComTaxa + ValorAplicado;
@@ -58,7 +61,7 @@ class function TCalculo.ValorFinalBasePreFixado(ValorAplicado: Currency; TipoRen
 var
   ValorComTaxa, ValorDaTaxa: Currency;
 begin
-  ValorDaTaxa := 0.5 * TipoRendimento;
+  ValorDaTaxa := TaxaCDI_Aleatorio * TipoRendimento;
   ValorComTaxa := (ValorAplicado * ValorDaTaxa);
 
   Result := ValorComTaxa + ValorAplicado;
@@ -88,8 +91,8 @@ class function TCalculo.Poupanca(ValorAplicado: Currency; Dias: Integer): Curren
 var
   ValorComTaxa, ValorDaTaxa: Currency;
 begin
-  ValorDaTaxa := TaxaPoupanca(Dias);
-  ValorComTaxa := ValorDaTaxa * ValorAplicado * TaxaCDI_Radon;
+  ValorDaTaxa := TaxaPoupanca(Dias) * ValorAplicado;
+  ValorComTaxa := ValorDaTaxa * TaxaCDI_Radon;
 
   Result := ValorComTaxa + ValorAplicado;
 end;
