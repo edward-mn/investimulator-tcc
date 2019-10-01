@@ -105,7 +105,7 @@ class function TCalculo.TaxaCDI_Radon: Double;
 var
   CDI: Double;
 begin
-  CDI := TaxaSelicAnual - (Random(9) * 0.01);
+  CDI := TaxaSelicAnual - (Random(5) * 0.01);
   Result := CDI;
 end;
 
