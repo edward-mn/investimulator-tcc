@@ -6,6 +6,7 @@ const
   PathTodosInvestimentos = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\TodosInvestimentos.txt';
   PathArquivoTesouroDireto = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\TesouroDireto.txt';
   PathArquivoPoupanca = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\Poupanca.txt';
+  PathArquivoCertificadoDepositoBancario = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\CertificadoDepositoBancario.txt';
 
   TesouroDireto = 'Tesouro Direto';
   TesouroSelic = 'Tesouro Selic';
@@ -14,6 +15,7 @@ const
   TesouroIPCA = 'Tesouro IPCA+ (NTN – B Principal)';
   TesouroIPCASemestrais = 'Tesouro IPCA+ Juros semestrais (NTN – B Principal)';
   Poupanca = 'Poupança';
+  CertifucadoDepositoBancario = 'Certificado de Depósito Bancário';
 
   PorcentagemIOF_180 = 00.225;
   PorcentagemIOF_360 = 00.22;
@@ -21,10 +23,12 @@ const
   PorcentagemIOF_Mais720 = 00.15;
 
   TaxaCDI_Aleatorio = 0.4;
-  TaxaSelicAnual = 0.55; {https://br.advfn.com/indicadores/taxa-selic}
+  TaxaSelicAnual = 0.6; {https://br.advfn.com/indicadores/taxa-selic}
   TaxaSelicMensal = 0.043;
   TaxaPoupancaAnual = 0.42; {https://blog.magnetis.com.br/rendimento-da-poupanca-hoje-e-ruim/}
   TaxaPoupancaMensal = 0.034;
+  TaxaCDBAnual = 0.045;
+  TaxaCDBMensal = 0.0033;
   TaxaPreFixado = 'Pré-fixado';
   TaxaPosFixado = 'Pós-fixado';
 

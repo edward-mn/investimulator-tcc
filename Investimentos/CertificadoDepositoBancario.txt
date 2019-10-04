@@ -1,0 +1,12 @@
+###############################################################
+Tipo de Investimento Escolhido: Certificado de Depósito Bancário - Pós-fixado
+Banco emissor do Certificado Escolhido: Caixa Econômica Federal
+Valor Aplicado: R$ 1580,11
+Quantidade de Dias Aplicado: 345
+Data da Aplicação: 03\10\2019 - 22:09:51
+Taxa do Certificado: 0,09%
+Taxa CDI : 0,6%
+Rendimento do tipo Liquidação Diária
+Rendimento final: R$ 1715,6834
+###############################################################
+

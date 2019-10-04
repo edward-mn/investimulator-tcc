@@ -27,17 +27,17 @@ type
     ButtonTesouroDiretoSimular: TButton;
     MemoTesouroDireto: TMemo;
     GroupBoxTesouroDireto: TGroupBox;
-    EditValorAplicado: TEdit;
-    LabelValorAplicado: TLabel;
-    SpinEditQuantidadeDias: TSpinEdit;
-    LabelQuantidadeDias: TLabel;
+    EditValorAplicadoTD: TEdit;
+    LabelValorAplicadoTD: TLabel;
+    SpinEditQtdDiasTD: TSpinEdit;
+    LabelQtdDiasTD: TLabel;
     RadioButtonSelic: TRadioButton;
     RadioButtonPrefixadoSemestrais: TRadioButton;
     RadioButtonPrefixado: TRadioButton;
     RadioButtonIPCA: TRadioButton;
     RadioButtonIPCASemestrais: TRadioButton;
-    RadioButtonTaxaPreFixado: TRadioButton;
-    RadioButtonTaxaPosFixado: TRadioButton;
+    RadioButtonTaxaPreTD: TRadioButton;
+    RadioButtonTaxaPosTD: TRadioButton;
     TabSheetPoupanca: TTabSheet;
     MemoPoupanca: TMemo;
     GroupBoxPoupanca: TGroupBox;
@@ -47,24 +47,43 @@ type
     SpinEditQtdDiasPoupanca: TSpinEdit;
     RadioButtonPoupanca: TRadioButton;
     ButtonSimularPoupanca: TButton;
+    TabSheetCDB: TTabSheet;
+    MemoCDB: TMemo;
+    GroupBoxCDB: TGroupBox;
+    RadioButtonTaxaPreCDB: TRadioButton;
+    RadioButtonTaxaPosCDB: TRadioButton;
+    LabelValorAplicadoCDB: TLabel;
+    LabelQtdDiasCDB: TLabel;
+    EditValorAplicadoCDB: TEdit;
+    SpinEditQtdDiasCDB: TSpinEdit;
+    ButtonSimularrCDB: TButton;
+    ComboBoxCDBBancos: TComboBox;
+    LabelCDBBancos: TLabel;
     procedure FormShow(Sender: TObject);
     procedure ButtonTesouroDiretoSimularClick(Sender: TObject);
-    procedure EditValorAplicadoKeyPress(Sender: TObject; var Key: Char);
+    procedure EditValorAplicadoTDKeyPress(Sender: TObject; var Key: Char);
     procedure EditValorAplicadoPoupancaKeyPress(Sender: TObject; var Key: Char);
     procedure ButtonSimularPoupancaClick(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
+    procedure EditValorAplicadoCDBKeyPress(Sender: TObject; var Key: Char);
+    procedure ButtonSimularrCDBClick(Sender: TObject);
   private
     FGravarArquivo: TGravar;
+    procedure ValidarValor_Dias(Valor: string; Dias: Integer);
     procedure ValidarTesouroDireto;
     procedure ValidarPoupanca;
+    procedure ValidarCDB;
     procedure ValidarCurrencyImput(Teclas: Char; Tecla: string);
     procedure SimularTesouroDireto;
     procedure SimularPoupanca;
+    procedure SimularCDB;
     procedure LerDadosMemo;
     procedure LimparCampos;
-    function PegarTipoTesouroDireto: string;
-    function PegarTipoTaxa: string;
-    function PegarValorFinalTesouroDireto: Currency;
+    function PegarTipoTD: string;
+    function PegarTipoTaxaBase(RadioPreFixado, RadioPosFixado: Boolean): string;
+    procedure GravarSimulacoesPadrao(PathArquivoSimulado, Conteudo: string);
+    function PegarTipoTaxaTD: string;
+    function PegarTipoTaxaCDB: string;
+    function PegarBancoCDB: string;
   public
     procedure EvalidationErrorMsg(Msg: string);
     constructor Create(AOwner: TComponent); override;
@@ -84,14 +103,14 @@ uses
   UnitDadosUtils,
   StrUtils;
 
-procedure TFormInvestimulator.Button1Click(Sender: TObject);
-begin
-  TCalculo.TesouroSelicTaxasPos(StrToFloat('1000,12'), 480);
-end;
-
 procedure TFormInvestimulator.ButtonSimularPoupancaClick(Sender: TObject);
 begin
   SimularPoupanca;
+end;
+
+procedure TFormInvestimulator.ButtonSimularrCDBClick(Sender: TObject);
+begin
+  SimularCDB;
 end;
 
 procedure TFormInvestimulator.ButtonTesouroDiretoSimularClick(Sender: TObject);
@@ -111,9 +130,14 @@ begin
   inherited;
 end;
 
-procedure TFormInvestimulator.EditValorAplicadoKeyPress(Sender: TObject; var Key: Char);
+procedure TFormInvestimulator.EditValorAplicadoCDBKeyPress(Sender: TObject; var Key: Char);
 begin
-  ValidarCurrencyImput(Key, EditValorAplicado.Text);
+  ValidarCurrencyImput(Key, EditValorAplicadoCDB.Text);
+end;
+
+procedure TFormInvestimulator.EditValorAplicadoTDKeyPress(Sender: TObject; var Key: Char);
+begin
+  ValidarCurrencyImput(Key, EditValorAplicadoTD.Text);
 end;
 
 procedure TFormInvestimulator.EditValorAplicadoPoupancaKeyPress(Sender: TObject; var Key: Char);
@@ -132,11 +156,24 @@ begin
   PageControlInvestimulator.ActivePageIndex := 0;
 end;
 
+procedure TFormInvestimulator.GravarSimulacoesPadrao(PathArquivoSimulado, Conteudo: string);
+begin
+  if (not PathArquivoSimulado.IsEmpty)  and (not Conteudo.IsEmpty) then
+  begin
+    FGravarArquivo.GravarTxt(PathArquivoSimulado, Conteudo);
+    LimparCampos;
+    LerDadosMemo;
+  end
+  else
+    EvalidationErrorMsg('Error');
+end;
+
 procedure TFormInvestimulator.LerDadosMemo;
 begin
   MemoTodosInvestimentos.Lines.LoadFromFile(PathTodosInvestimentos);
   MemoTesouroDireto.Lines.LoadFromFile(PathArquivoTesouroDireto);
   MemoPoupanca.Lines.LoadFromFile(PathArquivoPoupanca);
+  MemoCDB.Lines.LoadFromFile(PathArquivoCertificadoDepositoBancario);
 end;
 
 procedure TFormInvestimulator.LimparCampos;
@@ -146,25 +183,53 @@ begin
   RadioButtonPrefixado.Checked := False;
   RadioButtonIPCA.Checked := False;
   RadioButtonIPCASemestrais.Checked := False;
-  RadioButtonTaxaPreFixado.Checked := False;
-  RadioButtonTaxaPosFixado.Checked := False;
-  EditValorAplicado.Clear;
-  SpinEditQuantidadeDias.Clear;
+  RadioButtonTaxaPreTD.Checked := False;
+  RadioButtonTaxaPosTD.Checked := False;
+  EditValorAplicadoTD.Clear;
+  SpinEditQtdDiasTD.Clear;
+
   EditValorAplicadoPoupanca.Clear;
   SpinEditQtdDiasPoupanca.Clear;
+
+  EditValorAplicadoCDB.Clear;
+  SpinEditQtdDiasCDB.Clear;
+  RadioButtonTaxaPreCDB.Checked := False;
+  RadioButtonTaxaPosCDB.Checked := False;
+  ComboBoxCDBBancos.ItemIndex := -1;
 end;
 
-function TFormInvestimulator.PegarTipoTaxa: string;
+function TFormInvestimulator.PegarBancoCDB: string;
+const
+  NenhumBancoSelecionado = -1;
+  SelecionarBanco = 'É necessário selecionar um Banco para simular';
 begin
-  if RadioButtonTaxaPreFixado.Checked then
+  if (ComboBoxCDBBancos.ItemIndex = NenhumBancoSelecionado)  then
+    EvalidationErrorMsg(SelecionarBanco)
+  else
+    Exit(ComboBoxCDBBancos.Text);
+end;
+
+function TFormInvestimulator.PegarTipoTaxaBase(RadioPreFixado, RadioPosFixado: Boolean): string;
+begin
+  if RadioPreFixado then
     Exit(TaxaPreFixado)
-  else if RadioButtonTaxaPosFixado.Checked then
+  else if RadioPosFixado then
     Exit(TaxaPosFixado)
   else
     EvalidationErrorMsg(TaxaAplicacaoNecessario);
 end;
 
-function TFormInvestimulator.PegarTipoTesouroDireto: string;
+function TFormInvestimulator.PegarTipoTaxaCDB: string;
+begin
+  Result := PegarTipoTaxaBase(RadioButtonTaxaPreCDB.Checked, RadioButtonTaxaPosCDB.Checked);
+end;
+
+function TFormInvestimulator.PegarTipoTaxaTD: string;
+begin
+  Result := PegarTipoTaxaBase(RadioButtonTaxaPreTD.Checked, RadioButtonTaxaPosTD.Checked);
+end;
+
+function TFormInvestimulator.PegarTipoTD: string;
 begin
   if RadioButtonSelic.Checked then
     Exit(TesouroSelic)
@@ -180,28 +245,31 @@ begin
     EvalidationErrorMsg(TesouroSelicNecessario);
 end;
 
-function TFormInvestimulator.PegarValorFinalTesouroDireto: Currency;
-const
-  RendimentoConvenvional: array[0..2] of string = (TesouroSelic, TesouroPrefixado, TesouroIPCA);
-  RendimentoSemestral: array[0..1] of string = (TesouroPrefixadoSemestrais, TesouroIPCASemestrais);
+procedure TFormInvestimulator.SimularCDB;
+var
+  BancoSelecionado, TextoCDB: string;
+  RendimentoPorcentagemCDB, TaxaCDI_CDB: Double;
+  ValorCDBFinal: Currency;
 begin
-  Result := 0.0;
-  if PegarTipoTaxa = TaxaPreFixado then
-  begin
-    if MatchStr(PegarTipoTesouroDireto, RendimentoConvenvional) then
-      Exit(TCalculo.TesouroSelicTaxasPre(StrToCurr(EditValorAplicado.Text), SpinEditQuantidadeDias.Value))
-    else
-      Exit(TCalculo.TesouroSemestraisTaxasPre(StrToCurr(EditValorAplicado.Text), SpinEditQuantidadeDias.Value))
-  end
-  else if PegarTipoTaxa = TaxaPosFixado then
-  begin
-    if MatchStr(PegarTipoTesouroDireto, RendimentoConvenvional) then
-      Exit(TCalculo.TesouroSelicTaxasPos(StrToCurr(EditValorAplicado.Text), SpinEditQuantidadeDias.Value))
-    else
-      Exit(TCalculo.TesouroSemestraisTaxasPos(StrToCurr(EditValorAplicado.Text), SpinEditQuantidadeDias.Value))
-  end
+  ValorCDBFinal := 0.0;
+  ValidarCDB;
+  BancoSelecionado := PegarBancoCDB;
+  TaxaCDI_CDB := TCalculo.TaxaCDI_Radon;
+  RendimentoPorcentagemCDB := TCalculo.TaxaCDB(SpinEditQtdDiasCDB.Value);
+
+  if RadioButtonTaxaPreCDB.Checked then
+    ValorCDBFinal := TCalculo.CertificadoDepositoBancarioPre(StrToCurr(EditValorAplicadoCDB.Text),
+      SpinEditQtdDiasCDB.Value, TaxaCDI_Aleatorio)
+  else if RadioButtonTaxaPosCDB.Checked then
+    ValorCDBFinal := TCalculo.CertificadoDepositoBancarioPos(StrToCurr(EditValorAplicadoCDB.Text),
+      SpinEditQtdDiasCDB.Value, TaxaCDI_CDB)
   else
-    EvalidationErrorMsg('Erro');
+    EvalidationErrorMsg('Error');
+
+  TextoCDB := FGravarArquivo.TextoPadraoCertificadoDepositoBancario(EditValorAplicadoCDB.Text, PegarTipoTaxaCDB,
+    BancoSelecionado, RendimentoPorcentagemCDB, TaxaCDI_CDB, ValorCDBFinal, SpinEditQtdDiasCDB.Value);
+
+  GravarSimulacoesPadrao(PathArquivoCertificadoDepositoBancario, TextoCDB);
 end;
 
 procedure TFormInvestimulator.SimularPoupanca;
@@ -214,14 +282,12 @@ begin
 
   TaxaPoupancaFinal := TCalculo.TaxaPoupanca(SpinEditQtdDiasPoupanca.Value);
   TaxaCDIFinal := TCalculo.TaxaCDI_Radon;
-  ValorFinal := TCalculo.Poupanca(StrToCurr(EditValorAplicadoPoupanca.Text), SpinEditQtdDiasPoupanca.Value);
+  ValorFinal := TCalculo.Poupanca(StrToCurr(EditValorAplicadoPoupanca.Text), SpinEditQtdDiasPoupanca.Value, TaxaCDIFinal);
 
-  TextoPoupanca := FGravarArquivo.TextoPadraoPoupanca(EditValorAplicadoPoupanca.Text, Poupanca, TaxaPoupancaFinal,
+  TextoPoupanca := FGravarArquivo.TextoPadraoPoupanca(EditValorAplicadoPoupanca.Text, TaxaPoupancaFinal,
     TaxaCDIFinal, ValorFinal, SpinEditQtdDiasPoupanca.Value);
 
-  FGravarArquivo.GravarTxt(PathArquivoPoupanca, TextoPoupanca);
-  LimparCampos;
-  LerDadosMemo;
+  GravarSimulacoesPadrao(PathArquivoPoupanca, TextoPoupanca);
 end;
 
 procedure TFormInvestimulator.SimularTesouroDireto;
@@ -230,30 +296,41 @@ var
   TaxaSelicFinal, TaxaCDIFinal: Double;
   IOF180, IOF360, IOF720, IOF_Mais720: Currency;
   TextoTesouroDireto: string;
+const
+  RendimentoConvenvional: array[0..2] of string = (TesouroSelic, TesouroPrefixado, TesouroIPCA);
+  RendimentoSemestral: array[0..1] of string = (TesouroPrefixadoSemestrais, TesouroIPCASemestrais);
 begin
+  ValorFinal := 0.0;
   ValidarTesouroDireto;
-  PegarTipoTesouroDireto;
-  PegarTipoTaxa;
+  TaxaCDIFinal := TCalculo.TaxaCDI_Radon;
+  TaxaSelicFinal := TCalculo.TaxaSelic(SpinEditQtdDiasTD.Value);
 
-  if RadioButtonPrefixado.Checked then
-    TaxaCDIFinal := TaxaCDI_Aleatorio
+  if PegarTipoTaxaTD = TaxaPreFixado then
+  begin
+    if MatchStr(PegarTipoTD, RendimentoConvenvional) then
+      ValorFinal := TCalculo.TesouroSelicTaxasPre(StrToCurr(EditValorAplicadoTD.Text), SpinEditQtdDiasTD.Value, TaxaCDI_Aleatorio)
+    else
+      ValorFinal := TCalculo.TesouroSemestraisTaxasPre(StrToCurr(EditValorAplicadoTD.Text), SpinEditQtdDiasTD.Value, TaxaCDI_Aleatorio)
+  end
+  else if PegarTipoTaxaTD = TaxaPosFixado then
+  begin
+    if MatchStr(PegarTipoTD, RendimentoConvenvional) then
+      ValorFinal := TCalculo.TesouroSelicTaxasPos(StrToCurr(EditValorAplicadoTD.Text), SpinEditQtdDiasTD.Value, TaxaCDIFinal)
+    else
+      ValorFinal := TCalculo.TesouroSemestraisTaxasPos(StrToCurr(EditValorAplicadoTD.Text), SpinEditQtdDiasTD.Value, TaxaCDIFinal)
+  end
   else
-    TaxaCDIFinal := TCalculo.TaxaCDI_Radon;
+    EvalidationErrorMsg('Erro');
 
-  TaxaSelicFinal := TCalculo.TaxaSelic(SpinEditQuantidadeDias.Value);
-  ValorFinal := PegarValorFinalTesouroDireto;
+  IOF180 := TCalculo.TesouroIOF_180(StrToCurr(EditValorAplicadoTD.Text));
+  IOF360 := TCalculo.TesouroIOF_360(StrToCurr(EditValorAplicadoTD.Text));
+  IOF720 := TCalculo.TesouroIOF_720(StrToCurr(EditValorAplicadoTD.Text));
+  IOF_Mais720 := TCalculo.TesouroIOF_Mais720(StrToCurr(EditValorAplicadoTD.Text));
 
-  IOF180 := TCalculo.TesouroIOF_180(StrToCurr(EditValorAplicado.Text));
-  IOF360 := TCalculo.TesouroIOF_360(StrToCurr(EditValorAplicado.Text));
-  IOF720 := TCalculo.TesouroIOF_720(StrToCurr(EditValorAplicado.Text));
-  IOF_Mais720 := TCalculo.TesouroIOF_Mais720(StrToCurr(EditValorAplicado.Text));
+  TextoTesouroDireto := FGravarArquivo.TextoPadraoTesouroDireto(EditValorAplicadoTD.Text, PegarTipoTD, PegarTipoTaxaTD,
+    TaxaSelicFinal, TaxaCDIFinal, IOF180, IOF360, IOF720, IOF_Mais720, ValorFinal, SpinEditQtdDiasTD.Value);
 
-  TextoTesouroDireto := FGravarArquivo.TextoPadraoTesouroDireto(EditValorAplicado.Text, TesouroDireto, PegarTipoTesouroDireto,
-  PegarTipoTaxa, TaxaSelicFinal, TaxaCDIFinal, IOF180, IOF360, IOF720, IOF_Mais720, ValorFinal, SpinEditQuantidadeDias.Value);
-
-  FGravarArquivo.GravarTxt(PathArquivoTesouroDireto, TextoTesouroDireto);
-  LimparCampos;
-  LerDadosMemo;
+  GravarSimulacoesPadrao(PathArquivoTesouroDireto, TextoTesouroDireto);
 end;
 
 procedure TFormInvestimulator.ValidarCurrencyImput(Teclas: Char; Tecla: string);
@@ -274,20 +351,27 @@ begin
   end;
 end;
 
+procedure TFormInvestimulator.ValidarValor_Dias(Valor: string; Dias: Integer);
+begin
+  if Valor = EmptyStr then
+    EvalidationErrorMsg(ValorAplicadoInvalido)
+  else if Dias <= 0 then
+    EvalidationErrorMsg(QuantidadeInvalida);
+end;
+
 procedure TFormInvestimulator.ValidarPoupanca;
 begin
-  if EditValorAplicadoPoupanca.Text = EmptyStr then
-    EvalidationErrorMsg(ValorAplicadoInvalido)
-  else if SpinEditQtdDiasPoupanca.Value <= 0 then
-    EvalidationErrorMsg(QuantidadeInvalida);
+  ValidarValor_Dias(EditValorAplicadoPoupanca.Text, SpinEditQtdDiasPoupanca.Value);
 end;
 
 procedure TFormInvestimulator.ValidarTesouroDireto;
 begin
-  if EditValorAplicado.Text = EmptyStr then
-    EvalidationErrorMsg(ValorAplicadoInvalido)
-  else if SpinEditQuantidadeDias.Value <= 0 then
-    EvalidationErrorMsg(QuantidadeInvalida);
+  ValidarValor_Dias(EditValorAplicadoTD.Text, SpinEditQtdDiasTD.Value);
+end;
+
+procedure TFormInvestimulator.ValidarCDB;
+begin
+  ValidarValor_Dias(EditValorAplicadoCDB.Text, SpinEditQtdDiasCDB.Value);
 end;
 
 end.

@@ -5,9 +5,10 @@ interface
 type
   TCalculo = class
   private
-    class function ValorFinalBasePosFixado(ValorAplicado: Currency; TipoRendimento: Double): Currency;
-    class function ValorFinalBasePreFixado(ValorAplicado: Currency; TipoRendimento: Double): Currency;
+    class function ValorFinalBasePosFixado(ValorAplicado: Currency; TipoRendimento, TaxaCDI: Double): Currency;
+    class function ValorFinalBasePreFixado(ValorAplicado: Currency; TipoRendimento, TaxaCDI: Double): Currency;
     class function TaxaIOF_Base(ValorAplicado: Currency; QtdDias: Integer; Porcentagem: Double): Currency;
+    class function RendimentoRandonBanco(Anual_Mensal: Double): Double;
   public
     class function RendimentoPadrao(DiasAplicado: Integer; TaxaAnual: Double = 1; TaxaMensal: Double = 1;
        DiasBaseRendimento :Integer = 360): double;
@@ -15,11 +16,14 @@ type
     class function TaxaCDI_Radon: Double;
     class function TaxaSelic(Dias: integer): double;
     class function TaxaPoupanca(Dias: integer): double;
-    class function TesouroSelicTaxasPos(ValorAplicado: Currency; Dias: Integer): Currency;
-    class function TesouroSelicTaxasPre(ValorAplicado: Currency; Dias: Integer): Currency;
-    class function TesouroSemestraisTaxasPre(ValorAplicado: Currency; Dias: Integer): Currency;
-    class function TesouroSemestraisTaxasPos(ValorAplicado: Currency; Dias: Integer): Currency;
-    class function Poupanca(ValorAplicado: Currency; Dias: Integer): Currency;
+    class function TaxaCDB(Dias: integer): double;
+    class function TesouroSelicTaxasPos(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
+    class function TesouroSelicTaxasPre(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
+    class function TesouroSemestraisTaxasPre(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
+    class function TesouroSemestraisTaxasPos(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
+    class function Poupanca(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
+    class function CertificadoDepositoBancarioPos(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
+    class function CertificadoDepositoBancarioPre(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
     class function TesouroIOF_180(ValorAplicado: Currency): Currency;
     class function TesouroIOF_360(ValorAplicado: Currency): Currency;
     class function TesouroIOF_720(ValorAplicado: Currency): Currency;
@@ -47,22 +51,27 @@ begin
   Result := RoundTo((TipoTaxaAnual + TipoTaxaMensal), TresCasasAposVirgula);
 end;
 
-class function TCalculo.ValorFinalBasePosFixado(ValorAplicado: Currency; TipoRendimento: Double): Currency;
+class function TCalculo.RendimentoRandonBanco(Anual_Mensal: Double): Double;
+begin
+  Result := Random(100) * Anual_Mensal;
+end;
+
+class function TCalculo.ValorFinalBasePosFixado(ValorAplicado: Currency; TipoRendimento, TaxaCDI: Double): Currency;
 var
   ValorComTaxa, ValorDaTaxa: Currency;
 begin
-  ValorDaTaxa := TaxaCDI_Radon * TipoRendimento;
-  ValorComTaxa := (ValorAplicado * ValorDaTaxa);
+  ValorDaTaxa := TaxaCDI * TipoRendimento;
+  ValorComTaxa := ValorAplicado * ValorDaTaxa;
 
   Result := ValorComTaxa + ValorAplicado;
 end;
 
-class function TCalculo.ValorFinalBasePreFixado(ValorAplicado: Currency; TipoRendimento: Double): Currency;
+class function TCalculo.ValorFinalBasePreFixado(ValorAplicado: Currency; TipoRendimento, TaxaCDI: Double): Currency;
 var
   ValorComTaxa, ValorDaTaxa: Currency;
 begin
-  ValorDaTaxa := TaxaCDI_Aleatorio * TipoRendimento;
-  ValorComTaxa := (ValorAplicado * ValorDaTaxa);
+  ValorDaTaxa := TaxaCDI * TipoRendimento;
+  ValorComTaxa := ValorAplicado * ValorDaTaxa;
 
   Result := ValorComTaxa + ValorAplicado;
 end;
@@ -87,12 +96,32 @@ begin
   Result := RendimentoPadrao(Dias, TaxaSelicAnual, TaxaSelicMensal);
 end;
 
-class function TCalculo.Poupanca(ValorAplicado: Currency; Dias: Integer): Currency;
+class function TCalculo.CertificadoDepositoBancarioPos(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
+var
+  ValorComTaxa, ValorDaTaxa: Currency;
+begin
+  ValorDaTaxa := TaxaCDI * TaxaCDB(Dias);
+  ValorComTaxa := ValorAplicado * ValorDaTaxa;
+
+  Result := ValorComTaxa + ValorAplicado;
+end;
+
+class function TCalculo.CertificadoDepositoBancarioPre(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
+var
+  ValorComTaxa, ValorDaTaxa: Currency;
+begin
+  ValorDaTaxa := TaxaCDI * TaxaCDB(Dias);
+  ValorComTaxa := ValorAplicado * ValorDaTaxa;
+
+  Result := ValorComTaxa + ValorAplicado;
+end;
+
+class function TCalculo.Poupanca(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
 var
   ValorComTaxa, ValorDaTaxa: Currency;
 begin
   ValorDaTaxa := TaxaPoupanca(Dias) * ValorAplicado;
-  ValorComTaxa := ValorDaTaxa * TaxaCDI_Radon;
+  ValorComTaxa := ValorDaTaxa * TaxaCDI;
 
   Result := ValorComTaxa + ValorAplicado;
 end;
@@ -102,6 +131,11 @@ const
   UtilizaTaxaPadrao = 1;
 begin
   Result := RendimentoPadrao(Dias, UtilizaTaxaPadrao, UtilizaTaxaPadrao, 180);
+end;
+
+class function TCalculo.TaxaCDB(Dias: integer): double;
+begin
+  Result := RendimentoPadrao(Dias, RendimentoRandonBanco(TaxaCDBAnual), RendimentoRandonBanco(TaxaCDBMensal));
 end;
 
 class function TCalculo.TaxaCDI_Radon: Double;
@@ -135,24 +169,24 @@ begin
   Result := TaxaIOF_Base(ValorAplicado, RandoMais720, PorcentagemIOF_Mais720);
 end;
 
-class function TCalculo.TesouroSelicTaxasPos(ValorAplicado: Currency; Dias: Integer): Currency;
+class function TCalculo.TesouroSelicTaxasPos(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
 begin
-  Result := ValorFinalBasePosFixado(ValorAplicado, TaxaSelic(Dias));
+  Result := ValorFinalBasePosFixado(ValorAplicado, TaxaSelic(Dias), TaxaCDI);
 end;
 
-class function TCalculo.TesouroSelicTaxasPre(ValorAplicado: Currency; Dias: Integer): Currency;
+class function TCalculo.TesouroSelicTaxasPre(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
 begin
-  Result := ValorFinalBasePreFixado(ValorAplicado, TaxaSelic(Dias));
+  Result := ValorFinalBasePreFixado(ValorAplicado, TaxaSelic(Dias), TaxaCDI);
 end;
 
-class function TCalculo.TesouroSemestraisTaxasPos(ValorAplicado: Currency; Dias: Integer): Currency;
+class function TCalculo.TesouroSemestraisTaxasPos(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
 begin
-  Result := ValorFinalBasePosFixado(ValorAplicado, RendimentoSemestral(Dias));
+  Result := ValorFinalBasePosFixado(ValorAplicado, RendimentoSemestral(Dias), TaxaCDI);
 end;
 
-class function TCalculo.TesouroSemestraisTaxasPre(ValorAplicado: Currency; Dias: Integer): Currency;
+class function TCalculo.TesouroSemestraisTaxasPre(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
 begin
-  Result := ValorFinalBasePreFixado(ValorAplicado, RendimentoSemestral(Dias));
+  Result := ValorFinalBasePreFixado(ValorAplicado, RendimentoSemestral(Dias), TaxaCDI);
 end;
 
 end.

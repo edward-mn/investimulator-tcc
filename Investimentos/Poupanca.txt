@@ -1,99 +1,11 @@
 ###############################################################
-Tipo de Investimento Principal: Poupança
-Valor Aplicado: R$ 1489,32
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 01\10\2019 - 00:47:20
-Taxa Poupança: 0,431%
-Taxa CDI : 0,51%
+Tipo de Investimento Escolhido: Poupança
+Valor Aplicado: R$ 4581,12
+Quantidade de Dias Aplicado: 345
+Data da Aplicação: 03\10\2019 - 22:09:27
+Taxa Poupança: 0,033%
+Taxa CDI : 0,57%
 Rendimento do tipo Liquidação Diária
-Rendimento final: R$ 1842,3633
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Poupança
-Valor Aplicado: R$ 1489,32
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 01\10\2019 - 00:48:36
-Taxa Poupança: 0,431%
-Taxa CDI : 0,54%
-Rendimento do tipo Liquidação Diária
-Rendimento final: R$ 2950,3429
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Poupança
-Valor Aplicado: R$ 1489,32
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 01\10\2019 - 00:49:29
-Taxa Poupança: 0,431%
-Taxa CDI : 0,52%
-Rendimento do tipo Liquidação Diária
-Rendimento final: R$ 1823,0766
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Poupança
-Valor Aplicado: R$ 1489,32
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 01\10\2019 - 00:51:03
-Taxa Poupança: 0,431%
-Taxa CDI : 0,54%
-Rendimento do tipo Liquidação Diária
-Rendimento final: R$ 1496,1709
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Poupança
-Valor Aplicado: R$ 1489,32
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 01\10\2019 - 00:52:48
-Taxa Poupança: 0,431%
-Taxa CDI : 0,52%
-Rendimento do tipo Liquidação Diária
-Rendimento final: R$ 2146,7058
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Poupança
-Valor Aplicado: R$ 1489,32
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 01\10\2019 - 00:55:34
-Taxa Poupança: 0,431%
-Taxa CDI : 0,54%
-Rendimento do tipo Liquidação Diária
-Rendimento final: R$ 1518,5107
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Poupança
-Valor Aplicado: R$ 1489,32
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 01\10\2019 - 00:56:13
-Taxa Poupança: 0,431%
-Taxa CDI : 0,53%
-Rendimento do tipo Liquidação Diária
-Rendimento final: R$ 1560,2116
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Poupança
-Valor Aplicado: R$ 1489,32
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 01\10\2019 - 00:59:30
-Taxa Poupança: 0,431%
-Taxa CDI : 0,51%
-Rendimento do tipo Liquidação Diária
-Rendimento final: R$ 124192833056,3086
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Poupança
-Valor Aplicado: R$ 1498,32
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 01\10\2019 - 01:01:04
-Taxa Poupança: 0,431%
-Taxa CDI : 0,53%
-Rendimento do tipo Liquidação Diária
-Rendimento final: R$ 1834,1235
+Rendimento final: R$ 4667,2909
 ###############################################################
 

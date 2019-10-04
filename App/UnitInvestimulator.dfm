@@ -21,7 +21,7 @@ object FormInvestimulator: TFormInvestimulator
     Top = 0
     Width = 708
     Height = 470
-    ActivePage = TabSheetTesouroDireto
+    ActivePage = TabSheetCDB
     Align = alClient
     TabOrder = 0
     object TabSheetTodos: TTabSheet
@@ -56,29 +56,29 @@ object FormInvestimulator: TFormInvestimulator
         Height = 129
         Caption = 'Tipos de investimento'
         TabOrder = 1
-        object LabelValorAplicado: TLabel
+        object LabelValorAplicadoTD: TLabel
           Left = 409
           Top = 77
           Width = 71
           Height = 13
           Caption = 'Valor a aplicar:'
         end
-        object LabelQuantidadeDias: TLabel
+        object LabelQtdDiasTD: TLabel
           Left = 428
           Top = 100
           Width = 98
           Height = 13
           Caption = 'Quantidade de Dias:'
         end
-        object EditValorAplicado: TEdit
+        object EditValorAplicadoTD: TEdit
           Left = 482
           Top = 72
           Width = 121
           Height = 21
           TabOrder = 0
-          OnKeyPress = EditValorAplicadoKeyPress
+          OnKeyPress = EditValorAplicadoTDKeyPress
         end
-        object SpinEditQuantidadeDias: TSpinEdit
+        object SpinEditQtdDiasTD: TSpinEdit
           Left = 530
           Top = 98
           Width = 73
@@ -139,7 +139,7 @@ object FormInvestimulator: TFormInvestimulator
         ScrollBars = ssVertical
         TabOrder = 2
       end
-      object RadioButtonTaxaPreFixado: TRadioButton
+      object RadioButtonTaxaPreTD: TRadioButton
         Left = 514
         Top = 20
         Width = 73
@@ -147,7 +147,7 @@ object FormInvestimulator: TFormInvestimulator
         Caption = 'Pr'#233'-Fixado'
         TabOrder = 3
       end
-      object RadioButtonTaxaPosFixado: TRadioButton
+      object RadioButtonTaxaPosTD: TRadioButton
         Left = 514
         Top = 44
         Width = 73
@@ -171,9 +171,9 @@ object FormInvestimulator: TFormInvestimulator
       end
       object GroupBoxPoupanca: TGroupBox
         Left = 0
-        Top = 8
+        Top = 0
         Width = 610
-        Height = 73
+        Height = 81
         Caption = 'Tipos de investimento'
         TabOrder = 1
         object LabelValoAplicadoPoupanca: TLabel
@@ -227,6 +227,122 @@ object FormInvestimulator: TFormInvestimulator
         Caption = 'Simular'
         TabOrder = 2
         OnClick = ButtonSimularPoupancaClick
+      end
+    end
+    object TabSheetCDB: TTabSheet
+      Caption = 'CDB'
+      ImageIndex = 3
+      object MemoCDB: TMemo
+        Left = 0
+        Top = 103
+        Width = 700
+        Height = 339
+        Align = alBottom
+        ReadOnly = True
+        ScrollBars = ssVertical
+        TabOrder = 0
+      end
+      object GroupBoxCDB: TGroupBox
+        Left = 0
+        Top = 0
+        Width = 586
+        Height = 97
+        Caption = 'Certificado de Dep'#243'sito Banc'#225'rio'
+        TabOrder = 1
+        object LabelQtdDiasCDB: TLabel
+          Left = 223
+          Top = 26
+          Width = 98
+          Height = 13
+          Caption = 'Quantidade de Dias:'
+        end
+        object LabelValorAplicadoCDB: TLabel
+          Left = 19
+          Top = 26
+          Width = 71
+          Height = 13
+          Caption = 'Valor Aplicado:'
+        end
+        object LabelCDBBancos: TLabel
+          Left = 19
+          Top = 59
+          Width = 89
+          Height = 13
+          Caption = 'Escolha um banco:'
+        end
+        object SpinEditQtdDiasCDB: TSpinEdit
+          Left = 327
+          Top = 23
+          Width = 121
+          Height = 22
+          MaxValue = 0
+          MinValue = 0
+          TabOrder = 0
+          Value = 0
+        end
+        object RadioButtonTaxaPosCDB: TRadioButton
+          Left = 480
+          Top = 35
+          Width = 81
+          Height = 17
+          Caption = 'P'#243's-Fixado'
+          TabOrder = 1
+        end
+        object RadioButtonTaxaPreCDB: TRadioButton
+          Left = 480
+          Top = 12
+          Width = 73
+          Height = 17
+          Caption = 'Pr'#233'-Fixado'
+          TabOrder = 2
+        end
+        object EditValorAplicadoCDB: TEdit
+          Left = 96
+          Top = 23
+          Width = 121
+          Height = 21
+          TabOrder = 3
+          OnKeyPress = EditValorAplicadoCDBKeyPress
+        end
+        object ComboBoxCDBBancos: TComboBox
+          Left = 117
+          Top = 55
+          Width = 145
+          Height = 22
+          Style = csOwnerDrawFixed
+          TabOrder = 4
+          Items.Strings = (
+            'Banco do Brasil'
+            'Caixa Econ'#244'mica Federal'
+            'Ita'#250' Unibanco'
+            'Bradesco'
+            'BNDES'
+            'Santander'
+            'BTG Pactual'
+            'HSBC'
+            'Banco Mercantil do Brasil'
+            'Safra'
+            'Banco Votorantim'
+            'Citi'
+            'Banrisul'
+            'BNP Paribas'
+            'Credit Suisse'
+            'Banco do Nordeste'
+            'JP Morgan'
+            'Soci'#233't'#233' G'#233'n'#233'rale'
+            'Sicredi'
+            'Banco Pan'
+            'Bancoob')
+        end
+      end
+      object ButtonSimularrCDB: TButton
+        Left = 592
+        Top = 3
+        Width = 105
+        Height = 94
+        Caption = 'Simular'
+        TabOrder = 2
+        OnClick = ButtonSimularrCDBClick
       end
     end
   end
