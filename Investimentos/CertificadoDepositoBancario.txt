@@ -1,12 +1,36 @@
 ###############################################################
 Tipo de Investimento Escolhido: Certificado de Depósito Bancário - Pós-fixado
 Banco emissor do Certificado Escolhido: Caixa Econômica Federal
-Valor Aplicado: R$ 1580,11
-Quantidade de Dias Aplicado: 345
-Data da Aplicação: 03\10\2019 - 22:09:51
-Taxa do Certificado: 0,09%
-Taxa CDI : 0,6%
+Valor Aplicado: R$ 1478,32
+Quantidade de Dias Aplicado: 278
+Data da Aplicação: 04\10\2019 - 20:41:03
+Taxa do Certificado: 0,041%
+Taxa CDI : 0,56%
 Rendimento do tipo Liquidação Diária
-Rendimento final: R$ 1715,6834
+Rendimento IOF gerado de 0 a 180 dias: R$ 2137,6507
+Rendimento IOF gerado de 181 a 360 dias: R$ 2396,3567
+Rendimento IOF gerado de 361 a 720 dias: R$ 2862,0275
+Rendimento IOF gerado com mais de 720 dias: R$ 3746,0629
+Rendimento final: R$ 2662,4543
+Seguro do Investimento: FGC - Fundo Garantidor de Créditos
+Descrição do Seguro: Seu investimento está assegurado até R$ 250 mil por instituição de aplicação
+###############################################################
+
+###############################################################
+Tipo de Investimento Escolhido: Certificado de Depósito Bancário - Pré-fixado
+Banco emissor do Certificado Escolhido: Banco do Brasil
+Valor Aplicado: R$ 321,99
+Quantidade de Dias Aplicado: 415
+Data da Aplicação: 04\10\2019 - 20:41:33
+Taxa do Certificado: 0,658%
+Taxa CDI : 0,56%
+Rendimento do tipo Liquidação Diária
+Rendimento IOF gerado de 0 a 180 dias: R$ 664,2654
+Rendimento IOF gerado de 181 a 360 dias: R$ 720,6136
+Rendimento IOF gerado de 361 a 720 dias: R$ 822,0405
+Rendimento IOF gerado com mais de 720 dias: R$ 984,9674
+Rendimento final: R$ 759,2524
+Seguro do Investimento: FGC - Fundo Garantidor de Créditos
+Descrição do Seguro: Seu investimento está assegurado até R$ 250 mil por instituição de aplicação
 ###############################################################
 

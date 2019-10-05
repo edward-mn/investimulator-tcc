@@ -9,7 +9,7 @@ type
       TaxaCDI: Double; IOF180, IOF360, IOF720, IOF_Mais720, TesouroSelicValorFinal: Currency; QtdDias: Integer): String;
     function TextoPadraoPoupanca(ValorAplicado: string; TaxaPoupanca, TaxaCDI: Double; PoupancaValorFinal: Currency;
        QtdDias: Integer): String;
-    function TextoPadraoCertificadoDepositoBancario(ValorAplicado, TipoTaxa, BancoEmissor: string; TaxaCDB, TaxaCDI: Double; CDBValorFinal: Currency;
+    function TextoPadraoCertificadoDepositoBancario(ValorAplicado, TipoTaxa, BancoEmissor: string; TaxaCDB, TaxaCDI: Double; IOF180, IOF360, IOF720, IOF_Mais720, CDBValorFinal: Currency;
        QtdDias: Integer): String;
   end;
   const
@@ -94,7 +94,7 @@ begin
 end;
 
 function TGravar.TextoPadraoCertificadoDepositoBancario(ValorAplicado, TipoTaxa, BancoEmissor: string; TaxaCDB,
-  TaxaCDI: Double; CDBValorFinal: Currency; QtdDias: Integer): String;
+  TaxaCDI: Double; IOF180, IOF360, IOF720, IOF_Mais720, CDBValorFinal: Currency; QtdDias: Integer): String;
 var
  PadrãoSalvar: string;
 begin
@@ -108,7 +108,13 @@ begin
     'Taxa do Certificado: ' + FloatToStr(TaxaCDB) + '%' + sLineBreak +
     'Taxa CDI : ' + FloatToStr(TaxaCDI) + '%' + sLineBreak +
     'Rendimento do tipo Liquidação Diária' + sLineBreak +
+    'Rendimento IOF gerado de 0 a 180 dias: R$ ' + CurrToStr(IOF180) + sLineBreak +
+    'Rendimento IOF gerado de 181 a 360 dias: R$ ' + CurrToStr(IOF360) + sLineBreak +
+    'Rendimento IOF gerado de 361 a 720 dias: R$ ' + CurrToStr(IOF720) + sLineBreak +
+    'Rendimento IOF gerado com mais de 720 dias: R$ ' + CurrToStr(IOF_Mais720) + sLineBreak +
     'Rendimento final: R$ ' + CurrToStr(CDBValorFinal) + sLineBreak +
+    'Seguro do Investimento: ' + FGC + sLineBreak +
+    'Descrição do Seguro: ' + FGCValor + sLineBreak +
     Separador + sLineBreak;
 
   Result := PadrãoSalvar;

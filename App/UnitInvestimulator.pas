@@ -68,19 +68,19 @@ type
     procedure ButtonSimularrCDBClick(Sender: TObject);
   private
     FGravarArquivo: TGravar;
+    function PegarTipoTaxaBase(RadioPreFixado, RadioPosFixado: Boolean): string;
+    procedure ValidarCurrencyImput(Teclas: Char; Tecla: string);
+    procedure GravarSimulacoesPadrao(PathArquivoSimulado, Conteudo: string);
     procedure ValidarValor_Dias(Valor: string; Dias: Integer);
     procedure ValidarTesouroDireto;
     procedure ValidarPoupanca;
     procedure ValidarCDB;
-    procedure ValidarCurrencyImput(Teclas: Char; Tecla: string);
     procedure SimularTesouroDireto;
     procedure SimularPoupanca;
     procedure SimularCDB;
     procedure LerDadosMemo;
     procedure LimparCampos;
     function PegarTipoTD: string;
-    function PegarTipoTaxaBase(RadioPreFixado, RadioPosFixado: Boolean): string;
-    procedure GravarSimulacoesPadrao(PathArquivoSimulado, Conteudo: string);
     function PegarTipoTaxaTD: string;
     function PegarTipoTaxaCDB: string;
     function PegarBancoCDB: string;
@@ -249,7 +249,7 @@ procedure TFormInvestimulator.SimularCDB;
 var
   BancoSelecionado, TextoCDB: string;
   RendimentoPorcentagemCDB, TaxaCDI_CDB: Double;
-  ValorCDBFinal: Currency;
+  IOF180 ,IOF360, IOF720, IOF_Mais720, ValorCDBFinal: Currency;
 begin
   ValorCDBFinal := 0.0;
   ValidarCDB;
@@ -257,17 +257,22 @@ begin
   TaxaCDI_CDB := TCalculo.TaxaCDI_Radon;
   RendimentoPorcentagemCDB := TCalculo.TaxaCDB(SpinEditQtdDiasCDB.Value);
 
-  if RadioButtonTaxaPreCDB.Checked then
+  IOF180 := TCalculo.TesouroIOF_180(StrToCurr(EditValorAplicadoCDB.Text), RendimentoPorcentagemCDB);
+  IOF360 := TCalculo.TesouroIOF_360(StrToCurr(EditValorAplicadoCDB.Text), RendimentoPorcentagemCDB);
+  IOF720 := TCalculo.TesouroIOF_720(StrToCurr(EditValorAplicadoCDB.Text), RendimentoPorcentagemCDB);
+  IOF_Mais720 := TCalculo.TesouroIOF_Mais720(StrToCurr(EditValorAplicadoCDB.Text), RendimentoPorcentagemCDB);
+
+  if PegarTipoTaxaCDB = TaxaPreFixado then
     ValorCDBFinal := TCalculo.CertificadoDepositoBancarioPre(StrToCurr(EditValorAplicadoCDB.Text),
       SpinEditQtdDiasCDB.Value, TaxaCDI_Aleatorio)
-  else if RadioButtonTaxaPosCDB.Checked then
+  else if PegarTipoTaxaCDB = TaxaPosFixado then
     ValorCDBFinal := TCalculo.CertificadoDepositoBancarioPos(StrToCurr(EditValorAplicadoCDB.Text),
       SpinEditQtdDiasCDB.Value, TaxaCDI_CDB)
   else
     EvalidationErrorMsg('Error');
 
   TextoCDB := FGravarArquivo.TextoPadraoCertificadoDepositoBancario(EditValorAplicadoCDB.Text, PegarTipoTaxaCDB,
-    BancoSelecionado, RendimentoPorcentagemCDB, TaxaCDI_CDB, ValorCDBFinal, SpinEditQtdDiasCDB.Value);
+    BancoSelecionado, RendimentoPorcentagemCDB, TaxaCDI_CDB, IOF180, IOF360, IOF720, IOF_Mais720, ValorCDBFinal, SpinEditQtdDiasCDB.Value);
 
   GravarSimulacoesPadrao(PathArquivoCertificadoDepositoBancario, TextoCDB);
 end;
@@ -322,10 +327,10 @@ begin
   else
     EvalidationErrorMsg('Erro');
 
-  IOF180 := TCalculo.TesouroIOF_180(StrToCurr(EditValorAplicadoTD.Text));
-  IOF360 := TCalculo.TesouroIOF_360(StrToCurr(EditValorAplicadoTD.Text));
-  IOF720 := TCalculo.TesouroIOF_720(StrToCurr(EditValorAplicadoTD.Text));
-  IOF_Mais720 := TCalculo.TesouroIOF_Mais720(StrToCurr(EditValorAplicadoTD.Text));
+  IOF180 := TCalculo.TesouroIOF_180(StrToCurr(EditValorAplicadoTD.Text), TaxaSelicFinal);
+  IOF360 := TCalculo.TesouroIOF_360(StrToCurr(EditValorAplicadoTD.Text), TaxaSelicFinal);
+  IOF720 := TCalculo.TesouroIOF_720(StrToCurr(EditValorAplicadoTD.Text), TaxaSelicFinal);
+  IOF_Mais720 := TCalculo.TesouroIOF_Mais720(StrToCurr(EditValorAplicadoTD.Text), TaxaSelicFinal);
 
   TextoTesouroDireto := FGravarArquivo.TextoPadraoTesouroDireto(EditValorAplicadoTD.Text, PegarTipoTD, PegarTipoTaxaTD,
     TaxaSelicFinal, TaxaCDIFinal, IOF180, IOF360, IOF720, IOF_Mais720, ValorFinal, SpinEditQtdDiasTD.Value);

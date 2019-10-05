@@ -7,7 +7,7 @@ type
   private
     class function ValorFinalBasePosFixado(ValorAplicado: Currency; TipoRendimento, TaxaCDI: Double): Currency;
     class function ValorFinalBasePreFixado(ValorAplicado: Currency; TipoRendimento, TaxaCDI: Double): Currency;
-    class function TaxaIOF_Base(ValorAplicado: Currency; QtdDias: Integer; Porcentagem: Double): Currency;
+    class function TaxaIOF_Base(ValorAplicado: Currency; QtdDias: Integer; Porcentagem, TaxaTipoRendimento: Double): Currency;
     class function RendimentoRandonBanco(Anual_Mensal: Double): Double;
   public
     class function RendimentoPadrao(DiasAplicado: Integer; TaxaAnual: Double = 1; TaxaMensal: Double = 1;
@@ -24,10 +24,10 @@ type
     class function Poupanca(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
     class function CertificadoDepositoBancarioPos(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
     class function CertificadoDepositoBancarioPre(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
-    class function TesouroIOF_180(ValorAplicado: Currency): Currency;
-    class function TesouroIOF_360(ValorAplicado: Currency): Currency;
-    class function TesouroIOF_720(ValorAplicado: Currency): Currency;
-    class function TesouroIOF_Mais720(ValorAplicado: Currency): Currency;
+    class function TesouroIOF_180(ValorAplicado: Currency; TaxaTipoRendimento: Double): Currency;
+    class function TesouroIOF_360(ValorAplicado: Currency; TaxaTipoRendimento: Double): Currency;
+    class function TesouroIOF_720(ValorAplicado: Currency; TaxaTipoRendimento: Double): Currency;
+    class function TesouroIOF_Mais720(ValorAplicado: Currency; TaxaTipoRendimento: Double): Currency;
   end;
 
 
@@ -60,7 +60,7 @@ class function TCalculo.ValorFinalBasePosFixado(ValorAplicado: Currency; TipoRen
 var
   ValorComTaxa, ValorDaTaxa: Currency;
 begin
-  ValorDaTaxa := TaxaCDI * TipoRendimento;
+  ValorDaTaxa := TaxaCDI + TipoRendimento + 0.15;
   ValorComTaxa := ValorAplicado * ValorDaTaxa;
 
   Result := ValorComTaxa + ValorAplicado;
@@ -70,18 +70,18 @@ class function TCalculo.ValorFinalBasePreFixado(ValorAplicado: Currency; TipoRen
 var
   ValorComTaxa, ValorDaTaxa: Currency;
 begin
-  ValorDaTaxa := TaxaCDI * TipoRendimento;
+  ValorDaTaxa := TaxaCDI + TipoRendimento + 0.24;
   ValorComTaxa := ValorAplicado * ValorDaTaxa;
 
   Result := ValorComTaxa + ValorAplicado;
 end;
 
-class function TCalculo.TaxaIOF_Base(ValorAplicado: Currency; QtdDias: Integer; Porcentagem: Double): Currency;
+class function TCalculo.TaxaIOF_Base(ValorAplicado: Currency; QtdDias: Integer; Porcentagem, TaxaTipoRendimento: Double): Currency;
 var
   ValorComTaxa, ValorDaTaxa: Currency;
 begin
-  ValorComTaxa := RendimentoPadrao(QtdDias) * ValorAplicado;;
-  ValorDaTaxa := ValorComTaxa * Porcentagem;
+  ValorComTaxa := TaxaTipoRendimento + Porcentagem + (QtdDias * 0.001);
+  ValorDaTaxa := ValorComTaxa * ValorAplicado;
 
   Result := ValorAplicado + ValorDaTaxa;
 end;
@@ -100,7 +100,7 @@ class function TCalculo.CertificadoDepositoBancarioPos(ValorAplicado: Currency; 
 var
   ValorComTaxa, ValorDaTaxa: Currency;
 begin
-  ValorDaTaxa := TaxaCDI * TaxaCDB(Dias);
+  ValorDaTaxa := TaxaCDI + TaxaCDB(Dias) + 0.2;
   ValorComTaxa := ValorAplicado * ValorDaTaxa;
 
   Result := ValorComTaxa + ValorAplicado;
@@ -110,7 +110,7 @@ class function TCalculo.CertificadoDepositoBancarioPre(ValorAplicado: Currency; 
 var
   ValorComTaxa, ValorDaTaxa: Currency;
 begin
-  ValorDaTaxa := TaxaCDI * TaxaCDB(Dias);
+  ValorDaTaxa := TaxaCDI + TaxaCDB(Dias) + 0.3;
   ValorComTaxa := ValorAplicado * ValorDaTaxa;
 
   Result := ValorComTaxa + ValorAplicado;
@@ -135,7 +135,7 @@ end;
 
 class function TCalculo.TaxaCDB(Dias: integer): double;
 begin
-  Result := RendimentoPadrao(Dias, RendimentoRandonBanco(TaxaCDBAnual), RendimentoRandonBanco(TaxaCDBMensal));
+  Result := RendimentoPadrao(Dias, TaxaCDBAnual, TaxaCDBMensal);
 end;
 
 class function TCalculo.TaxaCDI_Radon: Double;
@@ -146,27 +146,27 @@ begin
   Result := CDI;
 end;
 
-class function TCalculo.TesouroIOF_180(ValorAplicado: Currency): Currency;
+class function TCalculo.TesouroIOF_180(ValorAplicado: Currency; TaxaTipoRendimento: Double): Currency;
 begin
-  Result := TaxaIOF_Base(ValorAplicado, 180, PorcentagemIOF_180);
+  Result := TaxaIOF_Base(ValorAplicado, 180, PorcentagemIOF_180, TaxaTipoRendimento);
 end;
 
-class function TCalculo.TesouroIOF_360(ValorAplicado: Currency): Currency;
+class function TCalculo.TesouroIOF_360(ValorAplicado: Currency; TaxaTipoRendimento: Double): Currency;
 begin
-  Result := TaxaIOF_Base(ValorAplicado, 360, PorcentagemIOF_360);
+  Result := TaxaIOF_Base(ValorAplicado, 360, PorcentagemIOF_360, TaxaTipoRendimento);
 end;
 
-class function TCalculo.TesouroIOF_720(ValorAplicado: Currency): Currency;
+class function TCalculo.TesouroIOF_720(ValorAplicado: Currency; TaxaTipoRendimento: Double): Currency;
 begin
-  Result := TaxaIOF_Base(ValorAplicado, 720, PorcentagemIOF_720)
+  Result := TaxaIOF_Base(ValorAplicado, 720, PorcentagemIOF_720, TaxaTipoRendimento)
 end;
 
-class function TCalculo.TesouroIOF_Mais720(ValorAplicado: Currency): Currency;
+class function TCalculo.TesouroIOF_Mais720(ValorAplicado: Currency; TaxaTipoRendimento: Double): Currency;
 var
   RandoMais720: Integer;
 begin
-  RandoMais720 := Random(100) + 720;
-  Result := TaxaIOF_Base(ValorAplicado, RandoMais720, PorcentagemIOF_Mais720);
+  RandoMais720 := Random(1000) + 720;
+  Result := TaxaIOF_Base(ValorAplicado, RandoMais720, PorcentagemIOF_Mais720, TaxaTipoRendimento);
 end;
 
 class function TCalculo.TesouroSelicTaxasPos(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;

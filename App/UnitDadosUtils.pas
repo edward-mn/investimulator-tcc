@@ -17,6 +17,9 @@ const
   Poupanca = 'Poupança';
   CertifucadoDepositoBancario = 'Certificado de Depósito Bancário';
 
+  FGC = 'FGC - Fundo Garantidor de Créditos';
+  FGCValor = 'Seu investimento está assegurado até R$ 250 mil por instituição de aplicação';
+
   PorcentagemIOF_180 = 00.225;
   PorcentagemIOF_360 = 00.22;
   PorcentagemIOF_720 = 00.175;
@@ -27,8 +30,8 @@ const
   TaxaSelicMensal = 0.043;
   TaxaPoupancaAnual = 0.42; {https://blog.magnetis.com.br/rendimento-da-poupanca-hoje-e-ruim/}
   TaxaPoupancaMensal = 0.034;
-  TaxaCDBAnual = 0.045;
-  TaxaCDBMensal = 0.0033;
+  TaxaCDBAnual = 0.65;
+  TaxaCDBMensal = 0.053;
   TaxaPreFixado = 'Pré-fixado';
   TaxaPosFixado = 'Pós-fixado';
 

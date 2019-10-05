@@ -76,6 +76,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 121
           Height = 21
           TabOrder = 0
+          Text = '1001,11'
           OnKeyPress = EditValorAplicadoTDKeyPress
         end
         object SpinEditQtdDiasTD: TSpinEdit
@@ -86,7 +87,7 @@ object FormInvestimulator: TFormInvestimulator
           MaxValue = 0
           MinValue = 0
           TabOrder = 1
-          Value = 0
+          Value = 480
         end
         object RadioButtonSelic: TRadioButton
           Left = 8
@@ -196,6 +197,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 121
           Height = 21
           TabOrder = 0
+          Text = '1001,11'
           OnKeyPress = EditValorAplicadoPoupancaKeyPress
         end
         object SpinEditQtdDiasPoupanca: TSpinEdit
@@ -206,7 +208,7 @@ object FormInvestimulator: TFormInvestimulator
           MaxValue = 0
           MinValue = 0
           TabOrder = 1
-          Value = 0
+          Value = 480
         end
         object RadioButtonPoupanca: TRadioButton
           Left = 24
@@ -278,7 +280,7 @@ object FormInvestimulator: TFormInvestimulator
           MaxValue = 0
           MinValue = 0
           TabOrder = 0
-          Value = 0
+          Value = 480
         end
         object RadioButtonTaxaPosCDB: TRadioButton
           Left = 480
@@ -302,6 +304,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 121
           Height = 21
           TabOrder = 3
+          Text = '1001,11'
           OnKeyPress = EditValorAplicadoCDBKeyPress
         end
         object ComboBoxCDBBancos: TComboBox
@@ -310,7 +313,9 @@ object FormInvestimulator: TFormInvestimulator
           Width = 145
           Height = 22
           Style = csOwnerDrawFixed
+          ItemIndex = 2
           TabOrder = 4
+          Text = 'Ita'#250' Unibanco'
           Items.Strings = (
             'Banco do Brasil'
             'Caixa Econ'#244'mica Federal'
