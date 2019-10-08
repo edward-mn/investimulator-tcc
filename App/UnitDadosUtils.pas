@@ -7,6 +7,7 @@ const
   PathArquivoTesouroDireto = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\TesouroDireto.txt';
   PathArquivoPoupanca = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\Poupanca.txt';
   PathArquivoCertificadoDepositoBancario = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\CertificadoDepositoBancario.txt';
+  PathArquivoCertificadoLetraCredito = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\LetraCredito.txt';
 
   TesouroDireto = 'Tesouro Direto';
   TesouroSelic = 'Tesouro Selic';
@@ -16,6 +17,10 @@ const
   TesouroIPCASemestrais = 'Tesouro IPCA+ Juros semestrais (NTN – B Principal)';
   Poupanca = 'Poupança';
   CertifucadoDepositoBancario = 'Certificado de Depósito Bancário';
+  LetraCredito = 'Letra de Crédito';
+  LetraCreditoImobiliario = 'Letra de Crédito Imobiliário';
+  LetraCreditoAgropecuario = 'Letra de Crédito Agropecuário';
+  LetraCambio = 'Letra de Câmbio';
 
   FGC = 'FGC - Fundo Garantidor de Créditos';
   FGCValor = 'Seu investimento está assegurado até R$ 250 mil por instituição de aplicação';
@@ -38,6 +43,7 @@ const
   ValorAplicadoInvalido = 'O Valor aplicado não pode ser vazio';
   QuantidadeInvalida = 'A quantidade de dias deve ser maior que 0';
   TesouroSelicNecessario = 'É preciso selecionar um tipo do Tesouro Direto';
+  LetraCreditoNecessario = 'É preciso selecionar um tipo de Letra de Crédito';
   TaxaAplicacaoNecessario = 'É preciso selecionar um tipo de Taxa para o investimento';
 
 implementation

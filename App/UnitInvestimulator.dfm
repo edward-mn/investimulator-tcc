@@ -21,7 +21,7 @@ object FormInvestimulator: TFormInvestimulator
     Top = 0
     Width = 708
     Height = 470
-    ActivePage = TabSheetCDB
+    ActivePage = TabSheetLCs
     Align = alClient
     TabOrder = 0
     object TabSheetTodos: TTabSheet
@@ -348,6 +348,129 @@ object FormInvestimulator: TFormInvestimulator
         Caption = 'Simular'
         TabOrder = 2
         OnClick = ButtonSimularrCDBClick
+      end
+    end
+    object TabSheetLCs: TTabSheet
+      Caption = 'LC'#39's'
+      ImageIndex = 4
+      object GroupBoxLC: TGroupBox
+        Left = 0
+        Top = 0
+        Width = 601
+        Height = 105
+        Caption = 'Letras de Cr'#233'dito'
+        TabOrder = 0
+        object LabelFundosInvestimentosLC: TLabel
+          Left = 239
+          Top = 70
+          Width = 99
+          Height = 13
+          Caption = 'Selecione um Fundo:'
+        end
+        object LabelQtdDiasLC: TLabel
+          Left = 239
+          Top = 47
+          Width = 98
+          Height = 13
+          Caption = 'Quantidade de Dias:'
+        end
+        object LabelValorAplicadoLC: TLabel
+          Left = 239
+          Top = 22
+          Width = 71
+          Height = 13
+          Caption = 'Valor Aplicado:'
+        end
+        object RadioButtonLC: TRadioButton
+          Left = 10
+          Top = 22
+          Width = 121
+          Height = 17
+          Caption = 'Letra de C'#226'mbio (LC)'
+          TabOrder = 0
+          OnClick = RadioButtonLCClick
+        end
+        object RadioButtonLCA: TRadioButton
+          Left = 10
+          Top = 47
+          Width = 193
+          Height = 17
+          Caption = 'Letra de Cr'#233'dito Agropecu'#225'rio (LCA)'
+          TabOrder = 1
+          OnClick = RadioButtonLCAClick
+        end
+        object RadioButtonLCI: TRadioButton
+          Left = 10
+          Top = 72
+          Width = 185
+          Height = 17
+          Caption = 'Letra de Cr'#233'dito Imobili'#225'rio (LCI)'
+          TabOrder = 2
+          OnClick = RadioButtonLCIClick
+        end
+        object ComboBoxLCsFundosInvestimento: TComboBox
+          Left = 344
+          Top = 70
+          Width = 162
+          Height = 22
+          Style = csOwnerDrawFixed
+          TabOrder = 3
+        end
+        object EditValorAplicadoLC: TEdit
+          Left = 383
+          Top = 17
+          Width = 121
+          Height = 21
+          TabOrder = 4
+          Text = '1001,11'
+          OnKeyPress = EditValorAplicadoLCKeyPress
+        end
+        object SpinEditQtdDiasLC: TSpinEdit
+          Left = 383
+          Top = 44
+          Width = 121
+          Height = 22
+          MaxValue = 0
+          MinValue = 0
+          TabOrder = 5
+          Value = 480
+        end
+      end
+      object ButtonLCSimular: TButton
+        Left = 607
+        Top = 3
+        Width = 90
+        Height = 102
+        Caption = 'Simular'
+        TabOrder = 1
+      end
+      object MemoLC: TMemo
+        Left = 0
+        Top = 111
+        Width = 700
+        Height = 331
+        Align = alBottom
+        Lines.Strings = (
+          '')
+        ReadOnly = True
+        ScrollBars = ssVertical
+        TabOrder = 2
+      end
+      object RadioButtonTaxaPosLC: TRadioButton
+        Left = 514
+        Top = 61
+        Width = 73
+        Height = 17
+        Caption = 'P'#243's-Fixado'
+        TabOrder = 3
+      end
+      object RadioButtonTaxaPreLC: TRadioButton
+        Left = 514
+        Top = 30
+        Width = 73
+        Height = 17
+        Caption = 'Pr'#233'-Fixado'
+        TabOrder = 4
       end
     end
   end

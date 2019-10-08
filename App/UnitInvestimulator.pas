@@ -59,6 +59,21 @@ type
     ButtonSimularrCDB: TButton;
     ComboBoxCDBBancos: TComboBox;
     LabelCDBBancos: TLabel;
+    TabSheetLCs: TTabSheet;
+    GroupBoxLC: TGroupBox;
+    ButtonLCSimular: TButton;
+    MemoLC: TMemo;
+    RadioButtonLCI: TRadioButton;
+    RadioButtonLCA: TRadioButton;
+    RadioButtonLC: TRadioButton;
+    ComboBoxLCsFundosInvestimento: TComboBox;
+    EditValorAplicadoLC: TEdit;
+    SpinEditQtdDiasLC: TSpinEdit;
+    RadioButtonTaxaPreLC: TRadioButton;
+    RadioButtonTaxaPosLC: TRadioButton;
+    LabelValorAplicadoLC: TLabel;
+    LabelQtdDiasLC: TLabel;
+    LabelFundosInvestimentosLC: TLabel;
     procedure FormShow(Sender: TObject);
     procedure ButtonTesouroDiretoSimularClick(Sender: TObject);
     procedure EditValorAplicadoTDKeyPress(Sender: TObject; var Key: Char);
@@ -66,6 +81,10 @@ type
     procedure ButtonSimularPoupancaClick(Sender: TObject);
     procedure EditValorAplicadoCDBKeyPress(Sender: TObject; var Key: Char);
     procedure ButtonSimularrCDBClick(Sender: TObject);
+    procedure EditValorAplicadoLCKeyPress(Sender: TObject; var Key: Char);
+    procedure RadioButtonLCIClick(Sender: TObject);
+    procedure RadioButtonLCAClick(Sender: TObject);
+    procedure RadioButtonLCClick(Sender: TObject);
   private
     FGravarArquivo: TGravar;
     function PegarTipoTaxaBase(RadioPreFixado, RadioPosFixado: Boolean): string;
@@ -75,15 +94,19 @@ type
     procedure ValidarTesouroDireto;
     procedure ValidarPoupanca;
     procedure ValidarCDB;
+    procedure ValidarLC;
     procedure SimularTesouroDireto;
     procedure SimularPoupanca;
     procedure SimularCDB;
     procedure LerDadosMemo;
     procedure LimparCampos;
     function PegarTipoTD: string;
+    function PegarTipoLCs: string;
     function PegarTipoTaxaTD: string;
     function PegarTipoTaxaCDB: string;
+    function PegarTipoTaxaLC: string;
     function PegarBancoCDB: string;
+    procedure GerarFundoLc;
   public
     procedure EvalidationErrorMsg(Msg: string);
     constructor Create(AOwner: TComponent); override;
@@ -135,6 +158,11 @@ begin
   ValidarCurrencyImput(Key, EditValorAplicadoCDB.Text);
 end;
 
+procedure TFormInvestimulator.EditValorAplicadoLCKeyPress(Sender: TObject; var Key: Char);
+begin
+  ValidarCurrencyImput(Key, EditValorAplicadoLC.Text);
+end;
+
 procedure TFormInvestimulator.EditValorAplicadoTDKeyPress(Sender: TObject; var Key: Char);
 begin
   ValidarCurrencyImput(Key, EditValorAplicadoTD.Text);
@@ -156,6 +184,37 @@ begin
   PageControlInvestimulator.ActivePageIndex := 0;
 end;
 
+procedure TFormInvestimulator.GerarFundoLc;
+begin
+  if RadioButtonLCI.Checked then
+  begin
+    ComboBoxLCsFundosInvestimento.Clear;
+    ComboBoxLCsFundosInvestimento.Items.Add('Hipotecas');
+    ComboBoxLCsFundosInvestimento.Items.Add('Financiamentos');
+    ComboBoxLCsFundosInvestimento.Items.Add('Reformas');
+    ComboBoxLCsFundosInvestimento.Items.Add('Vendas');
+    ComboBoxLCsFundosInvestimento.Items.Add('Aluguéis');
+  end
+  else if RadioButtonLCA.Checked then
+  begin
+    ComboBoxLCsFundosInvestimento.Clear;
+    ComboBoxLCsFundosInvestimento.Items.Add('Pecuária');
+    ComboBoxLCsFundosInvestimento.Items.Add('Agricultura');
+    ComboBoxLCsFundosInvestimento.Items.Add('Agronegócios');
+    ComboBoxLCsFundosInvestimento.Items.Add('Insumos/Sementes');
+    ComboBoxLCsFundosInvestimento.Items.Add('Serviços Agropecuários');
+    ComboBoxLCsFundosInvestimento.Items.Add('Comercialização/Industrialização');
+  end
+  else if RadioButtonLC.Checked then
+  begin
+    ComboBoxLCsFundosInvestimento.Clear;
+    ComboBoxLCsFundosInvestimento.Items.Add('Crédito Consiginado');
+    ComboBoxLCsFundosInvestimento.ItemIndex := 0;
+  end
+  else
+    EvalidationErrorMsg('Error');
+end;
+
 procedure TFormInvestimulator.GravarSimulacoesPadrao(PathArquivoSimulado, Conteudo: string);
 begin
   if (not PathArquivoSimulado.IsEmpty)  and (not Conteudo.IsEmpty) then
@@ -174,6 +233,7 @@ begin
   MemoTesouroDireto.Lines.LoadFromFile(PathArquivoTesouroDireto);
   MemoPoupanca.Lines.LoadFromFile(PathArquivoPoupanca);
   MemoCDB.Lines.LoadFromFile(PathArquivoCertificadoDepositoBancario);
+  MemoLC.Lines.LoadFromFile(PathArquivoCertificadoLetraCredito);
 end;
 
 procedure TFormInvestimulator.LimparCampos;
@@ -196,6 +256,15 @@ begin
   RadioButtonTaxaPreCDB.Checked := False;
   RadioButtonTaxaPosCDB.Checked := False;
   ComboBoxCDBBancos.ItemIndex := -1;
+
+  EditValorAplicadoLC.Clear;
+  SpinEditQtdDiasLC.Clear;
+  ComboBoxLCsFundosInvestimento.Clear;
+  RadioButtonLCI.Checked := False;
+  RadioButtonLCA.Checked := False;
+  RadioButtonLC.Checked := False;
+  RadioButtonTaxaPreLC.Checked := False;
+  RadioButtonTaxaPosLC.Checked := False;
 end;
 
 function TFormInvestimulator.PegarBancoCDB: string;
@@ -207,6 +276,18 @@ begin
     EvalidationErrorMsg(SelecionarBanco)
   else
     Exit(ComboBoxCDBBancos.Text);
+end;
+
+function TFormInvestimulator.PegarTipoLCs: string;
+begin
+  if RadioButtonLCI.Checked then
+    Exit(LetraCreditoImobiliario)
+  else if RadioButtonLCA.Checked then
+    Exit(LetraCreditoAgropecuario)
+  else if RadioButtonLC.Checked then
+    Exit(LetraCambio)
+  else
+    EvalidationErrorMsg(LetraCreditoNecessario);
 end;
 
 function TFormInvestimulator.PegarTipoTaxaBase(RadioPreFixado, RadioPosFixado: Boolean): string;
@@ -222,6 +303,11 @@ end;
 function TFormInvestimulator.PegarTipoTaxaCDB: string;
 begin
   Result := PegarTipoTaxaBase(RadioButtonTaxaPreCDB.Checked, RadioButtonTaxaPosCDB.Checked);
+end;
+
+function TFormInvestimulator.PegarTipoTaxaLC: string;
+begin
+  Result := PegarTipoTaxaBase(RadioButtonTaxaPreLC.Checked, RadioButtonTaxaPosLC.Checked);
 end;
 
 function TFormInvestimulator.PegarTipoTaxaTD: string;
@@ -243,6 +329,21 @@ begin
     Exit(TesouroIPCASemestrais)
   else
     EvalidationErrorMsg(TesouroSelicNecessario);
+end;
+
+procedure TFormInvestimulator.RadioButtonLCAClick(Sender: TObject);
+begin
+  GerarFundoLc;
+end;
+
+procedure TFormInvestimulator.RadioButtonLCClick(Sender: TObject);
+begin
+  GerarFundoLc;
+end;
+
+procedure TFormInvestimulator.RadioButtonLCIClick(Sender: TObject);
+begin
+  GerarFundoLc;
 end;
 
 procedure TFormInvestimulator.SimularCDB;
@@ -377,6 +478,11 @@ end;
 procedure TFormInvestimulator.ValidarCDB;
 begin
   ValidarValor_Dias(EditValorAplicadoCDB.Text, SpinEditQtdDiasCDB.Value);
+end;
+
+procedure TFormInvestimulator.ValidarLC;
+begin
+  ValidarValor_Dias(EditValorAplicadoLC.Text, SpinEditQtdDiasLC.Value);
 end;
 
 end.
