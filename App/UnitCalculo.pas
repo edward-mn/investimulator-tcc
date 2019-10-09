@@ -17,6 +17,7 @@ type
     class function TaxaSelic(Dias: integer): double;
     class function TaxaPoupanca(Dias: integer): double;
     class function TaxaCDB(Dias: integer): double;
+    class function TaxaLCs(Dias: integer): double;
     class function TesouroSelicTaxasPos(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
     class function TesouroSelicTaxasPre(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
     class function TesouroSemestraisTaxasPre(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
@@ -24,6 +25,8 @@ type
     class function Poupanca(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
     class function CertificadoDepositoBancarioPos(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
     class function CertificadoDepositoBancarioPre(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
+    class function LetrasCreditosPos(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
+    class function LetrasCreditosPre(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
     class function TesouroIOF_180(ValorAplicado: Currency; TaxaTipoRendimento: Double): Currency;
     class function TesouroIOF_360(ValorAplicado: Currency; TaxaTipoRendimento: Double): Currency;
     class function TesouroIOF_720(ValorAplicado: Currency; TaxaTipoRendimento: Double): Currency;
@@ -86,6 +89,11 @@ begin
   Result := ValorAplicado + ValorDaTaxa;
 end;
 
+class function TCalculo.TaxaLCs(Dias: integer): double;
+begin
+  Result := RendimentoPadrao(Dias, TaxaLCsAnual, TaxaLCsMensal);
+end;
+
 class function TCalculo.TaxaPoupanca(Dias: integer): double;
 begin
   Result := RendimentoPadrao(Dias, TaxaPoupancaAnual, TaxaPoupancaMensal);
@@ -114,6 +122,16 @@ begin
   ValorComTaxa := ValorAplicado * ValorDaTaxa;
 
   Result := ValorComTaxa + ValorAplicado;
+end;
+
+class function TCalculo.LetrasCreditosPos(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
+begin
+  Result := ValorFinalBasePosFixado(ValorAplicado, TaxaLCs(Dias), TaxaCDI);
+end;
+
+class function TCalculo.LetrasCreditosPre(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
+begin
+  Result := ValorFinalBasePreFixado(ValorAplicado, TaxaLCs(Dias), TaxaCDI);
 end;
 
 class function TCalculo.Poupanca(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;

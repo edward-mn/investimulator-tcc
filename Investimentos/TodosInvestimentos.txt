@@ -86,3 +86,63 @@ Seguro do Investimento: FGC - Fundo Garantidor de Créditos
 Descrição do Seguro: Seu investimento está assegurado até R$ 250 mil por instituição de aplicação
 ###############################################################
 
+###############################################################
+Tipo de Investimento Principal: Letra de Crédito - Pré-fixado
+Fundo de Investimento Escolhido: Letra de Câmbio - Crédito Consiginado
+Valor Aplicado: R$ 1001,11
+Quantidade de Dias Aplicado: 480
+Data da Aplicação: 09\10\2019 - 01:20:57
+Taxa da Letra de Crédito: 0,699%
+Taxa CDI: 0,58%
+Rendimento IOF gerado de 0 a 180 dias: R$ 2106,3354
+Rendimento IOF gerado de 181 a 360 dias: R$ 2281,5297
+Rendimento IOF gerado de 361 a 720 dias: R$ 2596,8793
+Rendimento IOF gerado com mais de 720 dias: R$ 3187,5342
+Rendimento final: R$ 2341,5963
+###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Letra de Crédito - Pós-fixado
+Fundo de Investimento Escolhido: Letra de Crédito Agropecuário - Serviços Agropecuários
+Valor Aplicado: R$ 1001,21
+Quantidade de Dias Aplicado: 480
+Data da Aplicação: 09\10\2019 - 01:22:42
+Taxa da Letra de Crédito: 0,699%
+Taxa CDI: 0,56%
+Rendimento IOF gerado de 0 a 180 dias: R$ 2106,5458
+Rendimento IOF gerado de 181 a 360 dias: R$ 2281,7576
+Rendimento IOF gerado de 361 a 720 dias: R$ 2597,1387
+Rendimento IOF gerado com mais de 720 dias: R$ 2988,6118
+Rendimento final: R$ 2411,9149
+###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Letra de Crédito - Pós-fixado
+Fundo de Investimento Escolhido: Letra de Crédito Imobiliário - Hipotecas
+Valor Aplicado: R$ 1001,21
+Quantidade de Dias Aplicado: 480
+Data da Aplicação: 09\10\2019 - 01:23:29
+Taxa da Letra de Crédito: 0,699%
+Taxa CDI: 0,59%
+Rendimento IOF gerado de 0 a 180 dias: R$ 2106,5458
+Rendimento IOF gerado de 181 a 360 dias: R$ 2281,7576
+Rendimento IOF gerado de 361 a 720 dias: R$ 2597,1387
+Rendimento IOF gerado com mais de 720 dias: R$ 2707,2718
+Rendimento final: R$ 2441,9512
+###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Letra de Crédito - Pré-fixado
+Fundo de Investimento Escolhido: Letra de Crédito Agropecuário - Pecuária
+Valor Aplicado: R$ 254,52
+Quantidade de Dias Aplicado: 321
+Data da Aplicação: 09\10\2019 - 01:25:18
+Taxa da Letra de Crédito: 0,05%
+Taxa CDI: 0,59%
+Rendimento IOF gerado de 0 a 180 dias: R$ 370,3266
+Rendimento IOF gerado de 181 a 360 dias: R$ 414,8676
+Rendimento IOF gerado de 361 a 720 dias: R$ 495,0414
+Rendimento IOF gerado com mais de 720 dias: R$ 728,6908
+Rendimento final: R$ 430,1388
+###############################################################
+

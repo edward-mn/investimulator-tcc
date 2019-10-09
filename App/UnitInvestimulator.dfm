@@ -416,16 +416,16 @@ object FormInvestimulator: TFormInvestimulator
           Style = csOwnerDrawFixed
           TabOrder = 3
         end
-        object EditValorAplicadoLC: TEdit
+        object EditValorAplicadoLCs: TEdit
           Left = 383
           Top = 17
           Width = 121
           Height = 21
           TabOrder = 4
           Text = '1001,11'
-          OnKeyPress = EditValorAplicadoLCKeyPress
+          OnKeyPress = EditValorAplicadoLCsKeyPress
         end
-        object SpinEditQtdDiasLC: TSpinEdit
+        object SpinEditQtdDiasLCs: TSpinEdit
           Left = 383
           Top = 44
           Width = 121
@@ -443,6 +443,7 @@ object FormInvestimulator: TFormInvestimulator
         Height = 102
         Caption = 'Simular'
         TabOrder = 1
+        OnClick = ButtonLCSimularClick
       end
       object MemoLC: TMemo
         Left = 0

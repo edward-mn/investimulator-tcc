@@ -7,7 +7,7 @@ const
   PathArquivoTesouroDireto = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\TesouroDireto.txt';
   PathArquivoPoupanca = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\Poupanca.txt';
   PathArquivoCertificadoDepositoBancario = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\CertificadoDepositoBancario.txt';
-  PathArquivoCertificadoLetraCredito = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\LetraCredito.txt';
+  PathArquivoCertificadoLetrasCreditos = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\LetraCredito.txt';
 
   TesouroDireto = 'Tesouro Direto';
   TesouroSelic = 'Tesouro Selic';
@@ -37,6 +37,8 @@ const
   TaxaPoupancaMensal = 0.034;
   TaxaCDBAnual = 0.65;
   TaxaCDBMensal = 0.053;
+  TaxaLCsAnual = 0.68;
+  TaxaLCsMensal = 0.056;
   TaxaPreFixado = 'Pré-fixado';
   TaxaPosFixado = 'Pós-fixado';
 
@@ -45,6 +47,9 @@ const
   TesouroSelicNecessario = 'É preciso selecionar um tipo do Tesouro Direto';
   LetraCreditoNecessario = 'É preciso selecionar um tipo de Letra de Crédito';
   TaxaAplicacaoNecessario = 'É preciso selecionar um tipo de Taxa para o investimento';
+
+  SelecionarBanco = 'É necessário selecionar um Banco para simular';
+  SelecionarFundoLCs = 'É necessário selecionar um Fundo para simular';
 
 implementation
 
