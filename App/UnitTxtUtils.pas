@@ -149,6 +149,7 @@ begin
     'Rendimento IOF gerado de 181 a 360 dias: R$ ' + CurrToStr(IOF360) + sLineBreak +
     'Rendimento IOF gerado de 361 a 720 dias: R$ ' + CurrToStr(IOF720) + sLineBreak +
     'Rendimento IOF gerado com mais de 720 dias: R$ ' + CurrToStr(IOF_Mais720) + sLineBreak +
+    'Seguro do Investimento: ' + FGC + sLineBreak +
     'Rendimento final: R$ ' + CurrToStr(LCsValorFinal) + sLineBreak +
     Separador + sLineBreak;
 
