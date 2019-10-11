@@ -21,7 +21,7 @@ object FormInvestimulator: TFormInvestimulator
     Top = 0
     Width = 708
     Height = 470
-    ActivePage = TabSheetLCs
+    ActivePage = TabSheetDebentures
     Align = alClient
     TabOrder = 0
     object TabSheetTodos: TTabSheet
@@ -244,7 +244,7 @@ object FormInvestimulator: TFormInvestimulator
         ScrollBars = ssVertical
         TabOrder = 0
       end
-      object GroupBoxCDB: TGroupBox
+      object GroupBoxTiposCDB: TGroupBox
         Left = 0
         Top = 0
         Width = 586
@@ -351,14 +351,14 @@ object FormInvestimulator: TFormInvestimulator
       end
     end
     object TabSheetLCs: TTabSheet
-      Caption = 'LC'#39's'
+      Caption = 'Letras de Cr'#233'ditos'
       ImageIndex = 4
-      object GroupBoxLC: TGroupBox
+      object GroupBoxTiposLC: TGroupBox
         Left = 0
         Top = 0
         Width = 601
         Height = 105
-        Caption = 'Letras de Cr'#233'dito'
+        Caption = 'Tipos de Letras de Cr'#233'ditos'
         TabOrder = 0
         object LabelFundosInvestimentosLC: TLabel
           Left = 239
@@ -471,6 +471,128 @@ object FormInvestimulator: TFormInvestimulator
         Width = 73
         Height = 17
         Caption = 'Pr'#233'-Fixado'
+        TabOrder = 4
+      end
+    end
+    object TabSheetDebentures: TTabSheet
+      Caption = 'Deb'#234'ntures'
+      ImageIndex = 5
+      ExplicitLeft = 8
+      ExplicitTop = 28
+      object MemoDebentures: TMemo
+        Left = 0
+        Top = 143
+        Width = 700
+        Height = 299
+        Align = alBottom
+        ReadOnly = True
+        ScrollBars = ssVertical
+        TabOrder = 0
+      end
+      object GroupBoxTiposDebentures: TGroupBox
+        Left = 0
+        Top = 0
+        Width = 616
+        Height = 137
+        Caption = 'Tipos de Deb'#234'ntures'
+        TabOrder = 1
+        object LabelQtdDiasDebentures: TLabel
+          Left = 423
+          Top = 109
+          Width = 97
+          Height = 13
+          Caption = 'Quantidade de dias:'
+        end
+        object LabelValorAplicadoDebentures: TLabel
+          Left = 423
+          Top = 82
+          Width = 71
+          Height = 13
+          Caption = 'Valor Aplicado:'
+        end
+        object RadioButtonDebenturesConversiveis: TRadioButton
+          Left = 200
+          Top = 52
+          Width = 145
+          Height = 17
+          Caption = 'Deb'#234'ntures Convers'#237'veis'
+          TabOrder = 0
+        end
+        object RadioButtonDebenturesSimples: TRadioButton
+          Left = 18
+          Top = 25
+          Width = 145
+          Height = 17
+          Caption = 'Deb'#234'ntures Simples'
+          TabOrder = 1
+        end
+        object RadioButtonDebenturesEscriturais: TRadioButton
+          Left = 372
+          Top = 36
+          Width = 145
+          Height = 17
+          Caption = 'Deb'#234'ntures Escriturais'
+          TabOrder = 2
+        end
+        object RadioButtonDebenturesNominativas: TRadioButton
+          Left = 18
+          Top = 52
+          Width = 145
+          Height = 17
+          Caption = 'Deb'#234'ntures Nominativas'
+          TabOrder = 3
+        end
+        object SpinEditQtdDiasDebentures: TSpinEdit
+          Left = 531
+          Top = 106
+          Width = 78
+          Height = 22
+          MaxValue = 0
+          MinValue = 0
+          TabOrder = 4
+          Value = 480
+        end
+        object EditValorAplicadoDebentures: TEdit
+          Left = 531
+          Top = 79
+          Width = 78
+          Height = 21
+          TabOrder = 5
+          Text = '1001,11'
+          OnKeyPress = EditValorAplicadoDebenturesKeyPress
+        end
+        object RadioButtonDebenturesPermutaveis: TRadioButton
+          Left = 200
+          Top = 23
+          Width = 145
+          Height = 17
+          Caption = 'Deb'#234'ntures Permut'#225'veis'
+          TabOrder = 6
+        end
+      end
+      object ButtonDebenturesSimular: TButton
+        Left = 622
+        Top = 0
+        Width = 75
+        Height = 137
+        Caption = 'Simular'
+        TabOrder = 2
+        OnClick = ButtonDebenturesSimularClick
+      end
+      object RadioButtonTaxaPreDebentures: TRadioButton
+        Left = 531
+        Top = 23
+        Width = 78
+        Height = 17
+        Caption = 'Pr'#233'-Fixado'
+        TabOrder = 3
+      end
+      object RadioButtonTaxaPosDebentures: TRadioButton
+        Left = 531
+        Top = 49
+        Width = 78
+        Height = 17
+        Caption = 'P'#243's-Fixado'
         TabOrder = 4
       end
     end

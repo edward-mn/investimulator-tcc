@@ -16,6 +16,8 @@ type
       IOF180, IOF360, IOF720, IOF_Mais720, CDBValorFinal: Currency; QtdDias: Integer): String;
     function TextoPadraoLetrasCreditos(ValorAplicado, TipoInvestimentoEscolhido, TipoFundoEscolhido, TipoTaxa: string; TaxaLCs,
       TaxaCDI: Double; IOF180, IOF360, IOF720, IOF_Mais720, LCsValorFinal: Currency; QtdDias: Integer): String;
+    function TextoPadraoDebentures(ValorAplicado, TipoInvestimentoEscolhido, DescricaoInvestimentoEscolhido, TipoTaxa: string;
+      TaxaDebentures, TaxaCDI: Double; IOF180, IOF360, IOF720, IOF_Mais720, LCsValorFinal: Currency; QtdDias: Integer): String;
   end;
   const
     Separador = '###############################################################';
@@ -154,6 +156,31 @@ begin
     Separador + sLineBreak;
 
   Result := PadraoSalvarLCs;
+end;
+
+function TGravar.TextoPadraoDebentures(ValorAplicado, TipoInvestimentoEscolhido, DescricaoInvestimentoEscolhido, TipoTaxa: string;
+  TaxaDebentures, TaxaCDI: Double; IOF180, IOF360, IOF720, IOF_Mais720, LCsValorFinal: Currency; QtdDias: Integer): String;
+var
+ PadraoSalvarDebentures: string;
+begin
+  PadraoSalvarDebentures :=
+    Separador + sLineBreak +
+    'Tipo de Investimento Principal: ' + Debentures + ' - ' + TipoTaxa + sLineBreak +
+    'Fundo de Investimento Escolhido: ' + TipoInvestimentoEscolhido + sLineBreak +
+    'Descrição do Tipo Escolhido: ' + DescricaoInvestimentoEscolhido + sLineBreak +
+    'Valor Aplicado: R$ ' + ValorAplicado + sLineBreak +
+    'Quantidade de Dias Aplicado: ' + IntToStr(QtdDias) + sLineBreak +
+    PegarDataAtualSimulacao + sLineBreak +
+    'Taxa da Debêntures: ' + FloatToStr(TaxaDebentures) + '%' + sLineBreak +
+    'Taxa CDI: ' + FloatToStr(TaxaCDI) + '%' + sLineBreak +
+    'Rendimento IOF gerado de 0 a 180 dias: R$ ' + CurrToStr(IOF180) + sLineBreak +
+    'Rendimento IOF gerado de 181 a 360 dias: R$ ' + CurrToStr(IOF360) + sLineBreak +
+    'Rendimento IOF gerado de 361 a 720 dias: R$ ' + CurrToStr(IOF720) + sLineBreak +
+    'Rendimento IOF gerado com mais de 720 dias: R$ ' + CurrToStr(IOF_Mais720) + sLineBreak +
+    'Rendimento final: R$ ' + CurrToStr(LCsValorFinal) + sLineBreak +
+    Separador + sLineBreak;
+
+  Result := PadraoSalvarDebentures;
 end;
 
 end.

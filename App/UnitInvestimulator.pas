@@ -49,7 +49,7 @@ type
     ButtonSimularPoupanca: TButton;
     TabSheetCDB: TTabSheet;
     MemoCDB: TMemo;
-    GroupBoxCDB: TGroupBox;
+    GroupBoxTiposCDB: TGroupBox;
     RadioButtonTaxaPreCDB: TRadioButton;
     RadioButtonTaxaPosCDB: TRadioButton;
     LabelValorAplicadoCDB: TLabel;
@@ -60,7 +60,7 @@ type
     ComboBoxCDBBancos: TComboBox;
     LabelCDBBancos: TLabel;
     TabSheetLCs: TTabSheet;
-    GroupBoxLC: TGroupBox;
+    GroupBoxTiposLC: TGroupBox;
     ButtonLCSimular: TButton;
     MemoLC: TMemo;
     RadioButtonLCI: TRadioButton;
@@ -74,6 +74,21 @@ type
     LabelValorAplicadoLC: TLabel;
     LabelQtdDiasLC: TLabel;
     LabelFundosInvestimentosLC: TLabel;
+    TabSheetDebentures: TTabSheet;
+    MemoDebentures: TMemo;
+    GroupBoxTiposDebentures: TGroupBox;
+    ButtonDebenturesSimular: TButton;
+    EditValorAplicadoDebentures: TEdit;
+    SpinEditQtdDiasDebentures: TSpinEdit;
+    LabelValorAplicadoDebentures: TLabel;
+    LabelQtdDiasDebentures: TLabel;
+    RadioButtonDebenturesNominativas: TRadioButton;
+    RadioButtonDebenturesEscriturais: TRadioButton;
+    RadioButtonDebenturesSimples: TRadioButton;
+    RadioButtonDebenturesConversiveis: TRadioButton;
+    RadioButtonTaxaPreDebentures: TRadioButton;
+    RadioButtonTaxaPosDebentures: TRadioButton;
+    RadioButtonDebenturesPermutaveis: TRadioButton;
     procedure FormShow(Sender: TObject);
     procedure ButtonTesouroDiretoSimularClick(Sender: TObject);
     procedure EditValorAplicadoTDKeyPress(Sender: TObject; var Key: Char);
@@ -86,6 +101,9 @@ type
     procedure RadioButtonLCAClick(Sender: TObject);
     procedure RadioButtonLCClick(Sender: TObject);
     procedure ButtonLCSimularClick(Sender: TObject);
+    procedure EditValorAplicadoDebenturesKeyPress(Sender: TObject;
+      var Key: Char);
+    procedure ButtonDebenturesSimularClick(Sender: TObject);
   private
     FGravarArquivo: TGravar;
     function PegarTipoTaxaBase(RadioPreFixado, RadioPosFixado: Boolean): string;
@@ -96,20 +114,25 @@ type
     procedure ValidarPoupanca;
     procedure ValidarCDB;
     procedure ValidarLCs;
+    procedure ValidarDebentures;
     procedure SimularTesouroDireto;
     procedure SimularPoupanca;
     procedure SimularCDB;
+    procedure SimularLCs;
     procedure LerDadosMemo;
     procedure LimparCampos;
     function PegarTipoTD: string;
     function PegarTipoLCs: string;
+    function PegarTipoDebentures: string;
     function PegarTipoTaxaTD: string;
     function PegarTipoTaxaCDB: string;
     function PegarTipoTaxaLCs: string;
+    function PegarTipoTaxaDebentures: string;
     function PegarBancoCDB: string;
     function PegarFundoLCs: string;
     function PegarComboBase(ItemSelecionado: Integer; TextoSelecionado, MsgError: string): string;
     procedure GerarFundoLc;
+    function PegarDescricaoDebentures: string;
   public
     procedure EvalidationErrorMsg(Msg: string);
     constructor Create(AOwner: TComponent); override;
@@ -129,34 +152,39 @@ uses
   UnitDadosUtils,
   StrUtils;
 
-procedure TFormInvestimulator.ButtonLCSimularClick(Sender: TObject);
+procedure TFormInvestimulator.ButtonDebenturesSimularClick(Sender: TObject);
 var
-  FundoSelecionado, TextoLCs: string;
-  RendimentoPorcentagemLCs, TaxaCDI_LCs: Double;
-  IOF180 ,IOF360, IOF720, IOF_Mais720, ValorLCsFinal: Currency;
+  DescricaoDebenturesSelecionada, TextoDebentures: string;
+  RendimentoPorcentagemDebentures, TaxaCDI_Debentures: Double;
+  IOF180 ,IOF360, IOF720, IOF_Mais720, ValorDebenturesFinal: Currency;
 begin
-  ValorLCsFinal := 0.0;
-  ValidarLCs;
-  FundoSelecionado := PegarFundoLCs;
-  TaxaCDI_LCs := TCalculo.TaxaCDI_Radon;
-  RendimentoPorcentagemLCs := TCalculo.TaxaLCs(SpinEditQtdDiasLCs.Value);
+  ValorDebenturesFinal := 0.0;
+  ValidarDebentures;
+  DescricaoDebenturesSelecionada := PegarDescricaoDebentures;
+  TaxaCDI_Debentures := TCalculo.TaxaCDI_Radon;
+  RendimentoPorcentagemDebentures := TCalculo.TaxaDebentures(SpinEditQtdDiasDebentures.Value);
 
-  IOF180 := TCalculo.TesouroIOF_180(StrToCurr(EditValorAplicadoLCs.Text), RendimentoPorcentagemLCs);
-  IOF360 := TCalculo.TesouroIOF_360(StrToCurr(EditValorAplicadoLCs.Text), RendimentoPorcentagemLCs);
-  IOF720 := TCalculo.TesouroIOF_720(StrToCurr(EditValorAplicadoLCs.Text), RendimentoPorcentagemLCs);
-  IOF_Mais720 := TCalculo.TesouroIOF_Mais720(StrToCurr(EditValorAplicadoLCs.Text), RendimentoPorcentagemLCs);
+  IOF180 := TCalculo.TesouroIOF_180(StrToCurr(EditValorAplicadoDebentures.Text), RendimentoPorcentagemDebentures);
+  IOF360 := TCalculo.TesouroIOF_360(StrToCurr(EditValorAplicadoDebentures.Text), RendimentoPorcentagemDebentures);
+  IOF720 := TCalculo.TesouroIOF_720(StrToCurr(EditValorAplicadoDebentures.Text), RendimentoPorcentagemDebentures);
+  IOF_Mais720 := TCalculo.TesouroIOF_Mais720(StrToCurr(EditValorAplicadoDebentures.Text), RendimentoPorcentagemDebentures);
 
-  if PegarTipoTaxaLCs = TaxaPreFixado then
-    ValorLCsFinal := TCalculo.LetrasCreditosPre(StrToCurr(EditValorAplicadoLCs.Text), SpinEditQtdDiasLCs.Value, TaxaCDI_Aleatorio)
-  else if PegarTipoTaxaLCs = TaxaPosFixado then
-    ValorLCsFinal := TCalculo.LetrasCreditosPos(StrToCurr(EditValorAplicadoLCs.Text), SpinEditQtdDiasLCs.Value, TaxaCDI_LCs)
+  if PegarTipoTaxaDebentures = TaxaPreFixado then
+    ValorDebenturesFinal := TCalculo.DebenturesPre(StrToCurr(EditValorAplicadoDebentures.Text), SpinEditQtdDiasDebentures.Value, TaxaCDI_Aleatorio)
+  else if PegarTipoTaxaDebentures = TaxaPosFixado then
+    ValorDebenturesFinal := TCalculo.DebenturesPos(StrToCurr(EditValorAplicadoDebentures.Text), SpinEditQtdDiasDebentures.Value, TaxaCDI_Debentures)
   else
     EvalidationErrorMsg('Error');
 
-  TextoLCs := FGravarArquivo.TextoPadraoLetrasCreditos(EditValorAplicadoLCs.Text, PegarTipoLCs, FundoSelecionado, PegarTipoTaxaLCs,
-    RendimentoPorcentagemLCs, TaxaCDI_LCs, IOF180, IOF360, IOF720, IOF_Mais720, ValorLCsFinal, SpinEditQtdDiasLCs.Value);
+  TextoDebentures := FGravarArquivo.TextoPadraoDebentures(EditValorAplicadoDebentures.Text, PegarTipoDebentures, PegarDescricaoDebentures, PegarTipoTaxaDebentures,
+    RendimentoPorcentagemDebentures, TaxaCDI_Debentures, IOF180, IOF360, IOF720, IOF_Mais720, ValorDebenturesFinal, SpinEditQtdDiasDebentures.Value);
 
-  GravarSimulacoesPadrao(PathArquivoCertificadoLetrasCreditos, TextoLCs);
+  GravarSimulacoesPadrao(PathArquivoDebentures, TextoDebentures);
+end;
+
+procedure TFormInvestimulator.ButtonLCSimularClick(Sender: TObject);
+begin
+  SimularLCs;
 end;
 
 procedure TFormInvestimulator.ButtonSimularPoupancaClick(Sender: TObject);
@@ -189,6 +217,11 @@ end;
 procedure TFormInvestimulator.EditValorAplicadoCDBKeyPress(Sender: TObject; var Key: Char);
 begin
   ValidarCurrencyImput(Key, EditValorAplicadoCDB.Text);
+end;
+
+procedure TFormInvestimulator.EditValorAplicadoDebenturesKeyPress(Sender: TObject; var Key: Char);
+begin
+  ValidarCurrencyImput(Key, EditValorAplicadoDebentures.Text);
 end;
 
 procedure TFormInvestimulator.EditValorAplicadoLCsKeyPress(Sender: TObject; var Key: Char);
@@ -262,6 +295,7 @@ begin
     FGravarArquivo.GravarTxt(PathArquivoSimulado, Conteudo);
     LimparCampos;
     LerDadosMemo;
+    ShowMessage(SimulacaoSucesso);
   end
   else
     EvalidationErrorMsg('Error');
@@ -274,6 +308,7 @@ begin
   MemoPoupanca.Lines.LoadFromFile(PathArquivoPoupanca);
   MemoCDB.Lines.LoadFromFile(PathArquivoCertificadoDepositoBancario);
   MemoLC.Lines.LoadFromFile(PathArquivoCertificadoLetrasCreditos);
+  MemoDebentures.Lines.LoadFromFile(PathArquivoDebentures);
 end;
 
 procedure TFormInvestimulator.LimparCampos;
@@ -305,6 +340,16 @@ begin
   RadioButtonLC.Checked := False;
   RadioButtonTaxaPreLC.Checked := False;
   RadioButtonTaxaPosLC.Checked := False;
+
+  RadioButtonDebenturesSimples.Checked := False;
+  RadioButtonDebenturesNominativas.Checked := False;
+  RadioButtonDebenturesEscriturais.Checked := False;
+  RadioButtonDebenturesConversiveis.Checked := False;
+  RadioButtonDebenturesPermutaveis.Checked := False;
+  EditValorAplicadoDebentures.Clear;
+  SpinEditQtdDiasDebentures.Clear;
+  RadioButtonTaxaPreDebentures.Checked := False;
+  RadioButtonTaxaPosDebentures.Checked := False;
 end;
 
 function TFormInvestimulator.PegarComboBase(ItemSelecionado: Integer; TextoSelecionado, MsgError: string): string;
@@ -317,14 +362,46 @@ begin
     Exit(TextoSelecionado);
 end;
 
+function TFormInvestimulator.PegarDescricaoDebentures: string;
+begin
+  if PegarTipoDebentures = DebenturesNominativas then
+    Exit(DescricaoDebenturesNominativos)
+  else if PegarTipoDebentures = DebenturesEscriturais then
+    Exit(DescicaoDebenturesEscriturais)
+  else if PegarTipoDebentures = DebenturesSimples then
+    Exit(DescicaoDebenturesSimples)
+  else if PegarTipoDebentures = DebenturesConversiveis then
+    Exit(DescricaoDebenturesConversiveis)
+  else if PegarTipoDebentures = DebenturesPermutaveis then
+     Exit(DescricaoDebeturesPermutaveis)
+  else
+    EvalidationErrorMsg(Format(MsgSelecionarAlgumTipo, [Debentures]));
+end;
+
 function TFormInvestimulator.PegarFundoLCs: string;
 begin
-  Result := PegarComboBase(ComboBoxLCsFundosInvestimento.ItemIndex, ComboBoxLCsFundosInvestimento.Text, SelecionarFundoLCs);
+  Result := PegarComboBase(ComboBoxLCsFundosInvestimento.ItemIndex, ComboBoxLCsFundosInvestimento.Text, Format(MsgSelecionarAlgumTipo, [FundoInvestimentoLCs]));
 end;
 
 function TFormInvestimulator.PegarBancoCDB: string;
 begin
-  Result := PegarComboBase(ComboBoxCDBBancos.ItemIndex, ComboBoxCDBBancos.Text, SelecionarBanco);
+  Result := PegarComboBase(ComboBoxCDBBancos.ItemIndex, ComboBoxCDBBancos.Text, Format(MsgSelecionarAlgumTipo, [BancoEmissorCDB]));
+end;
+
+function TFormInvestimulator.PegarTipoDebentures: string;
+begin
+  if RadioButtonDebenturesNominativas.Checked then
+    Exit(DebenturesNominativas)
+  else if RadioButtonDebenturesEscriturais.Checked then
+    Exit(DebenturesEscriturais)
+  else if RadioButtonDebenturesSimples.Checked then
+    Exit(DebenturesSimples)
+  else if RadioButtonDebenturesConversiveis.Checked then
+    Exit(DebenturesConversiveis)
+  else if (RadioButtonDebenturesPermutaveis.Checked) then
+     Exit(DebenturesPermutaveis)
+  else
+    EvalidationErrorMsg(Format(MsgSelecionarAlgumTipo, [Debentures]));
 end;
 
 function TFormInvestimulator.PegarTipoLCs: string;
@@ -336,7 +413,7 @@ begin
   else if RadioButtonLC.Checked then
     Exit(LetraCambio)
   else
-    EvalidationErrorMsg(LetraCreditoNecessario);
+    EvalidationErrorMsg(Format(MsgSelecionarAlgumTipo, [LetraCredito]));
 end;
 
 function TFormInvestimulator.PegarTipoTaxaBase(RadioPreFixado, RadioPosFixado: Boolean): string;
@@ -352,6 +429,11 @@ end;
 function TFormInvestimulator.PegarTipoTaxaCDB: string;
 begin
   Result := PegarTipoTaxaBase(RadioButtonTaxaPreCDB.Checked, RadioButtonTaxaPosCDB.Checked);
+end;
+
+function TFormInvestimulator.PegarTipoTaxaDebentures: string;
+begin
+  Result := PegarTipoTaxaBase(RadioButtonTaxaPreDebentures.Checked, RadioButtonTaxaPosDebentures.Checked);
 end;
 
 function TFormInvestimulator.PegarTipoTaxaLCs: string;
@@ -377,7 +459,7 @@ begin
   else if RadioButtonIPCASemestrais.Checked then
     Exit(TesouroIPCASemestrais)
   else
-    EvalidationErrorMsg(TesouroSelicNecessario);
+    EvalidationErrorMsg(Format(MsgSelecionarAlgumTipo, [TesouroDireto]));
 end;
 
 procedure TFormInvestimulator.RadioButtonLCAClick(Sender: TObject);
@@ -425,6 +507,36 @@ begin
     BancoSelecionado, RendimentoPorcentagemCDB, TaxaCDI_CDB, IOF180, IOF360, IOF720, IOF_Mais720, ValorCDBFinal, SpinEditQtdDiasCDB.Value);
 
   GravarSimulacoesPadrao(PathArquivoCertificadoDepositoBancario, TextoCDB);
+end;
+
+procedure TFormInvestimulator.SimularLCs;
+var
+  FundoSelecionado, TextoLCs: string;
+  RendimentoPorcentagemLCs, TaxaCDI_LCs: Double;
+  IOF180 ,IOF360, IOF720, IOF_Mais720, ValorLCsFinal: Currency;
+begin
+  ValorLCsFinal := 0.0;
+  ValidarLCs;
+  FundoSelecionado := PegarFundoLCs;
+  TaxaCDI_LCs := TCalculo.TaxaCDI_Radon;
+  RendimentoPorcentagemLCs := TCalculo.TaxaLCs(SpinEditQtdDiasLCs.Value);
+
+  IOF180 := TCalculo.TesouroIOF_180(StrToCurr(EditValorAplicadoLCs.Text), RendimentoPorcentagemLCs);
+  IOF360 := TCalculo.TesouroIOF_360(StrToCurr(EditValorAplicadoLCs.Text), RendimentoPorcentagemLCs);
+  IOF720 := TCalculo.TesouroIOF_720(StrToCurr(EditValorAplicadoLCs.Text), RendimentoPorcentagemLCs);
+  IOF_Mais720 := TCalculo.TesouroIOF_Mais720(StrToCurr(EditValorAplicadoLCs.Text), RendimentoPorcentagemLCs);
+
+  if PegarTipoTaxaLCs = TaxaPreFixado then
+    ValorLCsFinal := TCalculo.LetrasCreditosPre(StrToCurr(EditValorAplicadoLCs.Text), SpinEditQtdDiasLCs.Value, TaxaCDI_Aleatorio)
+  else if PegarTipoTaxaLCs = TaxaPosFixado then
+    ValorLCsFinal := TCalculo.LetrasCreditosPos(StrToCurr(EditValorAplicadoLCs.Text), SpinEditQtdDiasLCs.Value, TaxaCDI_LCs)
+  else
+    EvalidationErrorMsg('Error');
+
+  TextoLCs := FGravarArquivo.TextoPadraoLetrasCreditos(EditValorAplicadoLCs.Text, PegarTipoLCs, FundoSelecionado, PegarTipoTaxaLCs,
+    RendimentoPorcentagemLCs, TaxaCDI_LCs, IOF180, IOF360, IOF720, IOF_Mais720, ValorLCsFinal, SpinEditQtdDiasLCs.Value);
+
+  GravarSimulacoesPadrao(PathArquivoCertificadoLetrasCreditos, TextoLCs);
 end;
 
 procedure TFormInvestimulator.SimularPoupanca;
@@ -532,6 +644,11 @@ end;
 procedure TFormInvestimulator.ValidarLCs;
 begin
   ValidarValor_Dias(EditValorAplicadoLCs.Text, SpinEditQtdDiasLCs.Value);
+end;
+
+procedure TFormInvestimulator.ValidarDebentures;
+begin
+  ValidarValor_Dias(EditValorAplicadoDebentures.Text, SpinEditQtdDiasDebentures.Value);
 end;
 
 end.
