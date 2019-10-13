@@ -9,9 +9,12 @@ const
   PathArquivoCertificadoDepositoBancario = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\CertificadoDepositoBancario.txt';
   PathArquivoCertificadoLetrasCreditos = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\LetrasCreditos.txt';
   PathArquivoDebentures = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\Debentures.txt';
+  PathArquivoCOE = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\CertificadoOperacoesEstruturais.txt';
 
   TaxaPreFixado = 'Pré-fixado';
   TaxaPosFixado = 'Pós-fixado';
+  TaxaCapitalProtegido = 'Capital Protegido';
+  TaxaCapitalRisco = 'Capital em Risco';
   TesouroDireto = 'Tesouro Direto';
   TesouroSelic = 'Tesouro Selic';
   TesouroPrefixado = 'Tesouro Prefixado (LTN)';
@@ -19,7 +22,7 @@ const
   TesouroIPCA = 'Tesouro IPCA+ (NTN – B Principal)';
   TesouroIPCASemestrais = 'Tesouro IPCA+ Juros semestrais (NTN – B Principal)';
   Poupanca = 'Poupança';
-  CertifucadoDepositoBancario = 'Certificado de Depósito Bancário';
+  CertificadoDepositoBancario = 'Certificado de Depósito Bancário';
   LetraCredito = 'Letra de Crédito';
   LetraCreditoImobiliario = 'Letra de Crédito Imobiliário';
   LetraCreditoAgropecuario = 'Letra de Crédito Agropecuário';
@@ -32,6 +35,7 @@ const
   DebenturesSimples = 'Debentures Simples';
   DebenturesConversiveis = 'Debentures Conversíveis';
   DebenturesPermutaveis = 'Debêntures Permutáveis';
+  CertificadoOperacoesEstruturais = 'Certificado de Operações Estruturadas';
 
   SimulacaoSucesso = 'Simulação feita com Sucesso!';
   DescricaoDebenturesNominativos = 'Utiliza um banco de dados, demonstrando todo histórico'
@@ -70,6 +74,9 @@ const
   TaxaDebenturesAnual = 0.69;
   TaxaDebenturesMensal = 0.057;
 
+  TaxaCOEAnual = 0.75;
+  TaxaCOEMensal = 0.063;
+
   BaseTaxaPosFixadoTD = 0.15;
   BaseTaxaPreFixadoTD = 0.24;
   BaseTaxaPosFixadoCDB = 0.2;
@@ -78,6 +85,9 @@ const
   BaseTaxaPreFixadoLCs = 0.34;
   BaseTaxaPosFixadoDebentures = 0.27;
   BaseTaxaPreFixadoDebentures = 0.39;
+
+  BaseTaxaProtegidoCOE = 0.35;
+  BaseTaxaRiscoCOE = 0.49;
 
 implementation
 

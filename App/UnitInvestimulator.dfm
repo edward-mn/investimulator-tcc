@@ -21,7 +21,7 @@ object FormInvestimulator: TFormInvestimulator
     Top = 0
     Width = 708
     Height = 470
-    ActivePage = TabSheetDebentures
+    ActivePage = TabSheetCOE
     Align = alClient
     TabOrder = 0
     object TabSheetTodos: TTabSheet
@@ -313,9 +313,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 145
           Height = 22
           Style = csOwnerDrawFixed
-          ItemIndex = 2
           TabOrder = 4
-          Text = 'Ita'#250' Unibanco'
           Items.Strings = (
             'Banco do Brasil'
             'Caixa Econ'#244'mica Federal'
@@ -392,7 +390,7 @@ object FormInvestimulator: TFormInvestimulator
         end
         object RadioButtonLCA: TRadioButton
           Left = 10
-          Top = 47
+          Top = 49
           Width = 193
           Height = 17
           Caption = 'Letra de Cr'#233'dito Agropecu'#225'rio (LCA)'
@@ -477,8 +475,6 @@ object FormInvestimulator: TFormInvestimulator
     object TabSheetDebentures: TTabSheet
       Caption = 'Deb'#234'ntures'
       ImageIndex = 5
-      ExplicitLeft = 8
-      ExplicitTop = 28
       object MemoDebentures: TMemo
         Left = 0
         Top = 143
@@ -593,6 +589,139 @@ object FormInvestimulator: TFormInvestimulator
         Width = 78
         Height = 17
         Caption = 'P'#243's-Fixado'
+        TabOrder = 4
+      end
+    end
+    object TabSheetCOE: TTabSheet
+      Caption = 'COE'
+      ImageIndex = 6
+      object GroupBoxTiposCOE: TGroupBox
+        Left = 3
+        Top = 3
+        Width = 582
+        Height = 134
+        Caption = 'Certificado'#160'de Opera'#231#245'es Estruturadas'
+        TabOrder = 0
+        object LabelFundoInvestimentoCOE: TLabel
+          Left = 18
+          Top = 88
+          Width = 180
+          Height = 13
+          Caption = 'Selecione um Fundo de Investimento:'
+        end
+        object LabelQtdDiasCOE: TLabel
+          Left = 398
+          Top = 103
+          Width = 83
+          Height = 13
+          Caption = 'Quantidade Dias:'
+        end
+        object LabelValorAplicadoCOE: TLabel
+          Left = 398
+          Top = 74
+          Width = 71
+          Height = 13
+          Caption = 'Valor Aplicado:'
+        end
+        object ComboBoxFundosCOE: TComboBox
+          Left = 207
+          Top = 85
+          Width = 162
+          Height = 22
+          Style = csOwnerDrawFixed
+          TabOrder = 0
+        end
+        object EditValorAplicadoCOE: TEdit
+          Left = 480
+          Top = 71
+          Width = 91
+          Height = 21
+          TabOrder = 1
+          Text = '1001,11'
+          OnKeyPress = EditValorAplicadoCOEKeyPress
+        end
+        object RadioButtonCOE_LCA: TRadioButton
+          Left = 18
+          Top = 45
+          Width = 193
+          Height = 17
+          Caption = 'Letra de Cr'#233'dito Agropecu'#225'rio (LCA)'
+          TabOrder = 2
+          OnClick = RadioButtonCOE_LCAClick
+        end
+        object RadioButtonCOE_CDB: TRadioButton
+          Left = 234
+          Top = 22
+          Width = 207
+          Height = 17
+          Caption = 'Certificado de Dep'#243'sito Banc'#225'rio (CDB)'
+          TabOrder = 3
+          OnClick = RadioButtonCOE_CDBClick
+        end
+        object RadioButtonCOE_LC: TRadioButton
+          Left = 18
+          Top = 22
+          Width = 121
+          Height = 17
+          Caption = 'Letra de C'#226'mbio (LC)'
+          TabOrder = 4
+          OnClick = RadioButtonCOE_LCClick
+        end
+        object RadioButtonCOE_LCI: TRadioButton
+          Left = 234
+          Top = 45
+          Width = 185
+          Height = 17
+          Caption = 'Letra de Cr'#233'dito Imobili'#225'rio (LCI)'
+          TabOrder = 5
+          OnClick = RadioButtonCOE_LCIClick
+        end
+        object SpinEditQtdDiasCOE: TSpinEdit
+          Left = 504
+          Top = 100
+          Width = 67
+          Height = 22
+          MaxValue = 0
+          MinValue = 0
+          TabOrder = 6
+          Value = 480
+        end
+      end
+      object ButtonCOESimular: TButton
+        Left = 591
+        Top = 3
+        Width = 106
+        Height = 134
+        Caption = 'Simular'
+        TabOrder = 1
+        OnClick = ButtonCOESimularClick
+      end
+      object RadioButtonCapitalProtegidoCOE: TRadioButton
+        Left = 471
+        Top = 25
+        Width = 103
+        Height = 17
+        Caption = 'Capital Protegido'
+        TabOrder = 2
+      end
+      object RadioButtonCapitalRiscoCOE: TRadioButton
+        Left = 471
+        Top = 48
+        Width = 103
+        Height = 17
+        Caption = 'Capital em Risco'
+        TabOrder = 3
+      end
+      object MemoCOE: TMemo
+        Left = 0
+        Top = 143
+        Width = 700
+        Height = 299
+        Align = alBottom
+        Lines.Strings = (
+          '')
+        ReadOnly = True
+        ScrollBars = ssVertical
         TabOrder = 4
       end
     end

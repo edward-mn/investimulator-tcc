@@ -19,6 +19,7 @@ type
     class function TaxaCDB(Dias: integer): double;
     class function TaxaLCs(Dias: integer): double;
     class function TaxaDebentures(Dias: Integer): double;
+    class function TaxaCOE(Dias: Integer): double;
     class function TesouroSelicTaxasPos(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
     class function TesouroSelicTaxasPre(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
     class function TesouroSemestraisTaxasPre(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
@@ -30,6 +31,8 @@ type
     class function LetrasCreditosPre(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
     class function DebenturesPos(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
     class function DebenturesPre(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
+    class function COECapitalRisco(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
+    class function COECapitalProtegido(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
     class function TesouroIOF_180(ValorAplicado: Currency; TaxaTipoRendimento: Double): Currency;
     class function TesouroIOF_360(ValorAplicado: Currency; TaxaTipoRendimento: Double): Currency;
     class function TesouroIOF_720(ValorAplicado: Currency; TaxaTipoRendimento: Double): Currency;
@@ -118,6 +121,16 @@ begin
   Result := ValorFinalBase(ValorAplicado, TaxaCDB(Dias), TaxaCDI, BaseTaxaPreFixadoCDB);
 end;
 
+class function TCalculo.COECapitalProtegido(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
+begin
+  Result := ValorFinalBase(ValorAplicado, TaxaCOE(Dias), TaxaCDI, BaseTaxaProtegidoCOE);
+end;
+
+class function TCalculo.COECapitalRisco(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
+begin
+  Result := ValorFinalBase(ValorAplicado, TaxaCOE(Dias), TaxaCDI, BaseTaxaRiscoCOE);
+end;
+
 class function TCalculo.DebenturesPos(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
 begin
   Result := ValorFinalBase(ValorAplicado, TaxaDebentures(Dias), TaxaCDI, BaseTaxaPosFixadoDebentures);
@@ -158,6 +171,11 @@ end;
 class function TCalculo.TaxaCDB(Dias: integer): double;
 begin
   Result := RendimentoPadrao(Dias, TaxaCDBAnual, TaxaCDBMensal);
+end;
+
+class function TCalculo.TaxaCOE(Dias: Integer): double;
+begin
+  Result := RendimentoPadrao(Dias, TaxaCOEAnual, TaxaCOEMensal);
 end;
 
 class function TCalculo.TaxaCDI_Radon: Double;

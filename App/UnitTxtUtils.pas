@@ -18,6 +18,8 @@ type
       TaxaCDI: Double; IOF180, IOF360, IOF720, IOF_Mais720, LCsValorFinal: Currency; QtdDias: Integer): String;
     function TextoPadraoDebentures(ValorAplicado, TipoInvestimentoEscolhido, DescricaoInvestimentoEscolhido, TipoTaxa: string;
       TaxaDebentures, TaxaCDI: Double; IOF180, IOF360, IOF720, IOF_Mais720, LCsValorFinal: Currency; QtdDias: Integer): String;
+    function TextoPadraoCOE(ValorAplicado, TipoInvestimentoEscolhido, DescricaoInvestimentoEscolhido, TipoTaxa: string;
+      TaxaCOE, TaxaCDI: Double; IOF180, IOF360, IOF720, IOF_Mais720, ValorFinalCOE: Currency; QtdDias: Integer): String;
   end;
   const
     Separador = '###############################################################';
@@ -112,7 +114,7 @@ var
 begin
   PadraoSalvarCDB :=
     Separador + sLineBreak +
-    'Tipo de Investimento Escolhido: ' + CertifucadoDepositoBancario + ' - ' + TipoTaxa + sLineBreak +
+    'Tipo de Investimento Escolhido: ' + CertificadoDepositoBancario + ' - ' + TipoTaxa + sLineBreak +
     'Banco emissor do Certificado Escolhido: ' + BancoEmissor + sLineBreak +
     'Valor Aplicado: R$ ' + ValorAplicado + sLineBreak +
     'Quantidade de Dias Aplicado: ' + IntToStr(QtdDias) + sLineBreak +
@@ -181,6 +183,31 @@ begin
     Separador + sLineBreak;
 
   Result := PadraoSalvarDebentures;
+end;
+
+function TGravar.TextoPadraoCOE(ValorAplicado, TipoInvestimentoEscolhido, DescricaoInvestimentoEscolhido,  TipoTaxa: string;
+  TaxaCOE, TaxaCDI: Double; IOF180, IOF360, IOF720, IOF_Mais720, ValorFinalCOE: Currency; QtdDias: Integer): String;
+var
+ PadraoSalvarCOE: string;
+begin
+  PadraoSalvarCOE :=
+    Separador + sLineBreak +
+    'Tipo de Investimento Principal: ' + CertificadoOperacoesEstruturais + ' - ' + TipoTaxa + sLineBreak +
+    'Fundo de Investimento Escolhido: ' + TipoInvestimentoEscolhido + sLineBreak +
+    'Descrição do Tipo Escolhido: ' + DescricaoInvestimentoEscolhido + sLineBreak +
+    'Valor Aplicado: R$ ' + ValorAplicado + sLineBreak +
+    'Quantidade de Dias Aplicado: ' + IntToStr(QtdDias) + sLineBreak +
+    PegarDataAtualSimulacao + sLineBreak +
+    'Taxa da Debêntures: ' + FloatToStr(TaxaCOE) + '%' + sLineBreak +
+    'Taxa CDI: ' + FloatToStr(TaxaCDI) + '%' + sLineBreak +
+    'Rendimento IOF gerado de 0 a 180 dias: R$ ' + CurrToStr(IOF180) + sLineBreak +
+    'Rendimento IOF gerado de 181 a 360 dias: R$ ' + CurrToStr(IOF360) + sLineBreak +
+    'Rendimento IOF gerado de 361 a 720 dias: R$ ' + CurrToStr(IOF720) + sLineBreak +
+    'Rendimento IOF gerado com mais de 720 dias: R$ ' + CurrToStr(IOF_Mais720) + sLineBreak +
+    'Rendimento final: R$ ' + CurrToStr(ValorFinalCOE) + sLineBreak +
+    Separador + sLineBreak;
+
+  Result := PadraoSalvarCOE;
 end;
 
 end.

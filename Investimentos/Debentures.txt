@@ -191,3 +191,20 @@ Seguro do Investimento: FGC - Fundo Garantidor de Créditos
 Rendimento final: R$ 2542,6816
 ###############################################################
 
+###############################################################
+Tipo de Investimento Principal: Debêntures - Pré-fixado
+Fundo de Investimento Escolhido: Debentures Conversíveis
+Descrição do Tipo Escolhido: É um tipo de investimento que pode ou não ser convertido em algo, como por
+ -> exemplo as ações somente daquela empresa.
+Valor Aplicado: R$ 1001,11
+Quantidade de Dias Aplicado: 480
+Data da Aplicação: 13\10\2019 - 01:35:44
+Taxa da Debêntures: 0,709%
+Taxa CDI: 0,6%
+Rendimento IOF gerado de 0 a 180 dias: R$ 2116,3465
+Rendimento IOF gerado de 181 a 360 dias: R$ 2291,5408
+Rendimento IOF gerado de 361 a 720 dias: R$ 2606,8904
+Rendimento IOF gerado com mais de 720 dias: R$ 3230,582
+Rendimento final: R$ 2501,7739
+###############################################################
+
