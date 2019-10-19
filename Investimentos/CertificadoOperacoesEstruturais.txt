@@ -1,0 +1,17 @@
+###############################################################
+Tipo de Investimento Principal: Certificado de Operações Estruturadas - Capital em Risco
+Fundo de Investimento Escolhido: Letra de Câmbio (LC)
+Descrição do Tipo Escolhido: Letra de Crédito - Letra de Câmbio
+ -> Orgão emissor da Letra de Crédito Escolhido foi: Crédito Consiginado
+Valor Aplicado: R$ 730,24
+Quantidade de Dias Aplicado: 247
+Data da Aplicação: 18\10\2019 - 21:15:08
+Taxa da Debêntures: 0,043%
+Taxa CDI: 0,59%
+Rendimento sem IOF gerado de 0 a 180 dias: R$ 1057,3875
+Rendimento sem IOF gerado de 181 a 360 dias: R$ 1185,1795
+Rendimento sem IOF gerado de 361 a 720 dias: R$ 1415,2051
+Rendimento sem IOF gerado com mais de 720 dias: R$ 1843,856
+Rendimento final: R$ 1550,2995
+###############################################################
+

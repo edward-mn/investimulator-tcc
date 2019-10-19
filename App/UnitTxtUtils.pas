@@ -208,7 +208,8 @@ begin
     'Rendimento sem IOF gerado de 361 a 720 dias: R$ ' + CurrToStr(IOF720) + sLineBreak +
     'Rendimento sem IOF gerado com mais de 720 dias: R$ ' + CurrToStr(IOF_Mais720) + sLineBreak +
     'Rendimento final: R$ ' + CurrToStr(ValorFinalFI) + sLineBreak +
-    Separador + sLineBreak;
+    'A regulamentação dos fundos é criada pela: ' + CVM + ', juntamente com a'
+    + sLineBreak + ' -> ' + ANBIMA + sLineBreak + Separador + sLineBreak;
 
   Result := PadraoSalvarFI;
 end;

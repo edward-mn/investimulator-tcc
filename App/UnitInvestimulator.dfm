@@ -21,7 +21,7 @@ object FormInvestimulator: TFormInvestimulator
     Top = 0
     Width = 708
     Height = 470
-    ActivePage = TabSheetFundosInvestimentos
+    ActivePage = TabSheetCOE
     Align = alClient
     TabOrder = 0
     object TabSheetTodos: TTabSheet
@@ -40,6 +40,8 @@ object FormInvestimulator: TFormInvestimulator
     object TabSheetTesouroDireto: TTabSheet
       Caption = 'Tesouro Direto'
       ImageIndex = 1
+      ExplicitLeft = 8
+      ExplicitTop = 28
       object ButtonTesouroDiretoSimular: TButton
         Left = 620
         Top = 3
@@ -55,7 +57,7 @@ object FormInvestimulator: TFormInvestimulator
         Width = 610
         Height = 129
         Caption = 'Tipos de Tesouro Direto'
-        TabOrder = 1
+        TabOrder = 3
         object LabelValorAplicadoTD: TLabel
           Left = 409
           Top = 77
@@ -75,7 +77,7 @@ object FormInvestimulator: TFormInvestimulator
           Top = 72
           Width = 121
           Height = 21
-          TabOrder = 0
+          TabOrder = 5
           Text = '1001,11'
           OnKeyPress = EditValorAplicadoTDKeyPress
         end
@@ -86,7 +88,7 @@ object FormInvestimulator: TFormInvestimulator
           Height = 22
           MaxValue = 0
           MinValue = 0
-          TabOrder = 1
+          TabOrder = 6
           Value = 480
         end
         object RadioButtonSelic: TRadioButton
@@ -95,7 +97,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 42
           Height = 41
           Caption = 'Selic'
-          TabOrder = 2
+          TabOrder = 0
         end
         object RadioButtonPrefixadoSemestrais: TRadioButton
           Left = 52
@@ -103,7 +105,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 185
           Height = 20
           Caption = 'Prefixado Juros Semestrais'#13'(NTN-F)'
-          TabOrder = 3
+          TabOrder = 2
         end
         object RadioButtonPrefixado: TRadioButton
           Left = 52
@@ -111,7 +113,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 105
           Height = 17
           Caption = 'Prefixado (LTN)'
-          TabOrder = 4
+          TabOrder = 1
         end
         object RadioButtonIPCA: TRadioButton
           Left = 256
@@ -119,7 +121,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 139
           Height = 17
           Caption = 'IPCA + (NTN - B Principal)'
-          TabOrder = 5
+          TabOrder = 3
         end
         object RadioButtonIPCASemestrais: TRadioButton
           Left = 256
@@ -127,7 +129,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 224
           Height = 17
           Caption = 'IPCA + Juros '#10'Semestrais (NTN - B Principal)'
-          TabOrder = 6
+          TabOrder = 4
         end
       end
       object MemoTesouroDireto: TMemo
@@ -138,7 +140,7 @@ object FormInvestimulator: TFormInvestimulator
         Align = alBottom
         ReadOnly = True
         ScrollBars = ssVertical
-        TabOrder = 2
+        TabOrder = 4
       end
       object RadioButtonTaxaPreTD: TRadioButton
         Left = 514
@@ -146,7 +148,7 @@ object FormInvestimulator: TFormInvestimulator
         Width = 73
         Height = 17
         Caption = 'Pr'#233'-Fixado'
-        TabOrder = 3
+        TabOrder = 1
       end
       object RadioButtonTaxaPosTD: TRadioButton
         Left = 514
@@ -154,7 +156,7 @@ object FormInvestimulator: TFormInvestimulator
         Width = 73
         Height = 17
         Caption = 'P'#243's-Fixado'
-        TabOrder = 4
+        TabOrder = 2
       end
     end
     object TabSheetPoupanca: TTabSheet
@@ -168,7 +170,7 @@ object FormInvestimulator: TFormInvestimulator
         Align = alBottom
         ReadOnly = True
         ScrollBars = ssVertical
-        TabOrder = 0
+        TabOrder = 2
       end
       object GroupBoxPoupanca: TGroupBox
         Left = 0
@@ -196,7 +198,7 @@ object FormInvestimulator: TFormInvestimulator
           Top = 26
           Width = 121
           Height = 21
-          TabOrder = 0
+          TabOrder = 1
           Text = '1001,11'
           OnKeyPress = EditValorAplicadoPoupancaKeyPress
         end
@@ -207,7 +209,7 @@ object FormInvestimulator: TFormInvestimulator
           Height = 22
           MaxValue = 0
           MinValue = 0
-          TabOrder = 1
+          TabOrder = 2
           Value = 480
         end
         object RadioButtonPoupanca: TRadioButton
@@ -217,7 +219,7 @@ object FormInvestimulator: TFormInvestimulator
           Height = 17
           Caption = 'Poupan'#231'a'
           Checked = True
-          TabOrder = 2
+          TabOrder = 0
           TabStop = True
         end
       end
@@ -227,7 +229,7 @@ object FormInvestimulator: TFormInvestimulator
         Width = 75
         Height = 73
         Caption = 'Simular'
-        TabOrder = 2
+        TabOrder = 0
         OnClick = ButtonSimularPoupancaClick
       end
     end
@@ -242,7 +244,7 @@ object FormInvestimulator: TFormInvestimulator
         Align = alBottom
         ReadOnly = True
         ScrollBars = ssVertical
-        TabOrder = 0
+        TabOrder = 2
       end
       object GroupBoxTiposCDB: TGroupBox
         Left = 0
@@ -279,7 +281,7 @@ object FormInvestimulator: TFormInvestimulator
           Height = 22
           MaxValue = 0
           MinValue = 0
-          TabOrder = 0
+          TabOrder = 2
           Value = 480
         end
         object RadioButtonTaxaPosCDB: TRadioButton
@@ -288,7 +290,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 81
           Height = 17
           Caption = 'P'#243's-Fixado'
-          TabOrder = 1
+          TabOrder = 4
         end
         object RadioButtonTaxaPreCDB: TRadioButton
           Left = 480
@@ -296,14 +298,14 @@ object FormInvestimulator: TFormInvestimulator
           Width = 73
           Height = 17
           Caption = 'Pr'#233'-Fixado'
-          TabOrder = 2
+          TabOrder = 3
         end
         object EditValorAplicadoCDB: TEdit
           Left = 96
           Top = 23
           Width = 121
           Height = 21
-          TabOrder = 3
+          TabOrder = 0
           Text = '1001,11'
           OnKeyPress = EditValorAplicadoCDBKeyPress
         end
@@ -313,7 +315,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 145
           Height = 22
           Style = csOwnerDrawFixed
-          TabOrder = 4
+          TabOrder = 1
           Items.Strings = (
             'Banco do Brasil'
             'Caixa Econ'#244'mica Federal'
@@ -344,7 +346,7 @@ object FormInvestimulator: TFormInvestimulator
         Width = 105
         Height = 94
         Caption = 'Simular'
-        TabOrder = 2
+        TabOrder = 0
         OnClick = ButtonSimularrCDBClick
       end
     end
@@ -357,7 +359,7 @@ object FormInvestimulator: TFormInvestimulator
         Width = 601
         Height = 105
         Caption = 'Tipos de Letras de Cr'#233'ditos'
-        TabOrder = 0
+        TabOrder = 3
         object LabelFundosInvestimentosLC: TLabel
           Left = 239
           Top = 70
@@ -412,14 +414,14 @@ object FormInvestimulator: TFormInvestimulator
           Width = 162
           Height = 22
           Style = csOwnerDrawFixed
-          TabOrder = 3
+          TabOrder = 5
         end
         object EditValorAplicadoLCs: TEdit
           Left = 383
           Top = 17
           Width = 121
           Height = 21
-          TabOrder = 4
+          TabOrder = 3
           Text = '1001,11'
           OnKeyPress = EditValorAplicadoLCsKeyPress
         end
@@ -430,7 +432,7 @@ object FormInvestimulator: TFormInvestimulator
           Height = 22
           MaxValue = 0
           MinValue = 0
-          TabOrder = 5
+          TabOrder = 4
           Value = 480
         end
       end
@@ -440,7 +442,7 @@ object FormInvestimulator: TFormInvestimulator
         Width = 90
         Height = 102
         Caption = 'Simular'
-        TabOrder = 1
+        TabOrder = 0
         OnClick = ButtonLCSimularClick
       end
       object MemoLC: TMemo
@@ -453,7 +455,7 @@ object FormInvestimulator: TFormInvestimulator
           '')
         ReadOnly = True
         ScrollBars = ssVertical
-        TabOrder = 2
+        TabOrder = 4
       end
       object RadioButtonTaxaPosLC: TRadioButton
         Left = 514
@@ -461,7 +463,7 @@ object FormInvestimulator: TFormInvestimulator
         Width = 73
         Height = 17
         Caption = 'P'#243's-Fixado'
-        TabOrder = 3
+        TabOrder = 2
       end
       object RadioButtonTaxaPreLC: TRadioButton
         Left = 514
@@ -469,7 +471,7 @@ object FormInvestimulator: TFormInvestimulator
         Width = 73
         Height = 17
         Caption = 'Pr'#233'-Fixado'
-        TabOrder = 4
+        TabOrder = 1
       end
     end
     object TabSheetDebentures: TTabSheet
@@ -483,7 +485,7 @@ object FormInvestimulator: TFormInvestimulator
         Align = alBottom
         ReadOnly = True
         ScrollBars = ssVertical
-        TabOrder = 0
+        TabOrder = 4
       end
       object GroupBoxTiposDebentures: TGroupBox
         Left = 0
@@ -491,7 +493,7 @@ object FormInvestimulator: TFormInvestimulator
         Width = 616
         Height = 137
         Caption = 'Tipos de Deb'#234'ntures'
-        TabOrder = 1
+        TabOrder = 3
         object LabelQtdDiasDebentures: TLabel
           Left = 423
           Top = 109
@@ -512,7 +514,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 145
           Height = 17
           Caption = 'Deb'#234'ntures Convers'#237'veis'
-          TabOrder = 0
+          TabOrder = 3
         end
         object RadioButtonDebenturesSimples: TRadioButton
           Left = 18
@@ -520,7 +522,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 145
           Height = 17
           Caption = 'Deb'#234'ntures Simples'
-          TabOrder = 1
+          TabOrder = 0
         end
         object RadioButtonDebenturesEscriturais: TRadioButton
           Left = 372
@@ -528,7 +530,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 145
           Height = 17
           Caption = 'Deb'#234'ntures Escriturais'
-          TabOrder = 2
+          TabOrder = 4
         end
         object RadioButtonDebenturesNominativas: TRadioButton
           Left = 18
@@ -536,7 +538,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 145
           Height = 17
           Caption = 'Deb'#234'ntures Nominativas'
-          TabOrder = 3
+          TabOrder = 1
         end
         object SpinEditQtdDiasDebentures: TSpinEdit
           Left = 531
@@ -545,7 +547,7 @@ object FormInvestimulator: TFormInvestimulator
           Height = 22
           MaxValue = 0
           MinValue = 0
-          TabOrder = 4
+          TabOrder = 6
           Value = 480
         end
         object EditValorAplicadoDebentures: TEdit
@@ -563,7 +565,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 145
           Height = 17
           Caption = 'Deb'#234'ntures Permut'#225'veis'
-          TabOrder = 6
+          TabOrder = 2
         end
       end
       object ButtonDebenturesSimular: TButton
@@ -572,7 +574,7 @@ object FormInvestimulator: TFormInvestimulator
         Width = 75
         Height = 137
         Caption = 'Simular'
-        TabOrder = 2
+        TabOrder = 0
         OnClick = ButtonDebenturesSimularClick
       end
       object RadioButtonTaxaPreDebentures: TRadioButton
@@ -581,7 +583,7 @@ object FormInvestimulator: TFormInvestimulator
         Width = 78
         Height = 17
         Caption = 'Pr'#233'-Fixado'
-        TabOrder = 3
+        TabOrder = 1
       end
       object RadioButtonTaxaPosDebentures: TRadioButton
         Left = 531
@@ -589,7 +591,7 @@ object FormInvestimulator: TFormInvestimulator
         Width = 78
         Height = 17
         Caption = 'P'#243's-Fixado'
-        TabOrder = 4
+        TabOrder = 2
       end
     end
     object TabSheetFundosInvestimentos: TTabSheet
@@ -601,7 +603,7 @@ object FormInvestimulator: TFormInvestimulator
         Width = 582
         Height = 126
         Caption = 'Tipos de Fundos de Investimentos'
-        TabOrder = 0
+        TabOrder = 1
         object LabelQtdDiasFI: TLabel
           Left = 401
           Top = 52
@@ -629,7 +631,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 113
           Height = 17
           Caption = 'Fundos Cambiais'
-          TabOrder = 0
+          TabOrder = 2
         end
         object RadioButtonFI_FundosAcoes: TRadioButton
           Left = 16
@@ -637,7 +639,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 105
           Height = 17
           Caption = 'Fundos em a'#231#245'es'
-          TabOrder = 1
+          TabOrder = 3
         end
         object RadioButtonFI_FundosLongoPrazo: TRadioButton
           Left = 16
@@ -645,7 +647,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 129
           Height = 17
           Caption = 'Fundos de Longo Prazo'
-          TabOrder = 2
+          TabOrder = 1
         end
         object RadioButtonFI_FundosInvestimentoImobiliarios: TRadioButton
           Left = 159
@@ -653,7 +655,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 193
           Height = 17
           Caption = 'Fundos de Investimento Imobili'#225'rios'
-          TabOrder = 3
+          TabOrder = 4
         end
         object RadioButtonFI_FundosDividaExterna: TRadioButton
           Left = 159
@@ -661,7 +663,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 145
           Height = 17
           Caption = 'Fundos de D'#237'vida Externa'
-          TabOrder = 4
+          TabOrder = 5
         end
         object RadioButtonFI_FundosMultimercado: TRadioButton
           Left = 159
@@ -669,7 +671,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 121
           Height = 17
           Caption = 'Fundos Multimercado'
-          TabOrder = 5
+          TabOrder = 6
         end
         object RadioButtonFI_FundosCurtoPrazo: TRadioButton
           Left = 16
@@ -677,7 +679,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 129
           Height = 17
           Caption = 'Fundos de Curto Prazo'
-          TabOrder = 6
+          TabOrder = 0
         end
         object EditValorAplicadoFI: TEdit
           Left = 480
@@ -720,7 +722,7 @@ object FormInvestimulator: TFormInvestimulator
         Width = 106
         Height = 126
         Caption = 'Simular'
-        TabOrder = 1
+        TabOrder = 0
         OnClick = ButtonFI_SimularClick
       end
       object MemoFI: TMemo
@@ -743,7 +745,7 @@ object FormInvestimulator: TFormInvestimulator
         Width = 582
         Height = 134
         Caption = 'Tipos de Certificados'#160'de Opera'#231#245'es Estruturadas'
-        TabOrder = 0
+        TabOrder = 3
         object LabelFundoInvestimentoCOE: TLabel
           Left = 18
           Top = 88
@@ -771,14 +773,14 @@ object FormInvestimulator: TFormInvestimulator
           Width = 162
           Height = 22
           Style = csOwnerDrawFixed
-          TabOrder = 0
+          TabOrder = 4
         end
         object EditValorAplicadoCOE: TEdit
           Left = 480
           Top = 72
           Width = 91
           Height = 21
-          TabOrder = 1
+          TabOrder = 5
           Text = '1001,11'
           OnKeyPress = EditValorAplicadoCOEKeyPress
         end
@@ -788,7 +790,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 193
           Height = 17
           Caption = 'Letra de Cr'#233'dito Agropecu'#225'rio (LCA)'
-          TabOrder = 2
+          TabOrder = 1
           OnClick = RadioButtonCOE_LCAClick
         end
         object RadioButtonCOE_CDB: TRadioButton
@@ -797,7 +799,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 207
           Height = 17
           Caption = 'Certificado de Dep'#243'sito Banc'#225'rio (CDB)'
-          TabOrder = 3
+          TabOrder = 2
           OnClick = RadioButtonCOE_CDBClick
         end
         object RadioButtonCOE_LC: TRadioButton
@@ -806,7 +808,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 121
           Height = 17
           Caption = 'Letra de C'#226'mbio (LC)'
-          TabOrder = 4
+          TabOrder = 0
           OnClick = RadioButtonCOE_LCClick
         end
         object RadioButtonCOE_LCI: TRadioButton
@@ -815,7 +817,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 185
           Height = 17
           Caption = 'Letra de Cr'#233'dito Imobili'#225'rio (LCI)'
-          TabOrder = 5
+          TabOrder = 3
           OnClick = RadioButtonCOE_LCIClick
         end
         object SpinEditQtdDiasCOE: TSpinEdit
@@ -835,7 +837,7 @@ object FormInvestimulator: TFormInvestimulator
         Width = 106
         Height = 134
         Caption = 'Simular'
-        TabOrder = 1
+        TabOrder = 0
         OnClick = ButtonCOESimularClick
       end
       object RadioButtonCapitalProtegidoCOE: TRadioButton
@@ -844,7 +846,7 @@ object FormInvestimulator: TFormInvestimulator
         Width = 103
         Height = 17
         Caption = 'Capital Protegido'
-        TabOrder = 2
+        TabOrder = 1
       end
       object RadioButtonCapitalRiscoCOE: TRadioButton
         Left = 471
@@ -852,7 +854,7 @@ object FormInvestimulator: TFormInvestimulator
         Width = 103
         Height = 17
         Caption = 'Capital em Risco'
-        TabOrder = 3
+        TabOrder = 2
       end
       object MemoCOE: TMemo
         Left = 0

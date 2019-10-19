@@ -49,3 +49,63 @@ Rendimento sem IOF gerado com mais de 720 dias: R$ 904,267
 Rendimento final: R$ 726,8716
 ###############################################################
 
+###############################################################
+Tipo de Investimento Principal: Fundos de investimentos
+Fundo de Investimento Escolhido: Fundos de Dívida Externa
+Descrição do Tipo Escolhido: A dívida externa seria uma junção dos juros de câmbio internacional e os
+ -> papéis das transações internacionais.
+Empresa prestadadora do serviço: Blog  Rico
+Valor Aplicado: R$ 579,13
+Quantidade de Dias Aplicado: 290
+Data da Aplicação: 18\10\2019 - 21:18:08
+Taxa do Fundo de Investimento: 0,528%
+Taxa CDI: 0,57%
+Rendimento sem IOF gerado de 0 a 180 dias: R$ 1119,4583
+Rendimento sem IOF gerado de 181 a 360 dias: R$ 1220,806
+Rendimento sem IOF gerado de 361 a 720 dias: R$ 1403,232
+Rendimento sem IOF gerado com mais de 720 dias: R$ 1952,2472
+Rendimento final: R$ 1242,813
+A regulamentação dos fundos é criada pela: CVM - Comissão de Valores Mobiliários
+Juntamente com a: ANBIMA - Associação Brasileira das Entidades dos Mercados Financeiros e de Capitais
+###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Fundos de investimentos
+Fundo de Investimento Escolhido: Fundos em ações
+Descrição do Tipo Escolhido: O dinheiro é aplicado na bolsa de valores.
+Empresa prestadadora do serviço: Ourinvest
+Valor Aplicado: R$ 477,52
+Quantidade de Dias Aplicado: 322
+Data da Aplicação: 18\10\2019 - 21:20:10
+Taxa do Fundo de Investimento: 0,534%
+Taxa CDI: 0,56%
+Rendimento sem IOF gerado de 0 a 180 dias: R$ 925,9113
+Rendimento sem IOF gerado de 181 a 360 dias: R$ 1009,4773
+Rendimento sem IOF gerado de 361 a 720 dias: R$ 1159,8961
+Rendimento sem IOF gerado com mais de 720 dias: R$ 1605,8998
+Rendimento final: R$ 1025,713
+A regulamentação dos fundos é criada pela: CVM - Comissão de Valores Mobiliários
+, juntamente com a: 
+ -> ANBIMA - Associação Brasileira das Entidades dos Mercados Financeiros e de Capitais
+###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Fundos de investimentos
+Fundo de Investimento Escolhido: Fundos de Dívida Externa
+Descrição do Tipo Escolhido: A dívida externa seria uma junção dos juros de câmbio internacional e os
+ -> papéis das transações internacionais.
+Empresa prestadadora do serviço: Porto Seguro
+Valor Aplicado: R$ 927,33
+Quantidade de Dias Aplicado: 201
+Data da Aplicação: 18\10\2019 - 21:20:50
+Taxa do Fundo de Investimento: 0,514%
+Taxa CDI: 0,57%
+Rendimento sem IOF gerado de 0 a 180 dias: R$ 1779,5463
+Rendimento sem IOF gerado de 181 a 360 dias: R$ 1941,829
+Rendimento sem IOF gerado de 361 a 720 dias: R$ 2233,938
+Rendimento sem IOF gerado com mais de 720 dias: R$ 3113,9741
+Rendimento final: R$ 1964,0849
+A regulamentação dos fundos é criada pela: CVM - Comissão de Valores Mobiliários, juntamente com a: 
+ -> ANBIMA - Associação Brasileira das Entidades dos Mercados Financeiros e de Capitais
+###############################################################
+
