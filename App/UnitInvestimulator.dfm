@@ -21,7 +21,7 @@ object FormInvestimulator: TFormInvestimulator
     Top = 0
     Width = 708
     Height = 470
-    ActivePage = TabSheetCOE
+    ActivePage = TabSheetFundosInvestimentos
     Align = alClient
     TabOrder = 0
     object TabSheetTodos: TTabSheet
@@ -54,7 +54,7 @@ object FormInvestimulator: TFormInvestimulator
         Top = 0
         Width = 610
         Height = 129
-        Caption = 'Tipos de investimento'
+        Caption = 'Tipos de Tesouro Direto'
         TabOrder = 1
         object LabelValorAplicadoTD: TLabel
           Left = 409
@@ -175,7 +175,7 @@ object FormInvestimulator: TFormInvestimulator
         Top = 0
         Width = 610
         Height = 81
-        Caption = 'Tipos de investimento'
+        Caption = 'Simples Poupan'#231'a'
         TabOrder = 1
         object LabelValoAplicadoPoupanca: TLabel
           Left = 137
@@ -592,6 +592,148 @@ object FormInvestimulator: TFormInvestimulator
         TabOrder = 4
       end
     end
+    object TabSheetFundosInvestimentos: TTabSheet
+      Caption = 'Fundos'#160'de'#160'investimento'
+      ImageIndex = 7
+      object GroupBoxTiposFI: TGroupBox
+        Left = 3
+        Top = 0
+        Width = 582
+        Height = 126
+        Caption = 'Tipos de Fundos de Investimentos'
+        TabOrder = 0
+        object LabelQtdDiasFI: TLabel
+          Left = 401
+          Top = 52
+          Width = 82
+          Height = 13
+          Caption = 'Quantidade dias:'
+        end
+        object LabelValorAplicadoFI: TLabel
+          Left = 401
+          Top = 24
+          Width = 71
+          Height = 13
+          Caption = 'Valor Aplicado:'
+        end
+        object LabelInvestidoraTerceira: TLabel
+          Left = 309
+          Top = 76
+          Width = 122
+          Height = 26
+          Caption = 'Selecione uma institui'#231#227'o '#10'para Investir para voc'#234':'
+        end
+        object RadioButtonFI_FundosCambiais: TRadioButton
+          Left = 16
+          Top = 69
+          Width = 113
+          Height = 17
+          Caption = 'Fundos Cambiais'
+          TabOrder = 0
+        end
+        object RadioButtonFI_FundosAcoes: TRadioButton
+          Left = 16
+          Top = 92
+          Width = 105
+          Height = 17
+          Caption = 'Fundos em a'#231#245'es'
+          TabOrder = 1
+        end
+        object RadioButtonFI_FundosLongoPrazo: TRadioButton
+          Left = 16
+          Top = 46
+          Width = 129
+          Height = 17
+          Caption = 'Fundos de Longo Prazo'
+          TabOrder = 2
+        end
+        object RadioButtonFI_FundosInvestimentoImobiliarios: TRadioButton
+          Left = 159
+          Top = 28
+          Width = 193
+          Height = 17
+          Caption = 'Fundos de Investimento Imobili'#225'rios'
+          TabOrder = 3
+        end
+        object RadioButtonFI_FundosDividaExterna: TRadioButton
+          Left = 159
+          Top = 55
+          Width = 145
+          Height = 17
+          Caption = 'Fundos de D'#237'vida Externa'
+          TabOrder = 4
+        end
+        object RadioButtonFI_FundosMultimercado: TRadioButton
+          Left = 159
+          Top = 84
+          Width = 121
+          Height = 17
+          Caption = 'Fundos Multimercado'
+          TabOrder = 5
+        end
+        object RadioButtonFI_FundosCurtoPrazo: TRadioButton
+          Left = 16
+          Top = 23
+          Width = 129
+          Height = 17
+          Caption = 'Fundos de Curto Prazo'
+          TabOrder = 6
+        end
+        object EditValorAplicadoFI: TEdit
+          Left = 480
+          Top = 21
+          Width = 92
+          Height = 21
+          TabOrder = 7
+          Text = '1001,11'
+          OnKeyPress = EditValorAplicadoFIKeyPress
+        end
+        object SpinEditQtdDiasFI: TSpinEdit
+          Left = 501
+          Top = 49
+          Width = 71
+          Height = 22
+          MaxValue = 0
+          MinValue = 0
+          TabOrder = 8
+          Value = 480
+        end
+        object ComboBoxInvestidoraTerceira: TComboBox
+          Left = 440
+          Top = 78
+          Width = 132
+          Height = 22
+          Style = csOwnerDrawFixed
+          TabOrder = 9
+          Items.Strings = (
+            'XP'
+            'Blog  Rico'
+            'Toro Investimentos '
+            'Ourinvest'
+            'Porto Seguro'
+            'Anbima')
+        end
+      end
+      object ButtonFI_Simular: TButton
+        Left = 591
+        Top = 3
+        Width = 106
+        Height = 126
+        Caption = 'Simular'
+        TabOrder = 1
+        OnClick = ButtonFI_SimularClick
+      end
+      object MemoFI: TMemo
+        Left = 0
+        Top = 135
+        Width = 700
+        Height = 307
+        Align = alBottom
+        ReadOnly = True
+        ScrollBars = ssVertical
+        TabOrder = 2
+      end
+    end
     object TabSheetCOE: TTabSheet
       Caption = 'COE'
       ImageIndex = 6
@@ -600,7 +742,7 @@ object FormInvestimulator: TFormInvestimulator
         Top = 3
         Width = 582
         Height = 134
-        Caption = 'Certificado'#160'de Opera'#231#245'es Estruturadas'
+        Caption = 'Tipos de Certificados'#160'de Opera'#231#245'es Estruturadas'
         TabOrder = 0
         object LabelFundoInvestimentoCOE: TLabel
           Left = 18
@@ -611,14 +753,14 @@ object FormInvestimulator: TFormInvestimulator
         end
         object LabelQtdDiasCOE: TLabel
           Left = 398
-          Top = 103
+          Top = 104
           Width = 83
           Height = 13
           Caption = 'Quantidade Dias:'
         end
         object LabelValorAplicadoCOE: TLabel
           Left = 398
-          Top = 74
+          Top = 75
           Width = 71
           Height = 13
           Caption = 'Valor Aplicado:'
@@ -633,7 +775,7 @@ object FormInvestimulator: TFormInvestimulator
         end
         object EditValorAplicadoCOE: TEdit
           Left = 480
-          Top = 71
+          Top = 72
           Width = 91
           Height = 21
           TabOrder = 1
@@ -678,7 +820,7 @@ object FormInvestimulator: TFormInvestimulator
         end
         object SpinEditQtdDiasCOE: TSpinEdit
           Left = 504
-          Top = 100
+          Top = 101
           Width = 67
           Height = 22
           MaxValue = 0

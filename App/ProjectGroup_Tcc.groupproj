@@ -1,9 +1,9 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{FFE37D67-D35B-4C2C-86B1-4DDD5B2B4448}</ProjectGuid>
+        <ProjectGuid>{14DE0603-C1B2-4B64-AD60-EB316A3DC129}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Project_Investimulator.dproj">
+        <Projects Include="Investimulator.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -14,23 +14,23 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="Project_Investimulator">
-        <MSBuild Projects="Project_Investimulator.dproj"/>
+    <Target Name="Investimulator">
+        <MSBuild Projects="Investimulator.dproj"/>
     </Target>
-    <Target Name="Project_Investimulator:Clean">
-        <MSBuild Projects="Project_Investimulator.dproj" Targets="Clean"/>
+    <Target Name="Investimulator:Clean">
+        <MSBuild Projects="Investimulator.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Project_Investimulator:Make">
-        <MSBuild Projects="Project_Investimulator.dproj" Targets="Make"/>
+    <Target Name="Investimulator:Make">
+        <MSBuild Projects="Investimulator.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="Project_Investimulator"/>
+        <CallTarget Targets="Investimulator"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="Project_Investimulator:Clean"/>
+        <CallTarget Targets="Investimulator:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="Project_Investimulator:Make"/>
+        <CallTarget Targets="Investimulator:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

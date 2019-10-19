@@ -20,6 +20,8 @@ type
       TaxaDebentures, TaxaCDI: Double; IOF180, IOF360, IOF720, IOF_Mais720, LCsValorFinal: Currency; QtdDias: Integer): String;
     function TextoPadraoCOE(ValorAplicado, TipoInvestimentoEscolhido, DescricaoInvestimentoEscolhido, TipoTaxa: string;
       TaxaCOE, TaxaCDI: Double; IOF180, IOF360, IOF720, IOF_Mais720, ValorFinalCOE: Currency; QtdDias: Integer): String;
+    function TextoPadraoFundosInvestimentos(ValorAplicado, TipoInvestimentoEscolhido, DescricaoInvestimentoEscolhido, EmpresaPrestadoraServico: string;
+      TaxaFI, TaxaCDI: Double; IOF180, IOF360, IOF720, IOF_Mais720, ValorFinalFI: Currency; QtdDias: Integer): String;
   end;
   const
     Separador = '###############################################################';
@@ -77,10 +79,10 @@ begin
     PegarDataAtualSimulacao + sLineBreak +
     'Taxa Selic: ' + FloatToStr(TaxaSelic) + '%' + sLineBreak +
     'Taxa CDI : ' + FloatToStr(TaxaCDI) + '%' + sLineBreak +
-    'Rendimento IOF gerado de 0 a 180 dias: R$ ' + CurrToStr(IOF180) + sLineBreak +
-    'Rendimento IOF gerado de 181 a 360 dias: R$ ' + CurrToStr(IOF360) + sLineBreak +
-    'Rendimento IOF gerado de 361 a 720 dias: R$ ' + CurrToStr(IOF720) + sLineBreak +
-    'Rendimento IOF gerado com mais de 720 dias: R$ ' + CurrToStr(IOF_Mais720) + sLineBreak +
+    'Rendimento sem IOF gerado de 0 a 180 dias: R$ ' + CurrToStr(IOF180) + sLineBreak +
+    'Rendimento sem IOF gerado de 181 a 360 dias: R$ ' + CurrToStr(IOF360) + sLineBreak +
+    'Rendimento sem IOF gerado de 361 a 720 dias: R$ ' + CurrToStr(IOF720) + sLineBreak +
+    'Rendimento sem IOF gerado de e com mais de 720 dias: R$ ' + CurrToStr(IOF_Mais720) + sLineBreak +
     'Rendimento final: R$ ' + CurrToStr(TesouroSelicValorFinal) + sLineBreak +
     Separador + sLineBreak;
 
@@ -122,10 +124,10 @@ begin
     'Taxa do Certificado: ' + FloatToStr(TaxaCDB) + '%' + sLineBreak +
     'Taxa CDI : ' + FloatToStr(TaxaCDI) + '%' + sLineBreak +
     'Rendimento do tipo Liquidação Diária' + sLineBreak +
-    'Rendimento IOF gerado de 0 a 180 dias: R$ ' + CurrToStr(IOF180) + sLineBreak +
-    'Rendimento IOF gerado de 181 a 360 dias: R$ ' + CurrToStr(IOF360) + sLineBreak +
-    'Rendimento IOF gerado de 361 a 720 dias: R$ ' + CurrToStr(IOF720) + sLineBreak +
-    'Rendimento IOF gerado com mais de 720 dias: R$ ' + CurrToStr(IOF_Mais720) + sLineBreak +
+    'Rendimento sem IOF gerado de 0 a 180 dias: R$ ' + CurrToStr(IOF180) + sLineBreak +
+    'Rendimento sem IOF gerado de 181 a 360 dias: R$ ' + CurrToStr(IOF360) + sLineBreak +
+    'Rendimento sem IOF gerado de 361 a 720 dias: R$ ' + CurrToStr(IOF720) + sLineBreak +
+    'Rendimento sem IOF gerado com mais de 720 dias: R$ ' + CurrToStr(IOF_Mais720) + sLineBreak +
     'Rendimento final: R$ ' + CurrToStr(CDBValorFinal) + sLineBreak +
     'Seguro do Investimento: ' + FGC + sLineBreak +
     'Descrição do Seguro: ' + FGCValor + sLineBreak +
@@ -149,10 +151,10 @@ begin
     PegarDataAtualSimulacao + sLineBreak +
     'Taxa da Letra de Crédito: ' + FloatToStr(TaxaLCs) + '%' + sLineBreak +
     'Taxa CDI: ' + FloatToStr(TaxaCDI) + '%' + sLineBreak +
-    'Rendimento IOF gerado de 0 a 180 dias: R$ ' + CurrToStr(IOF180) + sLineBreak +
-    'Rendimento IOF gerado de 181 a 360 dias: R$ ' + CurrToStr(IOF360) + sLineBreak +
-    'Rendimento IOF gerado de 361 a 720 dias: R$ ' + CurrToStr(IOF720) + sLineBreak +
-    'Rendimento IOF gerado com mais de 720 dias: R$ ' + CurrToStr(IOF_Mais720) + sLineBreak +
+    'Rendimento sem IOF gerado de 0 a 180 dias: R$ ' + CurrToStr(IOF180) + sLineBreak +
+    'Rendimento com IOF gerado de 181 a 360 dias: R$ ' + CurrToStr(IOF360) + sLineBreak +
+    'Rendimento com IOF gerado de 361 a 720 dias: R$ ' + CurrToStr(IOF720) + sLineBreak +
+    'Rendimento com IOF gerado de com mais de 720 dias: R$ ' + CurrToStr(IOF_Mais720) + sLineBreak +
     'Seguro do Investimento: ' + FGC + sLineBreak +
     'Rendimento final: R$ ' + CurrToStr(LCsValorFinal) + sLineBreak +
     Separador + sLineBreak;
@@ -175,14 +177,40 @@ begin
     PegarDataAtualSimulacao + sLineBreak +
     'Taxa da Debêntures: ' + FloatToStr(TaxaDebentures) + '%' + sLineBreak +
     'Taxa CDI: ' + FloatToStr(TaxaCDI) + '%' + sLineBreak +
-    'Rendimento IOF gerado de 0 a 180 dias: R$ ' + CurrToStr(IOF180) + sLineBreak +
-    'Rendimento IOF gerado de 181 a 360 dias: R$ ' + CurrToStr(IOF360) + sLineBreak +
-    'Rendimento IOF gerado de 361 a 720 dias: R$ ' + CurrToStr(IOF720) + sLineBreak +
-    'Rendimento IOF gerado com mais de 720 dias: R$ ' + CurrToStr(IOF_Mais720) + sLineBreak +
+    'Rendimento sem IOF gerado de 0 a 180 dias: R$ ' + CurrToStr(IOF180) + sLineBreak +
+    'Rendimento sem IOF gerado de 181 a 360 dias: R$ ' + CurrToStr(IOF360) + sLineBreak +
+    'Rendimento sem IOF gerado de 361 a 720 dias: R$ ' + CurrToStr(IOF720) + sLineBreak +
+    'Rendimento sem IOF gerado com mais de 720 dias: R$ ' + CurrToStr(IOF_Mais720) + sLineBreak +
     'Rendimento final: R$ ' + CurrToStr(LCsValorFinal) + sLineBreak +
     Separador + sLineBreak;
 
   Result := PadraoSalvarDebentures;
+end;
+
+function TGravar.TextoPadraoFundosInvestimentos(ValorAplicado, TipoInvestimentoEscolhido, DescricaoInvestimentoEscolhido, EmpresaPrestadoraServico : string;
+  TaxaFI, TaxaCDI: Double; IOF180, IOF360, IOF720, IOF_Mais720, ValorFinalFI: Currency; QtdDias: Integer): String;
+var
+ PadraoSalvarFI: string;
+begin
+  PadraoSalvarFI :=
+    Separador + sLineBreak +
+    'Tipo de Investimento Principal: ' + FundosInvestimento + sLineBreak +
+    'Fundo de Investimento Escolhido: ' + TipoInvestimentoEscolhido + sLineBreak +
+    'Descrição do Tipo Escolhido: ' + DescricaoInvestimentoEscolhido + sLineBreak +
+    'Empresa prestadadora do serviço: ' + EmpresaPrestadoraServico + sLineBreak +
+    'Valor Aplicado: R$ ' + ValorAplicado + sLineBreak +
+    'Quantidade de Dias Aplicado: ' + IntToStr(QtdDias) + sLineBreak +
+    PegarDataAtualSimulacao + sLineBreak +
+    'Taxa do Fundo de Investimento: ' + FloatToStr(TaxaFI) + '%' + sLineBreak +
+    'Taxa CDI: ' + FloatToStr(TaxaCDI) + '%' + sLineBreak +
+    'Rendimento sem IOF gerado de 0 a 180 dias: R$ ' + CurrToStr(IOF180) + sLineBreak +
+    'Rendimento sem IOF gerado de 181 a 360 dias: R$ ' + CurrToStr(IOF360) + sLineBreak +
+    'Rendimento sem IOF gerado de 361 a 720 dias: R$ ' + CurrToStr(IOF720) + sLineBreak +
+    'Rendimento sem IOF gerado com mais de 720 dias: R$ ' + CurrToStr(IOF_Mais720) + sLineBreak +
+    'Rendimento final: R$ ' + CurrToStr(ValorFinalFI) + sLineBreak +
+    Separador + sLineBreak;
+
+  Result := PadraoSalvarFI;
 end;
 
 function TGravar.TextoPadraoCOE(ValorAplicado, TipoInvestimentoEscolhido, DescricaoInvestimentoEscolhido,  TipoTaxa: string;
@@ -200,10 +228,10 @@ begin
     PegarDataAtualSimulacao + sLineBreak +
     'Taxa da Debêntures: ' + FloatToStr(TaxaCOE) + '%' + sLineBreak +
     'Taxa CDI: ' + FloatToStr(TaxaCDI) + '%' + sLineBreak +
-    'Rendimento IOF gerado de 0 a 180 dias: R$ ' + CurrToStr(IOF180) + sLineBreak +
-    'Rendimento IOF gerado de 181 a 360 dias: R$ ' + CurrToStr(IOF360) + sLineBreak +
-    'Rendimento IOF gerado de 361 a 720 dias: R$ ' + CurrToStr(IOF720) + sLineBreak +
-    'Rendimento IOF gerado com mais de 720 dias: R$ ' + CurrToStr(IOF_Mais720) + sLineBreak +
+    'Rendimento sem IOF gerado de 0 a 180 dias: R$ ' + CurrToStr(IOF180) + sLineBreak +
+    'Rendimento sem IOF gerado de 181 a 360 dias: R$ ' + CurrToStr(IOF360) + sLineBreak +
+    'Rendimento sem IOF gerado de 361 a 720 dias: R$ ' + CurrToStr(IOF720) + sLineBreak +
+    'Rendimento sem IOF gerado com mais de 720 dias: R$ ' + CurrToStr(IOF_Mais720) + sLineBreak +
     'Rendimento final: R$ ' + CurrToStr(ValorFinalCOE) + sLineBreak +
     Separador + sLineBreak;
 

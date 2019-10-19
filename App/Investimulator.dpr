@@ -1,4 +1,4 @@
-program Project_Investimulator;
+program Investimulator;
 
 uses
   Vcl.Forms,

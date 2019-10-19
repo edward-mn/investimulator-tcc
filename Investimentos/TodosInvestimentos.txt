@@ -1,342 +1,61 @@
 ###############################################################
 Tipo de Investimento Principal: Tesouro Direto
-Tipo de Investimento Escolhido: Tesouro Selic - Pós-fixado
-Valor Aplicado: R$ 1001,11
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 04\10\2019 - 20:39:19
-Taxa Selic: 0,614%
-Taxa CDI : 0,57%
-Rendimento IOF gerado de 0 a 180 dias: R$ 2021,2411
-Rendimento IOF gerado de 181 a 360 dias: R$ 2196,4353
-Rendimento IOF gerado de 361 a 720 dias: R$ 2511,785
-Rendimento IOF gerado com mais de 720 dias: R$ 3394,764
-Rendimento final: R$ 2336,5907
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Tesouro Direto
 Tipo de Investimento Escolhido: Tesouro Prefixado (LTN) - Pré-fixado
-Valor Aplicado: R$ 1112,23
-Quantidade de Dias Aplicado: 423
-Data da Aplicação: 04\10\2019 - 20:39:34
-Taxa Selic: 0,608%
+Valor Aplicado: R$ 489,50
+Quantidade de Dias Aplicado: 378
+Data da Aplicação: 18\10\2019 - 20:59:52
+Taxa Selic: 0,602%
 Taxa CDI : 0,6%
-Rendimento IOF gerado de 0 a 180 dias: R$ 2238,919
-Rendimento IOF gerado de 181 a 360 dias: R$ 2433,5592
-Rendimento IOF gerado de 361 a 720 dias: R$ 2783,9117
-Rendimento IOF gerado com mais de 720 dias: R$ 3701,5014
-Rendimento final: R$ 2500,293
+Rendimento sem IOF gerado de 0 a 180 dias: R$ 982,4265
+Rendimento sem IOF gerado de 181 a 360 dias: R$ 1068,089
+Rendimento sem IOF gerado de 361 a 720 dias: R$ 1222,2815
+Rendimento sem IOF gerado de e com mais de 720 dias: R$ 1418,0815
+Rendimento final: R$ 1097,459
 ###############################################################
 
 ###############################################################
 Tipo de Investimento Escolhido: Poupança
-Valor Aplicado: R$ 3458,25
-Quantidade de Dias Aplicado: 123
-Data da Aplicação: 04\10\2019 - 20:39:45
-Taxa Poupança: 0,012%
-Taxa CDI : 0,56%
+Valor Aplicado: R$ 780,99
+Quantidade de Dias Aplicado: 450
+Data da Aplicação: 18\10\2019 - 21:00:07
+Taxa Poupança: 0,428%
+Taxa CDI : 0,57%
 Rendimento do tipo Liquidação Diária
-Rendimento final: R$ 3481,4894
-###############################################################
-
-###############################################################
-Tipo de Investimento Escolhido: Poupança
-Valor Aplicado: R$ 1258,14
-Quantidade de Dias Aplicado: 213
-Data da Aplicação: 04\10\2019 - 20:39:51
-Taxa Poupança: 0,02%
-Taxa CDI : 0,59%
-Rendimento do tipo Liquidação Diária
-Rendimento final: R$ 1272,9861
+Rendimento final: R$ 971,5203
 ###############################################################
 
 ###############################################################
 Tipo de Investimento Escolhido: Certificado de Depósito Bancário - Pós-fixado
-Banco emissor do Certificado Escolhido: Caixa Econômica Federal
-Valor Aplicado: R$ 1478,32
-Quantidade de Dias Aplicado: 278
-Data da Aplicação: 04\10\2019 - 20:41:03
-Taxa do Certificado: 0,041%
-Taxa CDI : 0,56%
+Banco emissor do Certificado Escolhido: BNDES
+Valor Aplicado: R$ 1310,20
+Quantidade de Dias Aplicado: 214
+Data da Aplicação: 18\10\2019 - 21:00:34
+Taxa do Certificado: 0,032%
+Taxa CDI : 0,57%
 Rendimento do tipo Liquidação Diária
-Rendimento IOF gerado de 0 a 180 dias: R$ 2137,6507
-Rendimento IOF gerado de 181 a 360 dias: R$ 2396,3567
-Rendimento IOF gerado de 361 a 720 dias: R$ 2862,0275
-Rendimento IOF gerado com mais de 720 dias: R$ 3746,0629
-Rendimento final: R$ 2662,4543
-Seguro do Investimento: FGC - Fundo Garantidor de Créditos
-Descrição do Seguro: Seu investimento está assegurado até R$ 250 mil por instituição de aplicação
-###############################################################
-
-###############################################################
-Tipo de Investimento Escolhido: Certificado de Depósito Bancário - Pré-fixado
-Banco emissor do Certificado Escolhido: Banco do Brasil
-Valor Aplicado: R$ 321,99
-Quantidade de Dias Aplicado: 415
-Data da Aplicação: 04\10\2019 - 20:41:33
-Taxa do Certificado: 0,658%
-Taxa CDI : 0,56%
-Rendimento do tipo Liquidação Diária
-Rendimento IOF gerado de 0 a 180 dias: R$ 664,2654
-Rendimento IOF gerado de 181 a 360 dias: R$ 720,6136
-Rendimento IOF gerado de 361 a 720 dias: R$ 822,0405
-Rendimento IOF gerado com mais de 720 dias: R$ 984,9674
-Rendimento final: R$ 759,2524
+Rendimento sem IOF gerado de 0 a 180 dias: R$ 1882,7574
+Rendimento sem IOF gerado de 181 a 360 dias: R$ 2112,0424
+Rendimento sem IOF gerado de 361 a 720 dias: R$ 2524,7554
+Rendimento sem IOF gerado com mais de 720 dias: R$ 3512,6462
+Rendimento final: R$ 2360,9804
 Seguro do Investimento: FGC - Fundo Garantidor de Créditos
 Descrição do Seguro: Seu investimento está assegurado até R$ 250 mil por instituição de aplicação
 ###############################################################
 
 ###############################################################
 Tipo de Investimento Principal: Letra de Crédito - Pré-fixado
-Fundo de Investimento Escolhido: Letra de Câmbio - Crédito Consiginado
-Valor Aplicado: R$ 1001,11
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 09\10\2019 - 01:20:57
-Taxa da Letra de Crédito: 0,699%
-Taxa CDI: 0,58%
-Rendimento IOF gerado de 0 a 180 dias: R$ 2106,3354
-Rendimento IOF gerado de 181 a 360 dias: R$ 2281,5297
-Rendimento IOF gerado de 361 a 720 dias: R$ 2596,8793
-Rendimento IOF gerado com mais de 720 dias: R$ 3187,5342
-Rendimento final: R$ 2341,5963
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Letra de Crédito - Pós-fixado
-Fundo de Investimento Escolhido: Letra de Crédito Agropecuário - Serviços Agropecuários
-Valor Aplicado: R$ 1001,21
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 09\10\2019 - 01:22:42
-Taxa da Letra de Crédito: 0,699%
-Taxa CDI: 0,56%
-Rendimento IOF gerado de 0 a 180 dias: R$ 2106,5458
-Rendimento IOF gerado de 181 a 360 dias: R$ 2281,7576
-Rendimento IOF gerado de 361 a 720 dias: R$ 2597,1387
-Rendimento IOF gerado com mais de 720 dias: R$ 2988,6118
-Rendimento final: R$ 2411,9149
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Letra de Crédito - Pós-fixado
-Fundo de Investimento Escolhido: Letra de Crédito Imobiliário - Hipotecas
-Valor Aplicado: R$ 1001,21
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 09\10\2019 - 01:23:29
-Taxa da Letra de Crédito: 0,699%
+Fundo de Investimento Escolhido: Letra de Crédito Agropecuário - Comercialização/Industrialização
+Valor Aplicado: R$ 1400,25
+Quantidade de Dias Aplicado: 240
+Data da Aplicação: 18\10\2019 - 21:01:22
+Taxa da Letra de Crédito: 0,037%
 Taxa CDI: 0,59%
-Rendimento IOF gerado de 0 a 180 dias: R$ 2106,5458
-Rendimento IOF gerado de 181 a 360 dias: R$ 2281,7576
-Rendimento IOF gerado de 361 a 720 dias: R$ 2597,1387
-Rendimento IOF gerado com mais de 720 dias: R$ 2707,2718
-Rendimento final: R$ 2441,9512
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Letra de Crédito - Pré-fixado
-Fundo de Investimento Escolhido: Letra de Crédito Agropecuário - Pecuária
-Valor Aplicado: R$ 254,52
-Quantidade de Dias Aplicado: 321
-Data da Aplicação: 09\10\2019 - 01:25:18
-Taxa da Letra de Crédito: 0,05%
-Taxa CDI: 0,59%
-Rendimento IOF gerado de 0 a 180 dias: R$ 370,3266
-Rendimento IOF gerado de 181 a 360 dias: R$ 414,8676
-Rendimento IOF gerado de 361 a 720 dias: R$ 495,0414
-Rendimento IOF gerado com mais de 720 dias: R$ 728,6908
-Rendimento final: R$ 430,1388
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Debêntures - Pós-fixado
-Fundo de Investimento Escolhido: Debentures Simples
-Descrição do Tipo Escolhido: É o mais simples, pois sua aplicação e finalidade é simplesmente servir crédito para quem precisa, nada mais que isso
-Valor Aplicado: R$ 1001,11
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 11\10\2019 - 19:48:31
-Taxa da Debêntures: 0,709%
-Taxa CDI: 0,59%
-Rendimento IOF gerado de 0 a 180 dias: R$ 2116,3465
-Rendimento IOF gerado de 181 a 360 dias: R$ 2291,5408
-Rendimento IOF gerado de 361 a 720 dias: R$ 2606,8904
-Rendimento IOF gerado com mais de 720 dias: R$ 3017,3455
+Rendimento sem IOF gerado de 0 a 180 dias: R$ 2019,1605
+Rendimento com IOF gerado de 181 a 360 dias: R$ 2264,2042
+Rendimento com IOF gerado de 361 a 720 dias: R$ 2705,283
+Rendimento com IOF gerado de com mais de 720 dias: R$ 3721,8645
 Seguro do Investimento: FGC - Fundo Garantidor de Créditos
-Rendimento final: R$ 2571,8516
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Debêntures - Pré-fixado
-Fundo de Investimento Escolhido: Debêntures Nominativas
-Descrição do Tipo Escolhido: Utiliza um banco de dados, demonstrando todo histórico dos investimentos, transferências e investidores. A empresa que faz todo manuseamento dos dados
-Valor Aplicado: R$ 1001,11
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 11\10\2019 - 19:49:23
-Taxa da Debêntures: 0,709%
-Taxa CDI: 0,56%
-Rendimento IOF gerado de 0 a 180 dias: R$ 2116,3465
-Rendimento IOF gerado de 181 a 360 dias: R$ 2291,5408
-Rendimento IOF gerado de 361 a 720 dias: R$ 2606,8904
-Rendimento IOF gerado com mais de 720 dias: R$ 3284,6419
-Seguro do Investimento: FGC - Fundo Garantidor de Créditos
-Rendimento final: R$ 2501,7739
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Debêntures - Pós-fixado
-Fundo de Investimento Escolhido: Debêntures Permutáveis
-Descrição do Tipo Escolhido: É um tipo de investimento que pode ou não ser convertidoem algo,como por exemplo as ações, porem pode ser investido em outras empresas
-Valor Aplicado: R$ 1001,11
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 11\10\2019 - 19:51:10
-Taxa da Debêntures: 0,709%
-Taxa CDI: 0,59%
-Rendimento IOF gerado de 0 a 180 dias: R$ 2116,3465
-Rendimento IOF gerado de 181 a 360 dias: R$ 2291,5408
-Rendimento IOF gerado de 361 a 720 dias: R$ 2606,8904
-Rendimento IOF gerado com mais de 720 dias: R$ 3252,6064
-Seguro do Investimento: FGC - Fundo Garantidor de Créditos
-Rendimento final: R$ 2571,8516
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Debêntures - Pré-fixado
-Fundo de Investimento Escolhido: Debentures Conversíveis
-Descrição do Tipo Escolhido: É um tipo de investimento que pode ou não ser convertidoem algo,como por exemplo as ações somente daquela empresa
-Valor Aplicado: R$ 1001,24
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 11\10\2019 - 19:52:04
-Taxa da Debêntures: 0,709%
-Taxa CDI: 0,56%
-Rendimento IOF gerado de 0 a 180 dias: R$ 2116,6214
-Rendimento IOF gerado de 181 a 360 dias: R$ 2291,8384
-Rendimento IOF gerado de 361 a 720 dias: R$ 2607,229
-Rendimento IOF gerado com mais de 720 dias: R$ 2783,4472
-Seguro do Investimento: FGC - Fundo Garantidor de Créditos
-Rendimento final: R$ 2502,0988
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Debêntures - Pós-fixado
-Fundo de Investimento Escolhido: Debêntures Escriturais
-Descrição do Tipo Escolhido: Utiliza um banco de dados, porem são manuseadosguardados e gerenciados por terceiros
-Valor Aplicado: R$ 1001,12
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 11\10\2019 - 19:52:49
-Taxa da Debêntures: 0,709%
-Taxa CDI: 0,6%
-Rendimento IOF gerado de 0 a 180 dias: R$ 2116,3677
-Rendimento IOF gerado de 181 a 360 dias: R$ 2291,5637
-Rendimento IOF gerado de 361 a 720 dias: R$ 2606,9165
-Rendimento IOF gerado com mais de 720 dias: R$ 2659,9758
-Seguro do Investimento: FGC - Fundo Garantidor de Créditos
-Rendimento final: R$ 2581,8885
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Debêntures - Pré-fixado
-Fundo de Investimento Escolhido: Debentures Simples
-Descrição do Tipo Escolhido: É o mais simples, pois sua aplicação e finalidade é simplesmente servir crédito
- para quem precisa, nada mais que isso
-Valor Aplicado: R$ 1001,11
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 11\10\2019 - 19:54:16
-Taxa da Debêntures: 0,709%
-Taxa CDI: 0,56%
-Rendimento IOF gerado de 0 a 180 dias: R$ 2116,3465
-Rendimento IOF gerado de 181 a 360 dias: R$ 2291,5408
-Rendimento IOF gerado de 361 a 720 dias: R$ 2606,8904
-Rendimento IOF gerado com mais de 720 dias: R$ 3138,4798
-Seguro do Investimento: FGC - Fundo Garantidor de Créditos
-Rendimento final: R$ 2501,7739
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Debêntures - Pré-fixado
-Fundo de Investimento Escolhido: Debentures Simples
-Descrição do Tipo Escolhido: É o mais simples, pois sua aplicação e finalidade é simplesmente servir crédito
- -> para quem precisa, nada mais que isso.
-Valor Aplicado: R$ 1001,11
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 11\10\2019 - 19:56:04
-Taxa da Debêntures: 0,709%
-Taxa CDI: 0,56%
-Rendimento IOF gerado de 0 a 180 dias: R$ 2116,3465
-Rendimento IOF gerado de 181 a 360 dias: R$ 2291,5408
-Rendimento IOF gerado de 361 a 720 dias: R$ 2606,8904
-Rendimento IOF gerado com mais de 720 dias: R$ 3001,3278
-Seguro do Investimento: FGC - Fundo Garantidor de Créditos
-Rendimento final: R$ 2501,7739
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Debêntures - Pós-fixado
-Fundo de Investimento Escolhido: Debêntures Nominativas
-Descrição do Tipo Escolhido: Utiliza um banco de dados, demonstrando todo histórico dos investimentos,
- -> transferências e investidores. A empresa que faz todo manuseamento dos dados.
-Valor Aplicado: R$ 1001,15
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 11\10\2019 - 19:56:22
-Taxa da Debêntures: 0,709%
-Taxa CDI: 0,59%
-Rendimento IOF gerado de 0 a 180 dias: R$ 2116,4311
-Rendimento IOF gerado de 181 a 360 dias: R$ 2291,6324
-Rendimento IOF gerado de 361 a 720 dias: R$ 2606,9946
-Rendimento IOF gerado com mais de 720 dias: R$ 3072,5294
-Seguro do Investimento: FGC - Fundo Garantidor de Créditos
-Rendimento final: R$ 2571,9544
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Debêntures - Pré-fixado
-Fundo de Investimento Escolhido: Debêntures Permutáveis
-Descrição do Tipo Escolhido: É um tipo de investimento que pode ou não ser convertidoem algo,como por
- -> exemplo as ações, porem pode ser investido em outras empresas.
-Valor Aplicado: R$ 1001,12
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 11\10\2019 - 19:57:06
-Taxa da Debêntures: 0,709%
-Taxa CDI: 0,6%
-Rendimento IOF gerado de 0 a 180 dias: R$ 2116,3677
-Rendimento IOF gerado de 181 a 360 dias: R$ 2291,5637
-Rendimento IOF gerado de 361 a 720 dias: R$ 2606,9165
-Rendimento IOF gerado com mais de 720 dias: R$ 3323,7184
-Seguro do Investimento: FGC - Fundo Garantidor de Créditos
-Rendimento final: R$ 2501,7989
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Debêntures - Pré-fixado
-Fundo de Investimento Escolhido: Debentures Conversíveis
-Descrição do Tipo Escolhido: É um tipo de investimento que pode ou não ser convertidoem algo,como por
- -> exemplo as ações somente daquela empresa.
-Valor Aplicado: R$ 1001,15
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 11\10\2019 - 19:57:43
-Taxa da Debêntures: 0,709%
-Taxa CDI: 0,57%
-Rendimento IOF gerado de 0 a 180 dias: R$ 2116,4311
-Rendimento IOF gerado de 181 a 360 dias: R$ 2291,6324
-Rendimento IOF gerado de 361 a 720 dias: R$ 2606,9946
-Rendimento IOF gerado com mais de 720 dias: R$ 3549,0768
-Seguro do Investimento: FGC - Fundo Garantidor de Créditos
-Rendimento final: R$ 2501,8738
-###############################################################
-
-###############################################################
-Tipo de Investimento Principal: Debêntures - Pós-fixado
-Fundo de Investimento Escolhido: Debêntures Escriturais
-Descrição do Tipo Escolhido: Utiliza um banco de dados, porem são manuseadosguardados e gerenciados
- -> por terceiros.
-Valor Aplicado: R$ 1001,45
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 11\10\2019 - 19:58:07
-Taxa da Debêntures: 0,709%
-Taxa CDI: 0,56%
-Rendimento IOF gerado de 0 a 180 dias: R$ 2117,0653
-Rendimento IOF gerado de 181 a 360 dias: R$ 2292,319
-Rendimento IOF gerado de 361 a 720 dias: R$ 2607,7758
-Rendimento IOF gerado com mais de 720 dias: R$ 3554,146
-Seguro do Investimento: FGC - Fundo Garantidor de Créditos
-Rendimento final: R$ 2542,6816
+Rendimento final: R$ 2488,2442
 ###############################################################
 
 ###############################################################
@@ -344,65 +63,66 @@ Tipo de Investimento Principal: Debêntures - Pré-fixado
 Fundo de Investimento Escolhido: Debentures Conversíveis
 Descrição do Tipo Escolhido: É um tipo de investimento que pode ou não ser convertido em algo, como por
  -> exemplo as ações somente daquela empresa.
-Valor Aplicado: R$ 1001,11
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 13\10\2019 - 01:35:44
-Taxa da Debêntures: 0,709%
+Valor Aplicado: R$ 2500,00
+Quantidade de Dias Aplicado: 147
+Data da Aplicação: 18\10\2019 - 21:01:54
+Taxa da Debêntures: 0,023%
 Taxa CDI: 0,6%
-Rendimento IOF gerado de 0 a 180 dias: R$ 2116,3465
-Rendimento IOF gerado de 181 a 360 dias: R$ 2291,5408
-Rendimento IOF gerado de 361 a 720 dias: R$ 2606,8904
-Rendimento IOF gerado com mais de 720 dias: R$ 3230,582
-Rendimento final: R$ 2501,7739
+Rendimento sem IOF gerado de 0 a 180 dias: R$ 3570
+Rendimento sem IOF gerado de 181 a 360 dias: R$ 4007,5
+Rendimento sem IOF gerado de 361 a 720 dias: R$ 4795
+Rendimento sem IOF gerado com mais de 720 dias: R$ 5732,5
+Rendimento final: R$ 4532,5
 ###############################################################
 
 ###############################################################
-Tipo de Investimento Principal: Certificado de Operações Estruturadas - Capital Protegido
-Fundo de Investimento Escolhido: Letra de Câmbio (LC)
-Descrição do Tipo Escolhido: Letra de Crédito-Letra de CâmbioOrgão emissor da Letra de Crédito Escolhido-Crédito Consiginado
-Valor Aplicado: R$ 1001,11
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 13\10\2019 - 01:44:58
-Taxa da Debêntures: 0,771%
-Taxa CDI: 0,6%
-Rendimento IOF gerado de 0 a 180 dias: R$ 2178,4154
-Rendimento IOF gerado de 181 a 360 dias: R$ 2353,6096
-Rendimento IOF gerado de 361 a 720 dias: R$ 2668,9593
-Rendimento IOF gerado com mais de 720 dias: R$ 3351,7163
-Rendimento final: R$ 2523,7983
+Tipo de Investimento Principal: Fundos de investimentos
+Fundo de Investimento Escolhido: Fundos de Curto Prazo
+Descrição do Tipo Escolhido: Estão conectados ao Certificado de Depósito Interbancário (CDI).
+Empresa prestadadora do serviço: Blog  Rico
+Valor Aplicado: R$ 345,80
+Quantidade de Dias Aplicado: 125
+Data da Aplicação: 18\10\2019 - 21:02:20
+Taxa do Fundo de Investimento: 0,021%
+Taxa CDI: 0,58%
+Rendimento sem IOF gerado de 0 a 180 dias: R$ 493,1108
+Rendimento sem IOF gerado de 181 a 360 dias: R$ 553,6258
+Rendimento sem IOF gerado de 361 a 720 dias: R$ 662,5528
+Rendimento sem IOF gerado com mais de 720 dias: R$ 681,9176
+Rendimento final: R$ 612,4118
 ###############################################################
 
 ###############################################################
-Tipo de Investimento Principal: Certificado de Operações Estruturadas - Capital em Risco
-Fundo de Investimento Escolhido: Letra de Crédito Agropecuário (LCA)
-Descrição do Tipo Escolhido: Letra de Crédito - Letra de Crédito Agropecuário
-Orgão emissor da Letra de Crédito Escolhido foi: Insumos/Sementes
-Valor Aplicado: R$ 1001,11
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 13\10\2019 - 01:48:36
-Taxa da Debêntures: 0,771%
+Tipo de Investimento Principal: Fundos de investimentos
+Fundo de Investimento Escolhido: Fundos de Longo Prazo
+Descrição do Tipo Escolhido: Estão conectados ao Certificado de Depósito Interbancário (CDI).
+Empresa prestadadora do serviço: Toro Investimentos 
+Valor Aplicado: R$ 345,80
+Quantidade de Dias Aplicado: 125
+Data da Aplicação: 18\10\2019 - 21:02:40
+Taxa do Fundo de Investimento: 0,021%
 Taxa CDI: 0,59%
-Rendimento IOF gerado de 0 a 180 dias: R$ 2178,4154
-Rendimento IOF gerado de 181 a 360 dias: R$ 2353,6096
-Rendimento IOF gerado de 361 a 720 dias: R$ 2668,9593
-Rendimento IOF gerado com mais de 720 dias: R$ 2895,2101
-Rendimento final: R$ 2854,1646
+Rendimento sem IOF gerado de 0 a 180 dias: R$ 493,1108
+Rendimento sem IOF gerado de 181 a 360 dias: R$ 553,6258
+Rendimento sem IOF gerado de 361 a 720 dias: R$ 662,5528
+Rendimento sem IOF gerado com mais de 720 dias: R$ 834,7612
+Rendimento final: R$ 723,0678
 ###############################################################
 
 ###############################################################
-Tipo de Investimento Principal: Certificado de Operações Estruturadas - Capital em Risco
-Fundo de Investimento Escolhido: Certificado de Depósito Bancário (CDB)
-Descrição do Tipo Escolhido: Certificado de Depósito Bancário - CDB
- -> Orgão emissor do CDB  Escolhido foi: Banco do Brasil
-Valor Aplicado: R$ 1001,11
-Quantidade de Dias Aplicado: 480
-Data da Aplicação: 13\10\2019 - 01:50:40
-Taxa da Debêntures: 0,771%
+Tipo de Investimento Principal: Fundos de investimentos
+Fundo de Investimento Escolhido: Fundos em ações
+Descrição do Tipo Escolhido: O dinheiro é aplicado na bolsa de valores.
+Empresa prestadadora do serviço: Ourinvest
+Valor Aplicado: R$ 345,80
+Quantidade de Dias Aplicado: 125
+Data da Aplicação: 18\10\2019 - 21:02:56
+Taxa do Fundo de Investimento: 0,521%
 Taxa CDI: 0,56%
-Rendimento IOF gerado de 0 a 180 dias: R$ 2178,4154
-Rendimento IOF gerado de 181 a 360 dias: R$ 2353,6096
-Rendimento IOF gerado de 361 a 720 dias: R$ 2668,9593
-Rendimento IOF gerado com mais de 720 dias: R$ 3315,6763
-Rendimento final: R$ 2824,1313
+Rendimento sem IOF gerado de 0 a 180 dias: R$ 666,0108
+Rendimento sem IOF gerado de 181 a 360 dias: R$ 726,5258
+Rendimento sem IOF gerado de 361 a 720 dias: R$ 835,4528
+Rendimento sem IOF gerado com mais de 720 dias: R$ 904,267
+Rendimento final: R$ 726,8716
 ###############################################################
 

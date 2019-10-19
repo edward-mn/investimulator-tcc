@@ -1,0 +1,51 @@
+###############################################################
+Tipo de Investimento Principal: Fundos de investimentos
+Fundo de Investimento Escolhido: Fundos de Curto Prazo
+Descrição do Tipo Escolhido: Estão conectados ao Certificado de Depósito Interbancário (CDI).
+Empresa prestadadora do serviço: Blog  Rico
+Valor Aplicado: R$ 345,80
+Quantidade de Dias Aplicado: 125
+Data da Aplicação: 18\10\2019 - 21:02:20
+Taxa do Fundo de Investimento: 0,021%
+Taxa CDI: 0,58%
+Rendimento sem IOF gerado de 0 a 180 dias: R$ 493,1108
+Rendimento sem IOF gerado de 181 a 360 dias: R$ 553,6258
+Rendimento sem IOF gerado de 361 a 720 dias: R$ 662,5528
+Rendimento sem IOF gerado com mais de 720 dias: R$ 681,9176
+Rendimento final: R$ 612,4118
+###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Fundos de investimentos
+Fundo de Investimento Escolhido: Fundos de Longo Prazo
+Descrição do Tipo Escolhido: Estão conectados ao Certificado de Depósito Interbancário (CDI).
+Empresa prestadadora do serviço: Toro Investimentos 
+Valor Aplicado: R$ 345,80
+Quantidade de Dias Aplicado: 125
+Data da Aplicação: 18\10\2019 - 21:02:40
+Taxa do Fundo de Investimento: 0,021%
+Taxa CDI: 0,59%
+Rendimento sem IOF gerado de 0 a 180 dias: R$ 493,1108
+Rendimento sem IOF gerado de 181 a 360 dias: R$ 553,6258
+Rendimento sem IOF gerado de 361 a 720 dias: R$ 662,5528
+Rendimento sem IOF gerado com mais de 720 dias: R$ 834,7612
+Rendimento final: R$ 723,0678
+###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Fundos de investimentos
+Fundo de Investimento Escolhido: Fundos em ações
+Descrição do Tipo Escolhido: O dinheiro é aplicado na bolsa de valores.
+Empresa prestadadora do serviço: Ourinvest
+Valor Aplicado: R$ 345,80
+Quantidade de Dias Aplicado: 125
+Data da Aplicação: 18\10\2019 - 21:02:56
+Taxa do Fundo de Investimento: 0,521%
+Taxa CDI: 0,56%
+Rendimento sem IOF gerado de 0 a 180 dias: R$ 666,0108
+Rendimento sem IOF gerado de 181 a 360 dias: R$ 726,5258
+Rendimento sem IOF gerado de 361 a 720 dias: R$ 835,4528
+Rendimento sem IOF gerado com mais de 720 dias: R$ 904,267
+Rendimento final: R$ 726,8716
+###############################################################
+

@@ -9,12 +9,14 @@ const
   PathArquivoCertificadoDepositoBancario = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\CertificadoDepositoBancario.txt';
   PathArquivoCertificadoLetrasCreditos = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\LetrasCreditos.txt';
   PathArquivoDebentures = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\Debentures.txt';
+  PathArquivoFundosInvestimentos = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\FundosInvestimentos.txt';
   PathArquivoCOE = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\CertificadoOperacoesEstruturais.txt';
 
   TaxaPreFixado = 'Pré-fixado';
   TaxaPosFixado = 'Pós-fixado';
   TaxaCapitalProtegido = 'Capital Protegido';
   TaxaCapitalRisco = 'Capital em Risco';
+  EmpresaTerceira = 'Empresa prestadora de Serviço';
   TesouroDireto = 'Tesouro Direto';
   TesouroSelic = 'Tesouro Selic';
   TesouroPrefixado = 'Tesouro Prefixado (LTN)';
@@ -35,6 +37,14 @@ const
   DebenturesSimples = 'Debentures Simples';
   DebenturesConversiveis = 'Debentures Conversíveis';
   DebenturesPermutaveis = 'Debêntures Permutáveis';
+  FundosInvestimento = 'Fundos de investimentos';
+  FundosCurtoPrazo = 'Fundos de Curto Prazo';
+  FundosLongoPrazo = 'Fundos de Longo Prazo';
+  FundosCambiais = 'Fundos Cambiais';
+  FundosAcoes = 'Fundos em ações';
+  FundosImobiliários = 'Fundos de Investimento Imobiliários';
+  FundosDividaExterna = 'Fundos de Dívida Externa';
+  FundosMultimercado = 'Fundos Multimercado';
   CertificadoOperacoesEstruturais = 'Certificado de Operações Estruturadas';
 
   SimulacaoSucesso = 'Simulação feita com Sucesso!';
@@ -49,10 +59,22 @@ const
   DescricaoDebeturesPermutaveis = 'É um tipo de investimento que pode ou não ser convertido'
    + ' em algo,como por' + sLineBreak + ' -> exemplo as ações, porem pode ser investido em outras empresas.';
 
+  DescricaoFI_FundoAcoes = 'O dinheiro é aplicado na bolsa de valores.';
+  DescricaoFI_CurtoLongoPrazo = 'Estão conectados ao Certificado de Depósito Interbancário (CDI).';
+  DescricaoFI_FundosCambiais = 'São os investimentos feitos em câmbio, ou seja, em moedas estrangeiras.';
+  DescricaoFI_FundosDividaExterna = 'A dívida externa seria uma junção dos juros de câmbio internacional e os' + sLineBreak +
+    ' -> papéis das transações internacionais.';
+  DescricaoFI_FundosMultimercado = 'O investidor possui alternativas de outros tipos de investimentos sem' + sLineBreak +
+    ' -> ser exatamente oque foi investido.';
+  DescricaoFI_FundosInvestimentoImobiliarios = 'O Fundo Imobiliário (FII) possui um profissional altamente' + sLineBreak +
+    ' -> qualificado no ramo de Imóveis.';
+
   FGC = 'FGC - Fundo Garantidor de Créditos';
   FGCValor = 'Seu investimento está assegurado até R$ 250 mil por instituição de aplicação';
+  CVM = 'CVM - Comissão de Valores Mobiliários';
+  ANBIMA = 'ANBIMA - Associação Brasileira das Entidades dos Mercados Financeiros e de Capitais';
 
-  MsgSelecionarAlgumTipo = 'É necessário selecionar um %s simular';
+  MsgSelecionarAlgumTipo = 'É necessário selecionar um %s para simular';
   ValorAplicadoInvalido = 'O Valor aplicado não pode ser vazio';
   QuantidadeInvalida = 'A quantidade de dias deve ser maior que 0';
   TaxaAplicacaoNecessario = 'É preciso selecionar um tipo de Taxa para o investimento';
@@ -73,7 +95,10 @@ const
   TaxaLCsMensal = 0.056;
   TaxaDebenturesAnual = 0.69;
   TaxaDebenturesMensal = 0.057;
-
+  TaxaFIAnual = 0.72;
+  TaxaFIEMensal = 0.060;
+  TaxaCurtoPrazo = 0.35;
+  TaxaLongoPrazo = 0.48;
   TaxaCOEAnual = 0.75;
   TaxaCOEMensal = 0.063;
 
@@ -85,7 +110,8 @@ const
   BaseTaxaPreFixadoLCs = 0.34;
   BaseTaxaPosFixadoDebentures = 0.27;
   BaseTaxaPreFixadoDebentures = 0.39;
-
+  BaseTaxaCurtoPrazoFI = 0.31;
+  BaseTaxaLongoPrazoFI = 0.44;
   BaseTaxaProtegidoCOE = 0.35;
   BaseTaxaRiscoCOE = 0.49;
 

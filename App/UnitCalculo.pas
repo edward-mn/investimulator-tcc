@@ -19,7 +19,9 @@ type
     class function TaxaCDB(Dias: integer): double;
     class function TaxaLCs(Dias: integer): double;
     class function TaxaDebentures(Dias: Integer): double;
+    class function TaxaFI(Dias: Integer): double;
     class function TaxaCOE(Dias: Integer): double;
+    class function TaxaFundosInvestimentosRandon: Double;
     class function TesouroSelicTaxasPos(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
     class function TesouroSelicTaxasPre(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
     class function TesouroSemestraisTaxasPre(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
@@ -33,6 +35,9 @@ type
     class function DebenturesPre(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
     class function COECapitalRisco(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
     class function COECapitalProtegido(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
+    class function FundosInvestimentosLongoPrazo(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
+    class function FundosInvestimentosCurtoPrazo(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
+    class function FundosInvestimentosRandon(ValorAplicado: Currency; Dias: Integer; TaxaCDI, TaxaFI_Randon: Double): Currency;
     class function TesouroIOF_180(ValorAplicado: Currency; TaxaTipoRendimento: Double): Currency;
     class function TesouroIOF_360(ValorAplicado: Currency; TaxaTipoRendimento: Double): Currency;
     class function TesouroIOF_720(ValorAplicado: Currency; TaxaTipoRendimento: Double): Currency;
@@ -96,6 +101,16 @@ begin
   Result := RendimentoPadrao(Dias, TaxaDebenturesAnual,TaxaDebenturesMensal);
 end;
 
+class function TCalculo.TaxaFI(Dias: Integer): double;
+begin
+  Result := RendimentoPadrao(Dias, TaxaFIAnual, TaxaFIEMensal);
+end;
+
+class function TCalculo.TaxaFundosInvestimentosRandon: Double;
+begin
+  Result := TaxaLongoPrazo + (Random(2) * 0.02);
+end;
+
 class function TCalculo.TaxaLCs(Dias: integer): double;
 begin
   Result := RendimentoPadrao(Dias, TaxaLCsAnual, TaxaLCsMensal);
@@ -139,6 +154,21 @@ end;
 class function TCalculo.DebenturesPre(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
 begin
   Result := ValorFinalBase(ValorAplicado, TaxaDebentures(Dias), TaxaCDI, BaseTaxaPreFixadoDebentures);
+end;
+
+class function TCalculo.FundosInvestimentosCurtoPrazo(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
+begin
+  Result := ValorFinalBase(ValorAplicado, TaxaFI(Dias), TaxaCDI, TaxaCurtoPrazo);
+end;
+
+class function TCalculo.FundosInvestimentosLongoPrazo(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;
+begin
+  Result := ValorFinalBase(ValorAplicado, TaxaFI(Dias), TaxaCDI, TaxaLongoPrazo);
+end;
+
+class function TCalculo.FundosInvestimentosRandon(ValorAplicado: Currency; Dias: Integer; TaxaCDI, TaxaFI_Randon: Double): Currency;
+begin
+  Result := ValorFinalBase(ValorAplicado, TaxaFI(Dias), TaxaCDI, TaxaFI_Randon);
 end;
 
 class function TCalculo.LetrasCreditosPos(ValorAplicado: Currency; Dias: Integer; TaxaCDI: Double): Currency;

@@ -106,6 +106,23 @@ type
     LabelQtdDiasCOE: TLabel;
     RadioButtonCapitalProtegidoCOE: TRadioButton;
     RadioButtonCapitalRiscoCOE: TRadioButton;
+    TabSheetFundosInvestimentos: TTabSheet;
+    GroupBoxTiposFI: TGroupBox;
+    ButtonFI_Simular: TButton;
+    EditValorAplicadoFI: TEdit;
+    SpinEditQtdDiasFI: TSpinEdit;
+    LabelValorAplicadoFI: TLabel;
+    LabelQtdDiasFI: TLabel;
+    RadioButtonFI_FundosInvestimentoImobiliarios: TRadioButton;
+    RadioButtonFI_FundosMultimercado: TRadioButton;
+    RadioButtonFI_FundosDividaExterna: TRadioButton;
+    RadioButtonFI_FundosAcoes: TRadioButton;
+    RadioButtonFI_FundosCambiais: TRadioButton;
+    RadioButtonFI_FundosCurtoPrazo: TRadioButton;
+    RadioButtonFI_FundosLongoPrazo: TRadioButton;
+    MemoFI: TMemo;
+    ComboBoxInvestidoraTerceira: TComboBox;
+    LabelInvestidoraTerceira: TLabel;
     procedure FormShow(Sender: TObject);
     procedure ButtonTesouroDiretoSimularClick(Sender: TObject);
     procedure EditValorAplicadoTDKeyPress(Sender: TObject; var Key: Char);
@@ -126,6 +143,8 @@ type
     procedure RadioButtonCOE_LCIClick(Sender: TObject);
     procedure RadioButtonCOE_CDBClick(Sender: TObject);
     procedure ButtonCOESimularClick(Sender: TObject);
+    procedure EditValorAplicadoFIKeyPress(Sender: TObject; var Key: Char);
+    procedure ButtonFI_SimularClick(Sender: TObject);
   private
     FGravarArquivo: TGravar;
     function PegarTipoTaxaBase(RadioPreFixado, RadioPosFixado: Boolean; TextoTaxa1: string = TaxaPreFixado;
@@ -138,17 +157,23 @@ type
     procedure ValidarCDB;
     procedure ValidarLCs;
     procedure ValidarDebentures;
+    procedure ValidarFI;
+    procedure ValidarCOE;
     procedure SimularTesouroDireto;
     procedure SimularPoupanca;
     procedure SimularCDB;
     procedure SimularLCs;
     procedure SimularDebentures;
+    procedure SimularCOE;
+    procedure LerDadosMemoBase(Memo: TMemo; PathFile: string);
     procedure LerDadosMemo;
     procedure LimparCampos;
     function PegarTipoTD: string;
     function PegarTipoLCs: string;
     function PegarTipoDebentures: string;
+    function PegarTipoFI: string;
     function PegarTipoCOE: string;
+    function PegarDescricaoFI: string;
     function PegarDescricaoCOE: string;
     function PegarTipoTaxaTD: string;
     function PegarTipoTaxaCDB: string;
@@ -158,6 +183,7 @@ type
     function PegarBancoCDB: string;
     function PegarFundoLCs: string;
     function PegarFundoCOE: string;
+    function PegarInvestidoraTerceiraFI: string;
     function PegarComboBase(ItemSelecionado: Integer; TextoSelecionado, MsgError: string): string;
     procedure InserirValoresCombo(ComboBox: TComboBox);
     function PegarDescricaoDebentures: string;
@@ -180,38 +206,61 @@ uses
   StrUtils;
 
 procedure TFormInvestimulator.ButtonCOESimularClick(Sender: TObject);
-var
-  DescricaoCOE_Selecionada, TextoCOE: string;
-  RendimentoPorcentagemCOE, TaxaCDI_COE: Double;
-  IOF180 ,IOF360, IOF720, IOF_Mais720, ValorCOE_Final: Currency;
 begin
-  ValorCOE_Final := 0.0;
-  ValidarDebentures;
-  DescricaoCOE_Selecionada := PegarDescricaoCOE;
-  TaxaCDI_COE := TCalculo.TaxaCDI_Radon;
-  RendimentoPorcentagemCOE := TCalculo.TaxaCOE(SpinEditQtdDiasCOE.Value);
-
-  IOF180 := TCalculo.TesouroIOF_180(StrToCurr(EditValorAplicadoCOE.Text), RendimentoPorcentagemCOE);
-  IOF360 := TCalculo.TesouroIOF_360(StrToCurr(EditValorAplicadoCOE.Text), RendimentoPorcentagemCOE);
-  IOF720 := TCalculo.TesouroIOF_720(StrToCurr(EditValorAplicadoCOE.Text), RendimentoPorcentagemCOE);
-  IOF_Mais720 := TCalculo.TesouroIOF_Mais720(StrToCurr(EditValorAplicadoCOE.Text), RendimentoPorcentagemCOE);
-
-  if PegarTipoTaxaCOE = TaxaCapitalProtegido then
-    ValorCOE_Final := TCalculo.COECapitalProtegido(StrToCurr(EditValorAplicadoCOE.Text), SpinEditQtdDiasCOE.Value, TaxaCDI_Aleatorio)
-  else if PegarTipoTaxaCOE = TaxaCapitalRisco then
-    ValorCOE_Final := TCalculo.COECapitalRisco(StrToCurr(EditValorAplicadoCOE.Text), SpinEditQtdDiasCOE.Value, TaxaCDI_COE)
-  else
-    EvalidationErrorMsg('Error');
-
-  TextoCOE := FGravarArquivo.TextoPadraoCOE(EditValorAplicadoCOE.Text, PegarTipoCOE, DescricaoCOE_Selecionada, PegarTipoTaxaCOE,
-    RendimentoPorcentagemCOE, TaxaCDI_COE, IOF180, IOF360, IOF720, IOF_Mais720, ValorCOE_Final, SpinEditQtdDiasCOE.Value);
-
-  GravarSimulacoesPadrao(PathArquivoCOE, TextoCOE);
+  SimularCOE;
 end;
 
 procedure TFormInvestimulator.ButtonDebenturesSimularClick(Sender: TObject);
 begin
   SimularDebentures;
+end;
+
+procedure TFormInvestimulator.ButtonFI_SimularClick(Sender: TObject);
+var
+  DescricaoFI_Selecionada, EmpresaEscolhida, TextoFI: string;
+  RendimentoPorcentagemFI, TaxaCDI_FI: Double;
+  IOF180 ,IOF360, IOF720, IOF_Mais720, ValorFI_Final: Currency;
+const
+  RendimentosOutros: array[0..4] of string = (FundosCambiais, FundosAcoes, FundosImobiliários,
+    FundosDividaExterna, FundosMultimercado);
+begin
+  ValorFI_Final := 0.0;
+  ValidarFI;
+  DescricaoFI_Selecionada := PegarDescricaoFI;
+  EmpresaEscolhida := PegarInvestidoraTerceiraFI;
+  TaxaCDI_FI := TCalculo.TaxaCDI_Radon;
+  RendimentoPorcentagemFI := TCalculo.TaxaFI(SpinEditQtdDiasFI.Value);
+
+  IOF180 := TCalculo.TesouroIOF_180(StrToCurr(EditValorAplicadoFI.Text), RendimentoPorcentagemFI);
+  IOF360 := TCalculo.TesouroIOF_360(StrToCurr(EditValorAplicadoFI.Text), RendimentoPorcentagemFI);
+  IOF720 := TCalculo.TesouroIOF_720(StrToCurr(EditValorAplicadoFI.Text), RendimentoPorcentagemFI);
+  IOF_Mais720 := TCalculo.TesouroIOF_Mais720(StrToCurr(EditValorAplicadoFI.Text), RendimentoPorcentagemFI);
+
+  if PegarTipoFI = FundosCurtoPrazo then
+    ValorFI_Final := TCalculo.FundosInvestimentosCurtoPrazo(StrToCurr(EditValorAplicadoFI.Text),
+      SpinEditQtdDiasFI.Value, TaxaCDI_Aleatorio)
+  else if PegarTipoFI = FundosLongoPrazo then
+    ValorFI_Final := TCalculo.FundosInvestimentosLongoPrazo(StrToCurr(EditValorAplicadoFI.Text),
+      SpinEditQtdDiasFI.Value, TaxaCDI_FI)
+  else if MatchStr(PegarTipoFI, RendimentosOutros) then
+  begin
+    RendimentoPorcentagemFI := RendimentoPorcentagemFI + TCalculo.TaxaFundosInvestimentosRandon;
+
+    ValorFI_Final := TCalculo.FundosInvestimentosRandon(StrToCurr(EditValorAplicadoFI.Text),
+      SpinEditQtdDiasFI.Value, TaxaCDI_FI, RendimentoPorcentagemFI);
+
+    IOF180 := TCalculo.TesouroIOF_180(StrToCurr(EditValorAplicadoFI.Text), RendimentoPorcentagemFI);
+    IOF360 := TCalculo.TesouroIOF_360(StrToCurr(EditValorAplicadoFI.Text), RendimentoPorcentagemFI);
+    IOF720 := TCalculo.TesouroIOF_720(StrToCurr(EditValorAplicadoFI.Text), RendimentoPorcentagemFI);
+    IOF_Mais720 := TCalculo.TesouroIOF_Mais720(StrToCurr(EditValorAplicadoFI.Text), RendimentoPorcentagemFI);
+  end
+  else
+    EvalidationErrorMsg('Error');
+
+  TextoFI := FGravarArquivo.TextoPadraoFundosInvestimentos(EditValorAplicadoFI.Text, PegarTipoFI, DescricaoFI_Selecionada, EmpresaEscolhida,
+    RendimentoPorcentagemFI, TaxaCDI_FI, IOF180, IOF360, IOF720, IOF_Mais720, ValorFI_Final, SpinEditQtdDiasFI.Value);
+
+  GravarSimulacoesPadrao(PathArquivoFundosInvestimentos, TextoFI);
 end;
 
 procedure TFormInvestimulator.ButtonLCSimularClick(Sender: TObject);
@@ -259,6 +308,11 @@ end;
 procedure TFormInvestimulator.EditValorAplicadoDebenturesKeyPress(Sender: TObject; var Key: Char);
 begin
   ValidarCurrencyImput(Key, EditValorAplicadoDebentures.Text);
+end;
+
+procedure TFormInvestimulator.EditValorAplicadoFIKeyPress(Sender: TObject; var Key: Char);
+begin
+  ValidarCurrencyImput(Key, EditValorAplicadoFI.Text);
 end;
 
 procedure TFormInvestimulator.EditValorAplicadoLCsKeyPress(Sender: TObject; var Key: Char);
@@ -353,13 +407,19 @@ end;
 
 procedure TFormInvestimulator.LerDadosMemo;
 begin
-  MemoTodosInvestimentos.Lines.LoadFromFile(PathTodosInvestimentos);
-  MemoTesouroDireto.Lines.LoadFromFile(PathArquivoTesouroDireto);
-  MemoPoupanca.Lines.LoadFromFile(PathArquivoPoupanca);
-  MemoCDB.Lines.LoadFromFile(PathArquivoCertificadoDepositoBancario);
-  MemoLC.Lines.LoadFromFile(PathArquivoCertificadoLetrasCreditos);
-  MemoDebentures.Lines.LoadFromFile(PathArquivoDebentures);
-  MemoCOE.Lines.LoadFromFile(PathArquivoCOE);
+  LerDadosMemoBase(MemoTodosInvestimentos, PathTodosInvestimentos);
+  LerDadosMemoBase(MemoTesouroDireto, PathArquivoTesouroDireto);
+  LerDadosMemoBase(MemoPoupanca, PathArquivoPoupanca);
+  LerDadosMemoBase(MemoCDB, PathArquivoCertificadoDepositoBancario);
+  LerDadosMemoBase(MemoLC, PathArquivoCertificadoLetrasCreditos);
+  LerDadosMemoBase(MemoDebentures, PathArquivoDebentures);
+  LerDadosMemoBase(MemoFI, PathArquivoFundosInvestimentos);
+  LerDadosMemoBase(MemoCOE, PathArquivoCOE);
+end;
+
+procedure TFormInvestimulator.LerDadosMemoBase(Memo: TMemo; PathFile: string);
+begin
+  Memo.Lines.LoadFromFile(PathFile);
 end;
 
 procedure TFormInvestimulator.LimparCampos;
@@ -402,6 +462,17 @@ begin
   RadioButtonTaxaPreDebentures.Checked := False;
   RadioButtonTaxaPosDebentures.Checked := False;
 
+  RadioButtonFI_FundosInvestimentoImobiliarios.Checked := False;
+  RadioButtonFI_FundosMultimercado.Checked := False;
+  RadioButtonFI_FundosDividaExterna.Checked := False;
+  RadioButtonFI_FundosAcoes.Checked := False;
+  RadioButtonFI_FundosCambiais.Checked := False;
+  RadioButtonFI_FundosCurtoPrazo.Checked := False;
+  RadioButtonFI_FundosLongoPrazo.Checked := False;
+  ComboBoxInvestidoraTerceira.ItemIndex := -1;
+  EditValorAplicadoFI.Clear;
+  SpinEditQtdDiasFI.Clear;
+
   RadioButtonCOE_LC.Checked := False;
   RadioButtonCOE_LCA.Checked := False;
   RadioButtonCOE_LCI.Checked := False;
@@ -439,6 +510,24 @@ begin
     EvalidationErrorMsg(Format(MsgSelecionarAlgumTipo, [Debentures]));
 end;
 
+function TFormInvestimulator.PegarDescricaoFI: string;
+begin
+  if RadioButtonFI_FundosInvestimentoImobiliarios.Checked then
+    Exit(DescricaoFI_FundosInvestimentoImobiliarios)
+  else if RadioButtonFI_FundosMultimercado.Checked then
+    Exit(DescricaoFI_FundosMultimercado)
+  else if RadioButtonFI_FundosDividaExterna.Checked then
+    Exit(DescricaoFI_FundosDividaExterna)
+  else if RadioButtonFI_FundosAcoes.Checked then
+    Exit(DescricaoFI_FundoAcoes)
+  else if RadioButtonFI_FundosCambiais.Checked then
+    Exit(DescricaoFI_FundosCambiais)
+  else if RadioButtonFI_FundosCurtoPrazo.Checked or RadioButtonFI_FundosLongoPrazo.Checked then
+    Exit(DescricaoFI_CurtoLongoPrazo)
+  else
+    EvalidationErrorMsg(Format(MsgSelecionarAlgumTipo, [FundosInvestimento]));
+end;
+
 function TFormInvestimulator.PegarFundoCOE: string;
 begin
   Result := PegarComboBase(ComboBoxFundosCOE.ItemIndex, ComboBoxFundosCOE.Text, Format(MsgSelecionarAlgumTipo, [BancoEmissorCDB]));
@@ -447,6 +536,11 @@ end;
 function TFormInvestimulator.PegarFundoLCs: string;
 begin
   Result := PegarComboBase(ComboBoxLCsFundosInvestimento.ItemIndex, ComboBoxLCsFundosInvestimento.Text, Format(MsgSelecionarAlgumTipo, [FundoInvestimentoLCs]));
+end;
+
+function TFormInvestimulator.PegarInvestidoraTerceiraFI: string;
+begin
+  Result := PegarComboBase(ComboBoxInvestidoraTerceira.ItemIndex, ComboBoxInvestidoraTerceira.Text, Format(MsgSelecionarAlgumTipo, [EmpresaTerceira]));
 end;
 
 function TFormInvestimulator.PegarBancoCDB: string;
@@ -499,6 +593,26 @@ begin
      Exit(DebenturesPermutaveis)
   else
     EvalidationErrorMsg(Format(MsgSelecionarAlgumTipo, [Debentures]));
+end;
+
+function TFormInvestimulator.PegarTipoFI: string;
+begin
+  if RadioButtonFI_FundosInvestimentoImobiliarios.Checked then
+    Exit(FundosImobiliários)
+  else if RadioButtonFI_FundosMultimercado.Checked then
+    Exit(FundosMultimercado)
+  else if RadioButtonFI_FundosDividaExterna.Checked then
+    Exit(FundosDividaExterna)
+  else if RadioButtonFI_FundosAcoes.Checked then
+    Exit(FundosAcoes)
+  else if RadioButtonFI_FundosCambiais.Checked then
+    Exit(FundosCambiais)
+  else if RadioButtonFI_FundosCurtoPrazo.Checked then
+    Exit(FundosCurtoPrazo)
+  else if RadioButtonFI_FundosLongoPrazo.Checked then
+    Exit(FundosLongoPrazo)
+  else
+    EvalidationErrorMsg(Format(MsgSelecionarAlgumTipo, [FundosInvestimento]));
 end;
 
 function TFormInvestimulator.PegarTipoLCs: string;
@@ -630,6 +744,36 @@ begin
     BancoSelecionado, RendimentoPorcentagemCDB, TaxaCDI_CDB, IOF180, IOF360, IOF720, IOF_Mais720, ValorCDBFinal, SpinEditQtdDiasCDB.Value);
 
   GravarSimulacoesPadrao(PathArquivoCertificadoDepositoBancario, TextoCDB);
+end;
+
+procedure TFormInvestimulator.SimularCOE;
+var
+  DescricaoCOE_Selecionada, TextoCOE: string;
+  RendimentoPorcentagemCOE, TaxaCDI_COE: Double;
+  IOF180 ,IOF360, IOF720, IOF_Mais720, ValorCOE_Final: Currency;
+begin
+  ValorCOE_Final := 0.0;
+  ValidarCOE;
+  DescricaoCOE_Selecionada := PegarDescricaoCOE;
+  TaxaCDI_COE := TCalculo.TaxaCDI_Radon;
+  RendimentoPorcentagemCOE := TCalculo.TaxaCOE(SpinEditQtdDiasCOE.Value);
+
+  IOF180 := TCalculo.TesouroIOF_180(StrToCurr(EditValorAplicadoCOE.Text), RendimentoPorcentagemCOE);
+  IOF360 := TCalculo.TesouroIOF_360(StrToCurr(EditValorAplicadoCOE.Text), RendimentoPorcentagemCOE);
+  IOF720 := TCalculo.TesouroIOF_720(StrToCurr(EditValorAplicadoCOE.Text), RendimentoPorcentagemCOE);
+  IOF_Mais720 := TCalculo.TesouroIOF_Mais720(StrToCurr(EditValorAplicadoCOE.Text), RendimentoPorcentagemCOE);
+
+  if PegarTipoTaxaCOE = TaxaCapitalProtegido then
+    ValorCOE_Final := TCalculo.COECapitalProtegido(StrToCurr(EditValorAplicadoCOE.Text), SpinEditQtdDiasCOE.Value, TaxaCDI_Aleatorio)
+  else if PegarTipoTaxaCOE = TaxaCapitalRisco then
+    ValorCOE_Final := TCalculo.COECapitalRisco(StrToCurr(EditValorAplicadoCOE.Text), SpinEditQtdDiasCOE.Value, TaxaCDI_COE)
+  else
+    EvalidationErrorMsg('Error');
+
+  TextoCOE := FGravarArquivo.TextoPadraoCOE(EditValorAplicadoCOE.Text, PegarTipoCOE, DescricaoCOE_Selecionada, PegarTipoTaxaCOE,
+    RendimentoPorcentagemCOE, TaxaCDI_COE, IOF180, IOF360, IOF720, IOF_Mais720, ValorCOE_Final, SpinEditQtdDiasCOE.Value);
+
+  GravarSimulacoesPadrao(PathArquivoCOE, TextoCOE);
 end;
 
 procedure TFormInvestimulator.SimularDebentures;
@@ -794,6 +938,11 @@ begin
   ValidarValor_Dias(EditValorAplicadoCDB.Text, SpinEditQtdDiasCDB.Value);
 end;
 
+procedure TFormInvestimulator.ValidarCOE;
+begin
+  ValidarValor_Dias(EditValorAplicadoCOE.Text, SpinEditQtdDiasCOE.Value);
+end;
+
 procedure TFormInvestimulator.ValidarLCs;
 begin
   ValidarValor_Dias(EditValorAplicadoLCs.Text, SpinEditQtdDiasLCs.Value);
@@ -802,6 +951,11 @@ end;
 procedure TFormInvestimulator.ValidarDebentures;
 begin
   ValidarValor_Dias(EditValorAplicadoDebentures.Text, SpinEditQtdDiasDebentures.Value);
+end;
+
+procedure TFormInvestimulator.ValidarFI;
+begin
+  ValidarValor_Dias(EditValorAplicadoFI.Text, SpinEditQtdDiasFI.Value);
 end;
 
 end.
