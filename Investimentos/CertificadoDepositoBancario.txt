@@ -16,3 +16,93 @@ Seguro do Investimento: FGC - Fundo Garantidor de Créditos
 Descrição do Seguro: Seu investimento está assegurado até R$ 250 mil por instituição de aplicação
 ###############################################################
 
+###############################################################
+Tipo de Investimento Escolhido: Certificado de Depósito Bancário - Pós-fixado
+Banco emissor do Certificado Escolhido: BNDES
+Valor Aplicado: R$ 157,23
+Quantidade de Dias Aplicado: 35
+Data da Aplicação: 29\09\2021 - 11:24:55
+Taxa do Certificado: 0,005%
+Taxa CDI : 0,59%
+Rendimento do tipo Liquidação Diária
+Rendimento sem IOF gerado de 0 a 180 dias: R$ 221,6943
+Rendimento sem IOF gerado de 181 a 360 dias: R$ 249,2096
+Rendimento sem IOF gerado de 361 a 720 dias: R$ 298,737
+Rendimento sem IOF gerado com mais de 720 dias: R$ 410,6848
+Rendimento final: R$ 282,2278
+Seguro do Investimento: FGC - Fundo Garantidor de Créditos
+Descrição do Seguro: Seu investimento está assegurado até R$ 250 mil por instituição de aplicação
+###############################################################
+
+###############################################################
+Tipo de Investimento Escolhido: Certificado de Depósito Bancário - Pós-fixado
+Banco emissor do Certificado Escolhido: Itaú Unibanco
+Valor Aplicado: R$ 23,21
+Quantidade de Dias Aplicado: 34
+Data da Aplicação: 29\09\2021 - 11:26:32
+Taxa do Certificado: 0,005%
+Taxa CDI : 0,56%
+Rendimento do tipo Liquidação Diária
+Rendimento sem IOF gerado de 0 a 180 dias: R$ 32,7261
+Rendimento sem IOF gerado de 181 a 360 dias: R$ 36,7878
+Rendimento sem IOF gerado de 361 a 720 dias: R$ 44,099
+Rendimento sem IOF gerado com mais de 720 dias: R$ 45,2827
+Rendimento final: R$ 40,9656
+Seguro do Investimento: FGC - Fundo Garantidor de Créditos
+Descrição do Seguro: Seu investimento está assegurado até R$ 250 mil por instituição de aplicação
+###############################################################
+
+###############################################################
+Tipo de Investimento Escolhido: Certificado de Depósito Bancário - Pré-fixado
+Banco emissor do Certificado Escolhido: Caixa Econômica Federal
+Valor Aplicado: R$ 254,67
+Quantidade de Dias Aplicado: 35
+Data da Aplicação: 29\09\2021 - 11:27:16
+Taxa do Certificado: 0,005%
+Taxa CDI : 0,59%
+Rendimento do tipo Liquidação Diária
+Rendimento sem IOF gerado de 0 a 180 dias: R$ 359,0847
+Rendimento sem IOF gerado de 181 a 360 dias: R$ 403,652
+Rendimento sem IOF gerado de 361 a 720 dias: R$ 483,873
+Rendimento sem IOF gerado com mais de 720 dias: R$ 524,6202
+Rendimento final: R$ 434,2124
+Seguro do Investimento: FGC - Fundo Garantidor de Créditos
+Descrição do Seguro: Seu investimento está assegurado até R$ 250 mil por instituição de aplicação
+###############################################################
+
+###############################################################
+Tipo de Investimento Escolhido: Certificado de Depósito Bancário - Pré-fixado
+Banco emissor do Certificado Escolhido: Santander
+Valor Aplicado: R$ 254,79
+Quantidade de Dias Aplicado: 35
+Data da Aplicação: 29\09\2021 - 11:28:38
+Taxa do Certificado: 0,005%
+Taxa CDI : 0,56%
+Rendimento do tipo Liquidação Diária
+Rendimento sem IOF gerado de 0 a 180 dias: R$ 359,2539
+Rendimento sem IOF gerado de 181 a 360 dias: R$ 403,8422
+Rendimento sem IOF gerado de 361 a 720 dias: R$ 484,101
+Rendimento sem IOF gerado com mais de 720 dias: R$ 635,9558
+Rendimento final: R$ 434,417
+Seguro do Investimento: FGC - Fundo Garantidor de Créditos
+Descrição do Seguro: Seu investimento está assegurado até R$ 250 mil por instituição de aplicação
+###############################################################
+
+###############################################################
+Tipo de Investimento Escolhido: Certificado de Depósito Bancário - Pós-fixado
+Banco emissor do Certificado Escolhido: HSBC
+Valor Aplicado: R$ 357,20
+Quantidade de Dias Aplicado: 39
+Data da Aplicação: 29\09\2021 - 11:29:19
+Taxa do Certificado: 0,006%
+Taxa CDI : 0,57%
+Rendimento do tipo Liquidação Diária
+Rendimento sem IOF gerado de 0 a 180 dias: R$ 504,0092
+Rendimento sem IOF gerado de 181 a 360 dias: R$ 566,5192
+Rendimento sem IOF gerado de 361 a 720 dias: R$ 679,0372
+Rendimento sem IOF gerado com mais de 720 dias: R$ 1007,304
+Rendimento final: R$ 634,3872
+Seguro do Investimento: FGC - Fundo Garantidor de Créditos
+Descrição do Seguro: Seu investimento está assegurado até R$ 250 mil por instituição de aplicação
+###############################################################
+

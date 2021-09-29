@@ -40,8 +40,6 @@ object FormInvestimulator: TFormInvestimulator
     object TabSheetTesouroDireto: TTabSheet
       Caption = 'Tesouro Direto'
       ImageIndex = 1
-      ExplicitLeft = 8
-      ExplicitTop = 28
       object ButtonTesouroDiretoSimular: TButton
         Left = 620
         Top = 3
@@ -78,7 +76,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 121
           Height = 21
           TabOrder = 5
-          Text = '1001,11'
+          Text = '0'
           OnKeyPress = EditValorAplicadoTDKeyPress
         end
         object SpinEditQtdDiasTD: TSpinEdit
@@ -89,7 +87,7 @@ object FormInvestimulator: TFormInvestimulator
           MaxValue = 0
           MinValue = 0
           TabOrder = 6
-          Value = 480
+          Value = 0
         end
         object RadioButtonSelic: TRadioButton
           Left = 8
@@ -199,7 +197,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 121
           Height = 21
           TabOrder = 1
-          Text = '1001,11'
+          Text = '0'
           OnKeyPress = EditValorAplicadoPoupancaKeyPress
         end
         object SpinEditQtdDiasPoupanca: TSpinEdit
@@ -210,7 +208,7 @@ object FormInvestimulator: TFormInvestimulator
           MaxValue = 0
           MinValue = 0
           TabOrder = 2
-          Value = 480
+          Value = 0
         end
         object RadioButtonPoupanca: TRadioButton
           Left = 24
@@ -282,7 +280,7 @@ object FormInvestimulator: TFormInvestimulator
           MaxValue = 0
           MinValue = 0
           TabOrder = 2
-          Value = 480
+          Value = 0
         end
         object RadioButtonTaxaPosCDB: TRadioButton
           Left = 480
@@ -306,7 +304,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 121
           Height = 21
           TabOrder = 0
-          Text = '1001,11'
+          Text = '0'
           OnKeyPress = EditValorAplicadoCDBKeyPress
         end
         object ComboBoxCDBBancos: TComboBox
@@ -422,7 +420,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 121
           Height = 21
           TabOrder = 3
-          Text = '1001,11'
+          Text = '0'
           OnKeyPress = EditValorAplicadoLCsKeyPress
         end
         object SpinEditQtdDiasLCs: TSpinEdit
@@ -433,7 +431,7 @@ object FormInvestimulator: TFormInvestimulator
           MaxValue = 0
           MinValue = 0
           TabOrder = 4
-          Value = 480
+          Value = 0
         end
       end
       object ButtonLCSimular: TButton
@@ -548,7 +546,7 @@ object FormInvestimulator: TFormInvestimulator
           MaxValue = 0
           MinValue = 0
           TabOrder = 6
-          Value = 480
+          Value = 0
         end
         object EditValorAplicadoDebentures: TEdit
           Left = 531
@@ -556,7 +554,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 78
           Height = 21
           TabOrder = 5
-          Text = '1001,11'
+          Text = '0'
           OnKeyPress = EditValorAplicadoDebenturesKeyPress
         end
         object RadioButtonDebenturesPermutaveis: TRadioButton
@@ -687,7 +685,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 92
           Height = 21
           TabOrder = 7
-          Text = '1001,11'
+          Text = '0'
           OnKeyPress = EditValorAplicadoFIKeyPress
         end
         object SpinEditQtdDiasFI: TSpinEdit
@@ -698,7 +696,7 @@ object FormInvestimulator: TFormInvestimulator
           MaxValue = 0
           MinValue = 0
           TabOrder = 8
-          Value = 480
+          Value = 0
         end
         object ComboBoxInvestidoraTerceira: TComboBox
           Left = 440
@@ -781,7 +779,7 @@ object FormInvestimulator: TFormInvestimulator
           Width = 91
           Height = 21
           TabOrder = 5
-          Text = '1001,11'
+          Text = '0'
           OnKeyPress = EditValorAplicadoCOEKeyPress
         end
         object RadioButtonCOE_LCA: TRadioButton
@@ -828,7 +826,7 @@ object FormInvestimulator: TFormInvestimulator
           MaxValue = 0
           MinValue = 0
           TabOrder = 6
-          Value = 480
+          Value = 0
         end
       end
       object ButtonCOESimular: TButton

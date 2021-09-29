@@ -13,3 +13,48 @@ Rendimento sem IOF gerado de e com mais de 720 dias: R$ 1418,0815
 Rendimento final: R$ 1097,459
 ###############################################################
 
+###############################################################
+Tipo de Investimento Principal: Tesouro Direto
+Tipo de Investimento Escolhido: Tesouro Selic - Pré-fixado
+Valor Aplicado: R$ 1001,11
+Quantidade de Dias Aplicado: 480
+Data da Aplicação: 25\11\2019 - 18:26:36
+Taxa Selic: 0,614%
+Taxa CDI : 0,58%
+Rendimento sem IOF gerado de 0 a 180 dias: R$ 2021,2411
+Rendimento sem IOF gerado de 181 a 360 dias: R$ 2196,4353
+Rendimento sem IOF gerado de 361 a 720 dias: R$ 2511,785
+Rendimento sem IOF gerado de e com mais de 720 dias: R$ 3202,5509
+Rendimento final: R$ 2256,5019
+###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Tesouro Direto
+Tipo de Investimento Escolhido: Tesouro Prefixado com Juros Semestrais (NTN-F) - Pós-fixado
+Valor Aplicado: R$ 1001,11
+Quantidade de Dias Aplicado: 480
+Data da Aplicação: 25\11\2019 - 19:09:45
+Taxa Selic: 0,614%
+Taxa CDI : 0,57%
+Rendimento sem IOF gerado de 0 a 180 dias: R$ 2021,2411
+Rendimento sem IOF gerado de 181 a 360 dias: R$ 2196,4353
+Rendimento sem IOF gerado de 361 a 720 dias: R$ 2511,785
+Rendimento sem IOF gerado de e com mais de 720 dias: R$ 2959,2812
+Rendimento final: R$ 4391,8696
+###############################################################
+
+###############################################################
+Tipo de Investimento Principal: Tesouro Direto
+Tipo de Investimento Escolhido: Tesouro Prefixado (LTN) - Pré-fixado
+Valor Aplicado: R$ 151,32
+Quantidade de Dias Aplicado: 388
+Data da Aplicação: 25\11\2019 - 19:24:44
+Taxa Selic: 0,603%
+Taxa CDI : 0,57%
+Rendimento sem IOF gerado de 0 a 180 dias: R$ 303,8506
+Rendimento sem IOF gerado de 181 a 360 dias: R$ 330,3316
+Rendimento sem IOF gerado de 361 a 720 dias: R$ 377,9974
+Rendimento sem IOF gerado de e com mais de 720 dias: R$ 449,723
+Rendimento final: R$ 339,4108
+###############################################################
+

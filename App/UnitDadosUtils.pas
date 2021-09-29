@@ -3,14 +3,14 @@ unit UnitDadosUtils;
 interface
 
 const
-  PathTodosInvestimentos = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\TodosInvestimentos.txt';
-  PathArquivoTesouroDireto = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\TesouroDireto.txt';
-  PathArquivoPoupanca = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\Poupanca.txt';
-  PathArquivoCertificadoDepositoBancario = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\CertificadoDepositoBancario.txt';
-  PathArquivoCertificadoLetrasCreditos = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\LetrasCreditos.txt';
-  PathArquivoDebentures = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\Debentures.txt';
-  PathArquivoFundosInvestimentos = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\FundosInvestimentos.txt';
-  PathArquivoCOE = 'C:\Users\Edward\Desktop\dev\investimulator_tcc\Investimentos\CertificadoOperacoesEstruturais.txt';
+  PathTodosInvestimentos = 'D:\My Documents\Documents\Dev\investimulator_tcc-master\Investimentos\TodosInvestimentos.txt';
+  PathArquivoTesouroDireto = 'D:\My Documents\Documents\Dev\investimulator_tcc-master\Investimentos\TesouroDireto.txt';
+  PathArquivoPoupanca = 'D:\My Documents\Documents\Dev\investimulator_tcc-master\Investimentos\Poupanca.txt';
+  PathArquivoCertificadoDepositoBancario = 'D:\My Documents\Documents\Dev\investimulator_tcc-master\Investimentos\CertificadoDepositoBancario.txt';
+  PathArquivoCertificadoLetrasCreditos = 'D:\My Documents\Documents\Dev\investimulator_tcc-master\Investimentos\LetrasCreditos.txt';
+  PathArquivoDebentures = 'D:\My Documents\Documents\Dev\investimulator_tcc-master\Investimentos\Debentures.txt';
+  PathArquivoFundosInvestimentos = 'D:\My Documents\Documents\Dev\investimulator_tcc-master\Investimentos\FundosInvestimentos.txt';
+  PathArquivoCOE = 'D:\My Documents\Documents\Dev\investimulator_tcc-master\Investimentos\CertificadoOperacoesEstruturais.txt';
 
   TaxaPreFixado = 'Pré-fixado';
   TaxaPosFixado = 'Pós-fixado';
