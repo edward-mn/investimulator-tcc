@@ -127,14 +127,16 @@ $ ProjectGroup_Tcc.groupproj
 ---
 
 ## 🔗 Important links
-- Documento: [TCC](./Investimentos/Pictures/tcc_investimulator.pdf) 📑
-
-> Projeto desevolvido para conclusão do curso [Ciências da Computação](https://www.fam.br/cursos/graduacao/ciencia-computacao/) na instituição [FAM - Faculdade de Americana](https://www.fam.br/) 🎓
-  
+ 
 <p align="center">
-  <img src="./public/Wallpapers/NLW_03_1920x1080.png" alt="Next Level Week 03"/>
+  <img src="./Investimentos/Pictures/logo_fam.png" width="800px" height="300px" align="center" alt="Faculdade de Americana - FAM"/>
+  <br>
+  Documento:
+  <a href="./Investimentos/Pictures/tcc_investimulator.pdf">[TCC] 📑</a>
 </p>
-
+  
+> Projeto desevolvido para conclusão do curso [Ciências da Computação](https://www.fam.br/cursos/graduacao/ciencia-computacao/) na instituição [FAM - Faculdade de Americana](https://www.fam.br/) 🎓 
+  
 ---
 
 ## 🦹‍ Author
