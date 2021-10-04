@@ -6,7 +6,6 @@
   <p align="center">
     <a href="#-software">Software</a> |
     <a href="#-functionalities">Functionalities</a> |
-    <a href="#-my-next-level">My Next Level</a> | 
     <a href="#-technologies">Technologies</a> |
     <a href="#-how-to-download-and-run">How to execute</a> | 
     <a href="#-important-links">Important links</a> | 
@@ -18,7 +17,7 @@
 <p>
   O Investimulator, é um sistema voltado para simulações de investimentos do tipo <b>Renda Fixa</b>, seu nome vem da junção das palavras na língua inglesa <b>Investment</b> (Investimento) com <b>Simulator</b> (Simulador).
  
-  Minha ideia era que seu nome já remetesse exatamente ao seu propósito de <b>simular investimentos </b>. O aplicativo atende a todos os tópicos de investimentos dentro da modalidade de <b>Renda Fixa</b>, após a simulação ser feita, é gravado em um arquivo <b>.txt</b> mantendo um histórico.
+  Minha ideia era que seu nome já remetesse exatamente ao seu propósito de <b>simular investimentos.</b> O aplicativo atende a todos os tópicos de investimentos dentro da modalidade de <b>Renda Fixa</b>, após a simulação ser feita, é gravado em um arquivo <b>.txt</b> mantendo um histórico.
 </p>
 
 <p align="center">
@@ -63,86 +62,75 @@
 
 ## 🖥 Functionalities
 
-:round_pushpin: Localize nearby Orphanages:
-- The app will show to you the nearby it and you could open with Google Maps, to that creates your route of :smile: to the nearest Orphanage.
+- Tesouro Direto
+<p align="center">
+  <img src="./Investimentos/Pictures/tesouroDireto.png" alt="Tesouro Direto - Investimulator"/>
+</p>
 
-:new: Create new Orphanages
-- You could register new Orphanages and fill every information to others know more about it.
+- Poupança
+<p align="center">
+  <img src="./Investimentos/Pictures/poupanca.png" alt="Poupanca - Investimulator"/>
+</p>
 
-:information_source: Info about the Orphanages
-- You could know everything about the Orphanages and How you must prepare yourself to make an awesome visit.
+- Certificado de Depósito Bancário (CDB)
+<p align="center">
+  <img src="./Investimentos/Pictures/cdb.png" alt="Certificado de Depósito Bancário (CDB) - Investimulator"/>
+</p>
 
----
+- Letras de Créditos (LC's)
+<p align="center">
+  <img src="./Investimentos/Pictures/letrasCredito.png" alt="Letras de Créditos (LC's) - Investimulator"/>
+</p>
 
-## 🆙 My Next Level
+- Debêntures
+<p align="center">
+  <img src="./Investimentos/Pictures/debentures.png" alt="Debêntures - Investimulator"/>
+</p>
 
-:heavy_check_mark: Save page and Redirect - [Issue](https://github.com/edward-mn/happy-nlw/issues/15)
-- Created a **new page** to show that Orphanage was saved and **redirect** to Orphanages page.
+- Fundos de Ivestimentos
+<p align="center">
+  <img src="./Investimentos/Pictures/fundosInvestimento.png" alt="Fundos de Ivestimentos - Investimulator"/>
+</p>
 
-⚠ Change the alert to X0popup - [Issue](https://github.com/edward-mn/happy-nlw/issues/12)
-- Used x0popup to show for the user that **has not marked** an orphange at the map
+- Certificados de Operações Estruturadas (COE).
+<p align="center">
+  <img src="./Investimentos/Pictures/coe.png" alt="Certificados de Operações Estruturadas (COE) - Investimulator"/>
+</p>
 
-🗺 Show the current location (City and State) on app - [Issue](https://github.com/edward-mn/happy-nlw/issues/11)
-- Used [Geolocation](https://developers.google.com/maps/documentation/javascript/examples/map-geolocation) to get a **City** and **State** current through of [Nominatim 🌍](https://github.com/osm-search/Nominatim)
-- If the user **block** the location, by default the city and state, will be the same as the course (Rio do Sul - Santa Catarina)
-
-🏠 Navigation to home easier - [Issue](https://github.com/edward-mn/happy-nlw/issues/9)
-- Add an **icon home** for go to the index
-
-👀 Quantity of characters is allowed - [Issue](https://github.com/edward-mn/happy-nlw/issues/7)
-- Show at run time the quantity of **characters is allowed**, when filling in the field **About**
-
-📌 Marker in selected fields - [Issue](https://github.com/edward-mn/happy-nlw/issues/3)
-- Show a **marker when we select fields**
-
-♻ Refactoring - [Issue](https://github.com/edward-mn/happy-nlw/issues/2)
-- **Remove the back-end's responsibility** to validate the fields (Lat and Lng) at 🌎
-
-☎️ Format Whatsapp - [Issue](https://github.com/edward-mn/happy-nlw/issues/1)
-- Add a **formater** at Whatsapp field to look better
+- Histórico de Investimentos 👉 [Aqui](./Investimentos)
 
 ---
 
 ## 🛠 Technologies 
-- [HTML5](https://pt.wikipedia.org/wiki/HTML5)
-- [CSS3](https://pt.wikipedia.org/wiki/CSS3)
-- [Java Script](https://www.javascript.com/)
-- [Banco de 🎲 (Sqlite)](https://www.sqlite.org/index.html)
-- [Leaflet 🍃](https://leafletjs.com/)
-- [Handlebars 🧔](https://github.com/handlebars-lang/handlebars.js)
-- [Nodemon](https://github.com/remy/nodemon)
-- [Express](https://github.com/expressjs/express)
-- [Cleave ☎](https://github.com/nosir/cleave.js)
-- [x0popup ⚠](https://github.com/gao-sun/x0popup)
-- [Nominatim 🌍](https://github.com/osm-search/Nominatim)
+- [Delphi 10 - Seattle](https://www.embarcadero.com/br/products/delphi/whats-new)
+  - [VCL - Application](https://docwiki.embarcadero.com/RADStudio/Sydney/en/VCL_Forms_Application)
+- [Histórico (.txt)](https://pt.wikipedia.org/wiki/Arquivo_de_texto)
+ 
+- [Programação Orientada a Objetos - POO](https://pt.wikipedia.org/wiki/Programa%C3%A7%C3%A3o_orientada_a_objetos)
+- [Linguagem de Modelagem Unificada - UML](https://pt.wikipedia.org/wiki/UML)
+- [Kanban - Trello](https://pt.wikipedia.org/wiki/Kanban)
+- [Singleton - Design Patter](https://pt.wikipedia.org/wiki/Singleton)
+- [GIT - Release](https://docs.github.com/pt/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
 
 ---
 
-## 👷 How to [download](https://github.com/edward-mn/happy-nlw/archive/master.zip) and <b>run<b>
+## 👷 How to [download](https://github.com/edward-mn/investimulator_tcc/archive/master.zip) and <b>run<b>
 ```bash
 # Clone's repository
-$ git clone git@github.com:edward-mn/happy-nlw.git
+$ git clone git@github.com:edward-mn/investimulator_tcc.git
+  
+# Access the folder project into your Delphi IDE, then Selecting projetc group into App folder
+$ ProjectGroup_Tcc.groupproj
 
-# Access the folder project into your vscode
-$ cd happy-nlw
-
-# Install the dependencies
-$ npm install
-
-# Execute run the app 
-$ npm start
-
-# The server will start in port:5500 - access http://localhost:5500
+# Complie the project and have fun 😃
 ```
 ---
 
 ## 🔗 Important links
+- Documento: [TCC](./Investimentos/Pictures/tcc_investimulator.pdf) 📑
 
-- Exchange ideas with the communities: [Discord](https://discord.com/invite/as33qEE)
-- Want to participate: [Event](https://nextlevelweek.com/inscricao/3)
-
-> Project developed during the **NLW - Next Level Week#03** offered by [Rocketseat🚀](https://rocketseat.com.br/)
-
+> Projeto desevolvido para conclusão do curso [Ciências da Computação](https://www.fam.br/cursos/graduacao/ciencia-computacao/) na instituição [FAM - Faculdade de Americana](https://www.fam.br/) 🎓
+  
 <p align="center">
   <img src="./public/Wallpapers/NLW_03_1920x1080.png" alt="Next Level Week 03"/>
 </p>
@@ -162,7 +150,7 @@ $ npm start
 
 ## 🤝 Show your support
 
-Give a ⭐️ if this project helped you or liked!
+Give a ⭐️ if liked or helped you!
 
 ***
 
