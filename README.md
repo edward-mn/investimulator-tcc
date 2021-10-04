@@ -25,16 +25,16 @@
 </p>
 
 <p align="center">	
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/edward-mn/investimulator_tcc?color=CEDEE5">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/edward-mn/investimulator-tcc?color=CEDEE5">
 
   <a href="https://github.com/edward-mn/happy-nlw/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/edward-mn/investimulator_tcc?color=FF0000">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/edward-mn/investimulator-tcc?color=FF0000">
   </a> 
   
   <img alt="License" src="https://img.shields.io/badge/license-MIT-cca714">
   
-  <a href="https://github.com/edward-mn/investimulator_tcc/stargazers">
-    <img alt="Stargazers" src="https://img.shields.io/github/stars/edward-mn/investimulator_tcc?color=CEDEE5&logo=github">
+  <a href="https://github.com/edward-mn/investimulator-tcc/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/edward-mn/investimulator-tcc?color=CEDEE5&logo=github">
   </a>
   
   <img alt="Programming Language" src="https://img.shields.io/badge/Language-Delphi-FF0000">  
@@ -114,10 +114,10 @@
 
 ---
 
-## 👷 How to [download](https://github.com/edward-mn/investimulator_tcc/archive/master.zip) and <b>run<b>
+## 👷 How to [download](https://github.com/edward-mn/investimulator-tcc/archive/master.zip) and <b>run<b>
 ```bash
 # Clone's repository
-$ git clone git@github.com:edward-mn/investimulator_tcc.git
+$ git clone git@github.com:edward-mn/investimulator-tcc.git
   
 # Access the folder project into your Delphi IDE, then Selecting projetc group into App folder
 $ ProjectGroup_Tcc.groupproj
